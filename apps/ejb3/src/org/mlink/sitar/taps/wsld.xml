@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  xmlns:tns="http://www.taps-vss.com/dataagents"
+                  xmlns:sitar="http://www.mlink.org/sitar/taps"
+                  targetNamespace="http://www.taps-vss.com/dataagents">
+	<wsdl:types>
+		<xs:schema xmlns:sitar="http://www.mlink.org/sitar/taps" xmlns:tns="http://www.taps-vss.com/dataagents" targetNamespace="http://www.taps-vss.com/dataagents" elementFormDefault="qualified">
+			<xs:import namespace="http://www.mlink.org/sitar/taps" schemaLocation="sitarout.xsd"/>
+			<xs:element name="SitarMessage" type="sitar:sitarType"/>
+			<xs:element name="DataAgentResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="Result" type="xs:int"/>
+						<xs:element minOccurs="1" maxOccurs="1" name="Message" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="SitarUpdate">
+		<wsdl:part name="parameters" element="tns:SitarMessage"/>
+	</wsdl:message>
+	<wsdl:message name="AgentResponse">
+		<wsdl:part name="result" element="tns:DataAgentResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="SitarAgentPort">
+		<wsdl:operation name="publishData">
+			<wsdl:input message="tns:SitarUpdate"/>
+			<wsdl:output name="response" message="tns:AgentResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SitarAgentSoapBinding" type="tns:SitarAgentPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="publishData">
+			<soap:operation soapAction="urn:#publishData"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SitarAgentService">
+		<wsdl:port name="SitarAgent" binding="tns:SitarAgentSoapBinding">
+			<soap:address location="http://localhost/axis/services/SitarAgent"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

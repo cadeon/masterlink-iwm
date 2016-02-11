@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.iwm/" />
+<title>W013WorkerRightsPersist</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">W013WorkerRightsPersist</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Worker']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AATest Man</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>AATest</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>type</td>
+	<td>label=Internal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerLocatorFilter_0</td>
+	<td>label=Criminal Justice</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerLocatorFilter_1</td>
+	<td>label=K-9 Unit</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerOrganizationFilter_0</td>
+	<td>label=Compliance</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerOrganizationFilter_1</td>
+	<td>label=West</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>saveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='workerRights']/div[1]/h2</td>
+	<td>exact:Rights:</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Assign Roles</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Jobs</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Locators</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Objects</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Organizations and Workers</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Project Stencils</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Projects</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Reset Password</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Templates</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>workerRightsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>loginHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>//input[@value='Login']</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<!--needs pause-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>AATest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>AATest</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='loginBox']/div</td>
+	<td>Password update is required at this time.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>AT</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>confirmPassword</td>
+	<td>AT</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Update']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>Password has been updated</td>
+	<td></td>
+</tr>
+<!--assertAlert               Password has been updated-->
+<tr>
+	<td>waitForTitle</td>
+	<td>Mobile Worker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Organizations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Locators</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Templates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Objects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Project Stencils</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Jobs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Projects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]</td>
+	<td>You are not authorized to view the requested page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Mobile Worker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[1]</td>
+	<td>Home / Mobile Worker</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Maintenance Req</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[1]</td>
+	<td>Home / Maintenance Requests</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Reports</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/div[2]/h3</td>
+	<td>Reports</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>loginHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[1]</td>
+	<td>AATest Man</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='AATest Man' and @name='Rights']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Assign Roles</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Jobs</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Locators</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Objects</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Organizations and Workers</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Project Stencils</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Projects</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Reset Password</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Templates</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Cancel' and @type='button' and @onclick='theWorkerRightsPopup.close()']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getAlert</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

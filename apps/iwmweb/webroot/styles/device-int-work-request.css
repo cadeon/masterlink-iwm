@@ -1,0 +1,228 @@
+/* CSS Document */
+html,body {
+	margin: 0px;
+	font-size: 14px;
+	height: 100%;
+	font-family: Arial, Sans-Serif;
+	background-color: white;
+	width: 320px;
+}
+
+.urgent {
+	font-size: 14px;
+	font-weight: bold;
+	color: red;
+}
+
+#theBody {
+	position: relative;
+	/* background-image: url('../images/EWR_header.gif'); */
+	background-repeat: repeat-x;
+	background-position: top;
+	top: 0px;
+	background-color: white;
+	height: 100%;
+}
+
+form {
+	margin: 0px;
+}
+
+/* HEADER */
+#header {
+	height: 5px;
+	width: 200px;
+	/* background-image: url('../images/EWR_title.gif'); */
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+/* the title. this is hidden and replaced with a graphic */
+#header h1 {
+	display: none;
+}
+
+/* CONTENT */
+#content {
+	margin-left: 10px;
+	background-color: white;
+	padding: 10px;
+}
+
+/* page header */
+#content h2 {
+	font-size: 18px;
+	margin: 0px 0px 5px 0px;
+	font-weight: normal;
+	color: #444;
+}
+
+/* form section header */
+#content h3 {
+	font-size: 12px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	color: #555;
+}
+
+#content span.sectionComment {
+	background-color: #FFFEF7;
+	font-size: 11px;
+	padding: 4px 2px 4px 0px;
+}
+
+#content input.button {
+	margin-top: 15px;
+	color: #000000;
+	background-color: #E5E5E5;
+	cursor: pointer;
+	padding: 3px;
+}
+
+#content div.formField {
+	padding-top: 10px;
+	clear: both;
+	width: 200px;
+}
+
+#content label {
+	display: block;
+	float: left;
+}
+
+/* DATA TABLE */
+table.dataTable {
+	width: 320px;
+	border-collapse: collapse;
+	border: 1px solid #AAAAAA;
+	font-size: 12px;
+	table-layout: fixed;
+}
+
+table.dataTable td {
+	border: 1px solid #EEEEEE;
+	padding: 3px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.unshaded {
+	background-color: #FFF;
+}
+
+.shaded {
+	background-color: #FFFEF7;
+}
+
+table.dataTable th {
+	border: 1px solid #AAAAAA;
+	color: #222;
+	text-align: left;
+	padding: 3px;
+	padding-right: 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 12px;
+	font-family: Arial, Sans-Serif;
+	background-image: url('../images/EWR_bg-th.gif');
+	background-repeat: repeat-x;
+}
+
+/* FOOTER */
+#footer {
+	padding: 10px;
+	color: #AAA;
+	font-size: 10px;
+}
+
+/***********************************************
+Page specific styles.
+The following are used on a single page. They either
+override the global defaults or apply to an element only
+found on that page.
+***********************************************/
+	/* REQUEST LISTING PAGE */
+	/* Column widths for the active request table */
+#requestNumCol {
+	width: 75px;
+}
+
+#createdCol {
+	width: 110px;
+}
+
+#problemTypeCol {
+	width: 120px;
+}
+
+#submittedCol {
+	width: 140px;
+}
+
+/* REQUEST CREATE PAGE */ /* fields for the create request page */
+#categoryInput,#locationInput,#buildingInput,#noteInput,#campusInput {
+	width: 200px;
+}
+
+#descInput {
+	width: 200px;
+}
+
+#noteInput {
+	height: 100px;
+}
+
+#createPage label {
+	width: 100px;
+}
+
+#remainingChars {
+	margin-left: 10px;
+	font-size: 10px;
+}
+
+#remainingChars span {
+	margin-left: 10px;
+	border: 1px solid #777;
+	background-color: #EEE;
+	padding: 0px 3px;
+}
+
+/* REQUEST TRACK PAGE */
+#trackPage label {
+	width: 125px;
+	padding: 2px;
+}
+
+#trackPage div.formField {
+	padding: 2px;
+}
+
+#trackPage div.formField span {
+	border: 1px solid #DDD;
+	background-color: #FAFAFA;
+	padding: 2px;
+	display: block;
+	width: 200px;
+	float: left;
+}
+
+.filterSelect {
+	width: 250px;
+	margin-left: 10px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.filterLabel {
+	padding-top: 4px;
+	padding-bottom: 2px;
+	float: left;
+	display: inline;
+}
+
+.filterDiv div {
+	clear: both;
+}

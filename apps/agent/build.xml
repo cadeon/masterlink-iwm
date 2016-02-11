@@ -1,0 +1,181 @@
+<project name="agent" default="test" basedir=".">
+
+    <property file="../local.build.properties"/>
+    <property file="../build.properties"/>
+
+    <property name="build.dir" value="${build}/agent"/>
+    <property name="source.dir" value="."/>
+
+    <import file="${project.root}/apps/build_common.xml"/>
+
+    <target name="init">
+        <!-- Create timestamp -->
+        <tstamp/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${exploded.dir}"/>
+    </target>
+
+    <path id="module.classpath">
+        <path refid="project.classpath"/>
+		<fileset dir="${project.root}/tools">
+			<include name="*.jar"/>
+		</fileset>
+        <fileset dir="${exploded.dir}" >
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${exploded.dir}/ejb3.jar"/>
+    </path>
+	
+	<path id="tools.classpath">
+	    <path refid="project.classpath"/>
+		<fileset dir="${project.root}/tools">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="test.classpath">
+	    <path refid="project.classpath"/>
+		<fileset dir="${jboss.home}/lib">
+			<include name="*.jar"/>
+		</fileset>
+	<dirset dir="${build.dir}">
+		</dirset>
+		<fileset dir="${jboss.home}/lib/endorsed">	<!--For SAXParserImpl default, which is the Xerces parser -->
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${jboss.default.server}/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+    <target name="compile" depends="init" description="Compile classes into the build directory">
+        <echo message="${source.dir}/src"/>
+        <javac srcdir="${source.dir}/src" destdir="${build.dir}" debug="${debugflag}">
+            <classpath refid="module.classpath" />
+        </javac>
+        <copy todir="${build.dir}" preservelastmodified="true" >
+            <fileset dir="${source.dir}/src">
+                <patternset refid="compiler.resources"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.dir}/META-INF" preservelastmodified="true" >
+            <fileset dir="${source.dir}/META-INF">
+                <patternset refid="compiler.resources"/>
+            </fileset>
+        </copy>
+    </target>
+
+	<target name="exploded" depends="compile" description="Default. Creates agent-exploded folder">
+		<copy todir="${exploded.dir}/agent.jar" preservelastmodified="true">
+			<fileset dir="${source.dir}/src">
+			    <include name="org/mlink/agent/model/*.xml"/>
+				<include name="META-INF/*.xml"/>
+				<include name="hibernate.cfg.xml"/>
+			</fileset>
+		</copy>
+		<copy todir="${exploded.dir}/agent.jar" preservelastmodified="true">
+			<fileset dir="${build.dir}">
+			    <include name="**/*.*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+    <target name="compile.tests" depends="compile" description="Compile test classes into the build directory">
+        <javac srcdir="${source.dir}/tests" destdir="${build.dir}" debug="${debugflag}">
+            <classpath refid="module.classpath" />
+        </javac>
+    </target>
+
+	<target name="generate.hibernate.jboss" description="Generates Hibernate classes for container-managed persistence.">
+		<taskdef name="hibernatedoclet" classname="xdoclet.modules.hibernate.HibernateDocletTask">
+			<classpath refid="tools.classpath"/>
+		</taskdef>
+		<hibernatedoclet
+			destdir="${source.dir}/src"
+			verbose="true"
+			force="true"
+			mergedir="${source.dir}/src">
+			<fileset dir="${source.dir}/src">
+				<include name="**/model/*.java" />
+			</fileset>
+            <hibernate version="3.0" />
+	        <hibernatecfg
+				dataSource="iwm_s" 
+				dialect="org.hibernate.dialect.OracleDialect" 
+				jndiname="java:/hibernate/SF1">
+				<otherProperty 
+					name="hibernate.jdbc.batch_size" 
+					value="20" />
+				<otherProperty 
+					name="hibernate.jdbc.wrap_result_sets" 
+					value="true" />
+			</hibernatecfg>
+		</hibernatedoclet>
+        </target>
+
+    <target name="jar" depends="compile" description="Update ejb jar file or create it if doesn't exist">
+        <jar jarfile="${exploded.dir}/agent.jar"
+             basedir="${build.dir}"
+             manifest="${source.dir}/META-INF/MANIFEST.MF"
+             update="no" excludes="org/mlink/agent/model/**,org/mlink/agent/model/*.xml,META-INF/*.xml,hibernate.cfg.xml">
+        </jar>
+    </target>
+
+    <target name="har" depends="compile">
+		<!--copy todir="${build}">
+			<fileset dir="${build.dir}">
+			    <include name="org/mlink/agent/model/*.xml"/>
+				<include name="META-INF/*.xml"/>
+			</fileset>
+		</copy-->
+	    <jar jarfile="${exploded.dir}/agentmodel.jar" basedir="${build.dir}"
+             includes="org/mlink/agent/model/**,org/mlink/agent/model/*.xml,META-INF/*.xml,hibernate.cfg.xml" update="no"/>
+	</target>
+
+	<target name="clean" unless="noclean">
+        <delete dir="${build.dir}" failonerror="false"/>
+        <delete file="${exploded.dir}/agentmodel.jar" failonerror="false"/>
+        <delete file="${exploded.dir}/agent.jar" failonerror="false"/>
+	</target>
+
+	<target name="core" depends="jar,har">
+	</target>
+	
+	<target name="test.statemachine" depends="jar">
+		<java classname="org.mlink.agent.util.StateMachineLoader">
+			<classpath refid="module.classpath"/>
+			<classpath refid="test.classpath" />
+        </java>
+	</target>
+
+	<target name="test" depends="compile.tests">
+   <delete dir="global_test" failonerror="false"/> 
+   <junit printsummary="yes" 
+          fork="true"
+          maxmemory="1024M" 
+          haltonfailure="no">
+			<classpath refid="module.classpath"/>
+			<classpath refid="test.classpath" />
+
+  <formatter type="plain" usefile="false"/>
+
+  <batchtest>
+    <fileset dir="tests">
+      <include name="**/JobStateManagerTest.java"/> 
+    </fileset>
+  </batchtest>
+
+</junit>
+
+	</target>
+ 
+
+	<target name="test.jsm" depends="jar,har">
+		<java classname="org.mlink.agent.JobStateManager">
+			<classpath refid="module.classpath"/>
+			<classpath refid="test.classpath" />
+        </java>
+	</target>
+
+</project>
+

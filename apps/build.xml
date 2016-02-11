@@ -1,0 +1,29 @@
+<project name="root" default="deploy.iwm" basedir=".">
+	<!-- Top level build script. Most suitable for all inclusive installations like PROD, ACPT or TEST-->
+	<property file="local.build.properties" />
+	<property file="build.properties" />
+	<!--Timestamps-->
+	<tstamp>
+		<format property="DATETIME" pattern="yyMMdd.HHmm" />
+	</tstamp>
+
+	<target name="deploy.iwm" depends="clean" description="Deploys app in the exploded format. Destination is set in local.build.properties.JBoss should be down when this traget executes ">
+		<ant dir="iwmear" target="deploy.exploded" inheritall="false" />
+	</target>
+
+	<target name="ear" description="Creates an EAR version of application as well as copies configuration files. Dir structure is identical to target Jboss server. Warning: deploy.xxx target must be executed first">
+		<ant dir="iwmear" target="build.ear" inheritall="false" />
+		<delete dir="${jboss.default.server}/deploy/${iwmearname}" failonerror="true" />
+		<move file="${project.root}/dist/${iwmearname}" tofile="${jboss.default.server}/deploy/${iwmearname}" />
+	</target>
+
+	<target name="clean" description="Full clean. Will erase everything. JBoss should be down when this target executes">
+		<ant dir="iwmear" target="clean.all" inheritall="false" />
+	</target>
+
+	<target name="jboss.config" description="Copies jboss config files: log4j.xml, iwm-login-config-service.xml, iwm-login-config.xml, etc">
+		<ant dir="iwmear" target="jboss.config" inheritall="false" />
+	</target>
+
+
+</project>

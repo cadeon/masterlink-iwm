@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.ShiftRef"
+        table="SHIFT_REF"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Integer"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ShiftRef.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="code"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="CODE"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="DESCRIPTION"
+        />
+
+        <property
+            name="shiftStart"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="SHIFTSTART"
+        />
+
+        <property
+            name="shiftEnd"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="SHIFTEND"
+        />
+
+        <property
+            name="time"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="TIME"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ShiftRef.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

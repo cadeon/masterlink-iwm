@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.JobSchedule"
+        table="JOB_SCHEDULE"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="sequence">
+                <param name="sequence">job_schedule_seq</param>
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-JobSchedule.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="createdTime"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="CREATED_TIME" 
+            />
+        </property>
+
+        <property
+            name="deletedTime"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="DELETED_TIME" 
+            />
+        </property>
+
+        <many-to-one
+            name="job"
+            class="org.mlink.agent.model.Job"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="JOB_ID"
+        />
+
+        <property
+            name="user"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="USR"
+        />
+
+        <many-to-one
+            name="workSchedule"
+            class="org.mlink.agent.model.WorkSchedule"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="WORK_SCHEDULE_ID"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-JobSchedule.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

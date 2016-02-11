@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.vm:8080/" />
+<title>W002AddEditDelShiftRef</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">W002AddEditDelShiftRef</td></tr>
+</thead><tbody>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>loginHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[10]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shiftRefsButton1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>//input[@value='Add Shift Ref']</td>
+	<td>Add Shift Ref</td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Shift Ref List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//input[@value='Add Shift Ref']</td>
+	<td></td>
+</tr>
+<!--Breaks here-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Shift Ref']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code</td>
+	<td>AATest Shift</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>TEST Shift</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shiftStart</td>
+	<td>00:00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shiftEnd</td>
+	<td>00:00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>time</td>
+	<td>00:00</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>saveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[1]</td>
+	<td>AATest Shift</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[1]</td>
+	<td>AATest Shift</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Shift Ref List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>shiftStart</td>
+	<td>exact:0:00</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>shiftEnd</td>
+	<td>exact:0:00</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>time</td>
+	<td>exact:0:00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shiftStart</td>
+	<td>1:11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shiftEnd</td>
+	<td>1:11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>time</td>
+	<td>1:11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>saveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Shift Ref List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>shiftStart</td>
+	<td>exact:1:11</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>shiftEnd</td>
+	<td>exact:1:11</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>time</td>
+	<td>exact:1:11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>saveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getAlert</td>
+	<td>http://v35test.iwm</td>
+	<td></td>
+</tr>
+<!--getAlert         http://v35test.iwm-->
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete AATest Shift?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotBodyText</td>
+	<td></td>
+	<td>TEST Shift</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

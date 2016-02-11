@@ -1,0 +1,11 @@
+<server>
+	<mbean code="org.jboss.hibernate.jmx.Hibernate" name="jboss.har:service=Hibernate1">
+	 	<attribute name="DatasourceName">java:/iwm_ds</attribute>
+	 	<attribute name="SessionFactoryName">java:/hibernate/SessionFactory</attribute>
+	 	<attribute name="Dialect">org.hibernate.dialect.Oracle10gDialect</attribute>
+		<!-- attribute name="CacheProviderClass">org.hibernate.cache.EHCacheProvider</attribute -->
+		<attribute name="CacheProviderClass">org.hibernate.cache.HashtableCacheProvider</attribute>
+		<attribute name="ShowSqlEnabled">false</attribute>
+       	<!-- <attribute name="Hbm2ddlAuto">create-drop</attribute> -->
+	</mbean>
+</server>

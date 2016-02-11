@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<utilityFactors>
+	<kValue>0.5</kValue>
+	<userNpt>1</userNpt>
+	<userGrade>1</userGrade>
+	<maxGrade>5</maxGrade>
+	<maxPriority>25</maxPriority>
+</utilityFactors>

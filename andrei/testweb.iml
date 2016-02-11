@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="testweb">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../apps/testweb/webroot/WEB-INF/web.xml" optional="false" version="2.5" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../apps/testweb/webroot" relative="/" />
+          <root url="file://$MODULE_DIR$/../apps/testweb/webroot/WEB-INF" relative="/WEB-INF" />
+        </webroots>
+        <building>
+          <setting name="EXPLODED_URL" value="file://" />
+          <setting name="EXPLODED_ENABLED" value="false" />
+          <setting name="JAR_URL" value="file://" />
+          <setting name="JAR_ENABLED" value="false" />
+          <setting name="BUILD_MODULE_ON_FRAME_DEACTIVATION" value="false" />
+          <setting name="BUILD_EXTERNAL_DEPENDENCIES" value="false" />
+          <setting name="EXCLUDE_EXPLODED_DIRECTORY" value="true" />
+          <setting name="RUN_JASPER_VALIDATION" value="false" />
+          <setting name="BUILD_ONLY_WEB_RESOURCES" value="false" />
+        </building>
+        <packaging>
+          <containerElement type="module" name="testweb">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/classes" />
+          </containerElement>
+          <containerElement type="module" name="agent">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/classes" />
+          </containerElement>
+          <containerElement type="module" name="shared">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/classes" />
+          </containerElement>
+          <containerElement type="library" name="JAXB2 EA" level="project">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib" />
+          </containerElement>
+          <containerElement type="library" name="Jboss" level="project">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib" />
+          </containerElement>
+          <containerElement type="library" name="Shared" level="project">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib" />
+          </containerElement>
+        </packaging>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../build/testweb" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../apps/testweb">
+      <sourceFolder url="file://$MODULE_DIR$/../apps/testweb/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="shared" />
+    <orderEntry type="module" module-name="iwmejb" />
+    <orderEntry type="library" name="Tools" level="project" />
+    <orderEntry type="library" name="Shared" level="project" />
+    <orderEntry type="library" name="Jboss" level="project" />
+    <orderEntryProperties />
+  </component>
+</module>
+

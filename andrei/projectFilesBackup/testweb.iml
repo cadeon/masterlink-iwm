@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4" relativePaths="true" type="J2EE_WEB_MODULE" j2ee-integration="Generic Application Server">
+  <component name="ModuleRootManager" />
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../build/testweb" />
+    <exclude-output />
+    <exclude-exploded />
+    <content url="file://$MODULE_DIR$/../apps/testweb">
+      <sourceFolder url="file://$MODULE_DIR$/../apps/testweb/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="shared" />
+    <orderEntry type="module" module-name="iwmejb" />
+    <orderEntry type="library" name="Tools" level="project" />
+    <orderEntry type="library" name="Shared" level="project" />
+    <orderEntry type="library" name="Jboss" level="project" />
+    <orderEntryProperties />
+  </component>
+  <component name="WebModuleBuildComponent">
+    <setting name="EXPLODED_URL" value="file://" />
+    <setting name="EXPLODED_ENABLED" value="false" />
+    <setting name="JAR_URL" value="file://" />
+    <setting name="JAR_ENABLED" value="false" />
+    <setting name="SYNC_EXPLODED_DIR" value="true" />
+    <setting name="BUILD_ON_FRAME_DEACTIVATION" value="false" />
+    <setting name="RUN_JASPER_VALIDATION" value="false" />
+  </component>
+  <component name="WebModuleProperties">
+    <containerElement type="module" name="agent">
+      <attribute name="method" value="1" />
+      <attribute name="URI" value="/WEB-INF/classes" />
+    </containerElement>
+    <containerElement type="module" name="shared">
+      <attribute name="method" value="1" />
+      <attribute name="URI" value="/WEB-INF/classes" />
+    </containerElement>
+    <containerElement type="library" level="project" name="JAXB2 EA">
+      <attribute name="method" value="1" />
+      <attribute name="URI" value="/WEB-INF/lib" />
+    </containerElement>
+    <containerElement type="library" level="project" name="Jboss">
+      <attribute name="method" value="1" />
+      <attribute name="URI" value="/WEB-INF/lib" />
+    </containerElement>
+    <containerElement type="library" level="project" name="Shared">
+      <attribute name="method" value="1" />
+      <attribute name="URI" value="/WEB-INF/lib" />
+    </containerElement>
+    <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../apps/testweb/webroot/WEB-INF/web.xml" optional="false" version="2.3" />
+    <webroots>
+      <root url="file://$MODULE_DIR$/../apps/testweb/webroot" relative="/" />
+      <root url="file://$MODULE_DIR$/../apps/testweb/webroot/WEB-INF" relative="/WEB-INF" />
+    </webroots>
+  </component>
+  <component name="WeblogicWebModuleProperties">
+    <option name="IS_RUN_APPC" value="false" />
+  </component>
+  <component name="com.fuhrer.idea.plugin.jboss.JBossWebModule" />
+</module>
+

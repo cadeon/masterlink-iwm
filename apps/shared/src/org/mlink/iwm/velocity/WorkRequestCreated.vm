@@ -1,0 +1,16 @@
+
+To: $emergencyContact
+
+<p>
+Urgent work request has been received by system and a new job is created $jobId.
+<br>
+You are identified as emergency contact for the location of the emergency request.
+
+<br>
+<b>Request Category:</b>  $requestCategory <br>
+<b>Location:</b>  $location <br>
+<b>Requestor Name:</b>  $tenantName <br>
+<b>Requestor Phone:</b>  $tenantPhone <br>
+<b>Description:</b>  $jobDescription <br>
+<p>
+This is an automated email. Please do not reply

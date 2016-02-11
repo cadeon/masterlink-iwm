@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="javaeeApplication" name="javaEEApplication">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/../apps/iwmear/META-INF/application.xml" optional="false" version="5" />
+        </descriptors>
+        <building>
+          <setting name="EXPLODED_URL" value="file://" />
+          <setting name="EXPLODED_ENABLED" value="false" />
+          <setting name="JAR_URL" value="file://" />
+          <setting name="JAR_ENABLED" value="false" />
+          <setting name="BUILD_MODULE_ON_FRAME_DEACTIVATION" value="false" />
+          <setting name="BUILD_EXTERNAL_DEPENDENCIES" value="false" />
+          <setting name="EXCLUDE_EXPLODED_DIRECTORY" value="true" />
+        </building>
+        <packaging>
+          <containerElement type="facet" facetId="EARBuild/javaeeApplication/EARBuild">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+          </containerElement>
+          <containerElement type="facet" facetId="iwmejb/ejb/iwmejb">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+          </containerElement>
+          <containerElement type="facet" facetId="iwmweb/web/iwmweb">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+            <attribute name="contextRoot" value="iwmwebIwmweb" />
+          </containerElement>
+          <containerElement type="facet" facetId="aop/javaeeApplication/javaEEApplication">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+          </containerElement>
+          <containerElement type="facet" facetId="iwmv35/javaeeApplication/javaEEApplication">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+          </containerElement>
+          <containerElement type="facet" facetId="sitarweb/web/sitarweb">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+            <attribute name="contextRoot" value="sitarwebSitarweb" />
+          </containerElement>
+          <containerElement type="facet" facetId="testweb/web/testweb">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+            <attribute name="contextRoot" value="testwebTestweb" />
+          </containerElement>
+        </packaging>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$APPLICATION_HOME_DIR$/bin/C:/jboss-4.0.4.GA/server/default/deploy/iwmapp35.ear" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../apps/iwmear">
+      <sourceFolder url="file://$MODULE_DIR$/../apps/iwmear" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../apps/iwmear/com" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/javaee.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntryProperties />
+  </component>
+</module>
+

@@ -1,0 +1,12 @@
+<sitar-jobs>
+  <job>
+    <description>sitar job</description>
+    <locator>Osceola</locator>
+    <organization>Osceola - Trades</organization>
+    <skill type="Custodial Supervisor" level="One"/>
+    <number-of-workers>1</number-of-workers>
+    <work-unit-code>AirComp.01</work-unit-code>
+    <estimated-time>100</estimated-time>
+    <priority>Medium</priority>
+  </job>
+</sitar-jobs>

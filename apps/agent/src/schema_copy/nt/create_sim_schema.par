@@ -1,0 +1,1 @@
+DIRECTORY=dpump_import JOB_NAME=sim_load NETWORK_LINK=mylocal_db logfile=create_sim_schema_impdp.log

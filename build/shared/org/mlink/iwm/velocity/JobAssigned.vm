@@ -1,0 +1,24 @@
+
+<p>
+Job $job_id has been manually assigned to you. <br>
+This job will be assigned to you until completed, cancelled, or manually moved to another worker. 
+<p>
+<b>Job Details</b>
+<P>
+<b>Location: </b>  $full_locator <br>
+$job_object
+<br>
+<b>Description: </b>  $job_description <br>
+$job_super_note
+<p>
+<b>Assigned by: </b> $assigner_name <br>
+<b>Assigner email: </b> $assigner_email <br>
+<b>Assigner phone: </b> $assigner_phone <br>
+<p>
+$requester_info
+<p>
+Access Mobile Worker and/or communicate for more details.
+<p>
+Be sure to close the job when it is complete!
+<p>
+This is an automated email. Please do not reply

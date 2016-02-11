@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.WorkObject"
+        table="OBJECT"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.math.BigDecimal"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-WorkObject.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="createdDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="CREATED_DATE"
+            length="7"
+        />
+
+        <property
+            name="active"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="ACTIVE"
+            length="22"
+        />
+
+        <property
+            name="startDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="START_DATE"
+            length="7"
+        />
+
+        <property
+            name="classId"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="CLASS_ID"
+            length="22"
+        />
+
+        <property
+            name="runHours"
+            type="java.lang.Float"
+            update="true"
+            insert="true"
+            column="RUN_HOURS"
+            length="126"
+        />
+
+        <property
+            name="tag"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="TAG"
+            length="150"
+        />
+
+        <property
+            name="custom"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="CUSTOM"
+            length="22"
+        />
+
+        <property
+            name="objectRef"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="OBJECT_REF"
+            length="50"
+        />
+
+        <property
+            name="archivedDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="ARCHIVED_DATE"
+            length="7"
+        />
+
+        <property
+            name="hasCustomData"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="HAS_CUSTOM_DATA"
+            length="1"
+        />
+
+        <property
+            name="hasCustomTask"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="HAS_CUSTOM_TASK"
+            length="1"
+        />
+
+        <property
+            name="hasCustomTaskGroup"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="HAS_CUSTOM_TASK_GROUP"
+            length="1"
+        />
+
+        <property
+            name="objectTypeRef"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="OBJECT_TYPE_ID" 
+            />
+        </property>
+
+        <many-to-one
+            name="locator"
+            class="org.mlink.agent.model.Locator"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="LOCATOR_ID" 
+            />
+        </many-to-one>
+
+        <property
+            name="objectDef"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="OBJECT_DEF_ID" 
+            />
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-WorkObject.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

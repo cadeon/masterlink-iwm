@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/popup.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Run Simulation</title>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<link href="../../css/dialog.css" type="text/css" rel="stylesheet">
+
+<!-- InstanceBeginEditable name="head" -->
+
+<link href="../../css/sim-dialog.css" type="text/css" rel="stylesheet">
+
+<!-- behviour support -->
+<script src="../javascript/behaviour.js"  type="text/javascript"></script>
+<script src="../javascript/behave-simPopups.js" type="text/javascript"></script>
+
+<script language="JavaScript">
+	theDialog = parent.runDialog;
+</script>
+
+
+<script>
+function FakeSimLog() {
+	this.running = false;
+	this.logger = null;
+	this.counter = 0;
+}
+
+FakeSimLog.prototype.start = function(){
+	this.running = true;
+	simLog.logMessage();
+	if(this.logger == null){
+		this.logger = setInterval("simLog.logMessage()", 2000);
+	}
+}
+
+FakeSimLog.prototype.pause = function(){
+	this.running = !this.running;
+}
+
+FakeSimLog.prototype.stop = function(){
+	this.running = false;
+	clearInterval(this.logger);
+	this.logger = null;
+}
+
+FakeSimLog.prototype.clear = function() {
+	document.getElementById('simlog').innerHTML = "";
+		document.getElementById('progressmeter').style.width =  "0px";
+
+	this.counter = 0;
+		document.getElementById('progresspercentage').innerHTML = 0;
+
+}
+
+FakeSimLog.prototype.logMessage = function(){
+	if(this.running && this.counter <= 100){
+		this.counter++;
+
+		document.getElementById('progresspercentage').innerHTML = this.counter;
+		document.getElementById('progressmeter').style.width = this.counter * 2 + 'px';
+
+
+		document.getElementById('simlog').innerHTML =
+		document.getElementById('simlog').innerHTML + "This is another log message<br>";
+	}
+}
+
+var simLog = new FakeSimLog();
+
+</script>
+
+
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<h1><!-- InstanceBeginEditable name="titleBar" -->Run Simulation<!-- InstanceEndEditable --></h1>
+<div class="content"><!-- InstanceBeginEditable name="popupContent" -->
+<form  id="runForm" name="runForm">
+	<span style="float:left;margin:8px;">
+		<label for="startDate">Start Date:</label>
+		<input type="text" id="startDate" size="10" value="mm/dd/yyyy">
+	</span >
+
+	<span style="float:left;margin:8px;">
+			<label for="duration">Duration:</label>
+			<select id="duration">
+				<option>Months</option>
+				<option>Weeks</option>
+				<option>Days</option>
+			</select>
+	</span >
+
+
+	<span style="float:left;margin:8px;">
+			<label for="logLevel">Log Level:</label>
+			<select id="logLevel">
+				<option>High</option>
+				<option>Medium</option>
+				<option>Low</option>
+
+			</select>
+	</span >
+
+
+
+	<div style="clear: both;">
+			<label for="duration">Simulation Log:</label>
+			<div id="simlog" style="padding: 5px; overflow:auto;margin:0px;border: 1px solid #CCCCCC;background-color:#EEEEEE;height: 300px;">
+			</div>
+
+	</div>
+
+
+	<div>
+
+<div id="progressbar">
+	<div id="progressmeter"></div>
+	<span id="progresspercentage">0</span>% Complete
+</div>
+
+		<!-- <input style="float: right;" type="button" class="button"value="Close Window"
+		onclick="document.getElementById('grayout').style.visibility = 'hidden';
+		document.getElementById('runWin').style.visibility = 'hidden'; simLog.clear();"
+		/>
+-->
+		<input type="button" class="button" value="Start" onClick="simLog.start()" />
+		<input type="button" class="button" value="Pause" onClick="simLog.pause()" />
+		<input type="button" class="button" value="Stop"  onClick="simLog.stop()"/>
+
+	</div>
+</form>
+
+<div id="close"></div>
+
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- InstanceEnd --></html>

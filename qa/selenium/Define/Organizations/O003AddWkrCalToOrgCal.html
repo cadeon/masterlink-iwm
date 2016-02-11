@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://butler.vm:8080/" />
+<title>O003AddWkrCalToOrgCal</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">O003AddWkrCalToOrgCal</td></tr>
+</thead><tbody>
+<!--This test duplicates a worker, or fails to remove it with the final delete command-->
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Organizations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<!--Create an org-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Organization']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//span[@id='EDIT_ORG_NAME']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>type</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AAATestorg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>url</td>
+	<td>AAATestorg.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>AAA@Testorg.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>phone</td>
+	<td>555-555-AAA1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>fax</td>
+	<td>777-777-BBB2</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgOrganizationFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgLocatorFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgLocatorFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgLocatorFilter_2</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgLocatorFilter_3</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgLocatorFilter_4</td>
+	<td>index=1</td>
+</tr>
+<!--Save the new test org-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>AAATestorg</td>
+</tr>
+<!--Create a test worker and add it to the test org-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='contentPane']/div[2]/h3[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Worker']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//h2[@id='workerEditTitle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AATest Man</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>aatstman</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>Testmot@tester.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>phone</td>
+	<td>000-000-000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>type</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Pvt</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>billingRate</td>
+	<td>25.25</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerLocatorFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerOrganizationFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerOrganizationFilter_1</td>
+	<td>label=AAATestorg</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>saveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//select[@id='addSkill']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Superintendent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Superintendent</td>
+	<td>label=One</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tbody[@id='workerRightsTableBody']/tr[1]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Templates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Reset Password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Projects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Project Stencils</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Organizations and Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Objects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Assign Roles</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Jobs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Locators</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>workerRightsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[1]</td>
+	<td>AATest Man</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Compliance|AAATestorg</td>
+</tr>
+<!--Navigate back to the Organizations List-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Organizations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<!--Open the Org Calender for the test org-->
+<tr>
+	<td>click</td>
+	<td>//img[@id='AAATestorg' and @name='Calendar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>workerCalendarTable</td>
+	<td></td>
+</tr>
+<!--Select the test worker and add him to the org calendar-->
+<tr>
+	<td>select</td>
+	<td>personId</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>personId</td>
+	<td>AATest Man</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add to Calendar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//span[@id='personName']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>calendarAddLocator_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>calendarAddLocator_0</td>
+	<td>Criminal Justice</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<!--Verify that the worker exist on the org calendar-->
+<tr>
+	<td>waitForVisible</td>
+	<td>link=Absent</td>
+	<td>Absent</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>link=Absent</td>
+	<td>Absent</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//img[@alt='data']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Back to Organization List']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@id='AAATestorg' and @name='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@id='AAATestorg' and @name='Calendar']</td>
+	<td></td>
+</tr>
+<!--Verify Calendar  Items exist-->
+<tr>
+	<td>waitForVisible</td>
+	<td>link=Absent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>exact:8:00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[3]/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[4]/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[5]/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[6]/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Delete Selected']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete selected calendar entries?</td>
+	<td></td>
+</tr>
+<!--Verify Calendar items are deleted-->
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Absent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>link=Absent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Absent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//img[@alt='data']</td>
+	<td>0</td>
+</tr>
+<!--Verify Absent link is removed-->
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td></td>
+	<td>link=Absent</td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Schedule will be removed. Proceed?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>Work schedule is removed</td>
+	<td></td>
+</tr>
+<!--Navigate back to the Worker list and delete the test Worker-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Worker List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[1]</td>
+	<td>AATest Man</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete AATest Man?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>Item deleted</td>
+	<td></td>
+</tr>
+<!--Navigate back to the Org List and delete the org-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Organizations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='AAATestorg' and @name='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete AAATestorg?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>Item deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--Finish-->
+</tbody></table>
+</body>
+</html>

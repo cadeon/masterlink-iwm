@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.ProjectTypeRef"
+        table="PROJECT_TYPE_REF"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.math.BigDecimal"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ProjectTypeRef.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="code"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="CODE"
+            length="20"
+            not-null="true"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+            length="50"
+            not-null="true"
+        />
+
+        <property
+            name="dispOrd"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="DISP_ORD"
+            length="22"
+        />
+
+        <set
+            name="projects"
+            lazy="true"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="PROJECT_TYPE_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.Project"
+            />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ProjectTypeRef.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

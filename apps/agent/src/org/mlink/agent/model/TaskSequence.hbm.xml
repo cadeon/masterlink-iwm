@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.TaskSequence"
+        table="TASK_SEQUENCE"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.math.BigDecimal"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-TaskSequence.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="sequenceLevel"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="SEQUENCE_LEVEL"
+            length="22"
+        />
+
+        <property
+            name="sequence"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SEQUENCE_ID" 
+            />
+        </property>
+
+        <many-to-one
+            name="task"
+            class="org.mlink.agent.model.Task"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="TASK_ID" 
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-TaskSequence.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

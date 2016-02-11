@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4" relativePaths="true" type="J2EE_EJB_MODULE" j2ee-integration="JBoss Server">
+  <component name="EjbModuleBuildComponent">
+    <setting name="EXPLODED_URL" value="file://C:/jboss-4.0.4.GA/server/default/deploy/iwmapp35.ear/iwmejb.jar" />
+    <setting name="EXPLODED_ENABLED" value="false" />
+    <setting name="JAR_URL" value="file://$MODULE_DIR$/../build/iwmejb/iwmejb.jar" />
+    <setting name="JAR_ENABLED" value="false" />
+    <setting name="SYNC_EXPLODED_DIR" value="false" />
+    <setting name="BUILD_ON_FRAME_DEACTIVATION" value="false" />
+  </component>
+  <component name="EjbModuleProperties">
+    <containerElement type="module" name="agent">
+      <attribute name="method" value="6" />
+      <attribute name="URI" value="/agent.jar" />
+    </containerElement>
+    <containerElement type="module" name="shared">
+      <attribute name="method" value="6" />
+      <attribute name="URI" value="/shared.jar" />
+    </containerElement>
+    <containerElement type="library" level="project" name="Jboss">
+      <attribute name="method" value="2" />
+      <attribute name="URI" value="/" />
+    </containerElement>
+    <containerElement type="library" level="project" name="Shared">
+      <attribute name="method" value="2" />
+      <attribute name="URI" value="/" />
+    </containerElement>
+    <deploymentDescriptor name="ejb-jar.xml" url="file://$MODULE_DIR$/../apps/iwmejb/META-INF/ejb-jar.xml" optional="false" version="2.x" />
+    <deploymentDescriptor name="" url="file://$MODULE_DIR$/../apps/iwmejb/META-INF/jbosscmp-jdbc.xml" optional="false">
+      <option name="DEFAULT_DIR" value="META-INF" />
+      <option name="NAME" value="" />
+      <option name="DESCRIPTION" value="" />
+    </deploymentDescriptor>
+  </component>
+  <component name="ModuleRootManager" />
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../build/iwmejb" />
+    <exclude-output />
+    <exploded url="file://C:/jboss-4.0.4.GA/server/default/deploy/iwmapp35.ear/iwmejb.jar" />
+    <exclude-exploded />
+    <content url="file://$MODULE_DIR$/../apps/iwmejb">
+      <sourceFolder url="file://$MODULE_DIR$/../apps/iwmejb/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../apps/iwmejb/tests" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="shared" />
+    <orderEntry type="library" name="Shared" level="project" />
+    <orderEntry type="library" name="Tools" level="project" />
+    <orderEntry type="module" module-name="agent" />
+    <orderEntry type="library" name="Jboss" level="project" />
+    <orderEntry type="library" name="JBossWS" level="project" />
+    <orderEntryProperties />
+  </component>
+  <component name="WLEjbModuleProperties">
+    <option name="IS_RUN_APPC" value="true" />
+  </component>
+  <component name="com.fuhrer.idea.plugin.jboss.JBossEjbModule" />
+</module>
+

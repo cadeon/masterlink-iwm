@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.TaskView"
+        table="TASKVIEW"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="OBJECT_ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-TaskView.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="active"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="ACTIVE"
+        />
+
+        <property
+            name="plan"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="PLAN"
+        />
+
+        <property
+            name="meterRule"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="METERRULE"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+        />
+
+        <property
+            name="groupDescription"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="GROUPDESCRIPTION"
+        />
+
+        <property
+            name="lastServiced"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="LASTSERVICED"
+        />
+
+        <property
+            name="runHours"
+            type="java.lang.Double"
+            update="true"
+            insert="true"
+            column="RUNHOURS"
+        />
+
+        <property
+            name="threshold"
+            type="java.lang.Double"
+            update="true"
+            insert="true"
+            column="THRESHOLD"
+        />
+
+        <property
+            name="months"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="MONTHS"
+        />
+
+        <property
+            name="numberWorkers"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="NUMBERWORKERS"
+        />
+
+        <property
+            name="estimatedTime"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="ESTIMATEDTIME"
+        />
+
+        <property
+            name="lastPlanned"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="LASTPLANNED"
+        />
+
+        <property
+            name="days"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="DAYS"
+        />
+
+        <many-to-one
+            name="taskTypeRef"
+            class="org.mlink.agent.model.TaskTypeRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="TASKTYPE" 
+            />
+        </many-to-one>
+
+        <property
+            name="workObjectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="TARGET" 
+            />
+        </property>
+
+        <property
+            name="organizationId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="ORGANIZATION_ID" 
+            />
+        </property>
+
+        <property
+            name="sequenceGroupId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SEQUENCEGROUP" 
+            />
+        </property>
+
+        <property
+            name="sequenceLevel"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SEQUENCELEVEL" 
+            />
+        </property>
+
+        <many-to-one
+            name="skillTypeRef"
+            class="org.mlink.agent.model.SkillTypeRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SKILLTYPE" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="priorityRef"
+            class="org.mlink.agent.model.PriorityRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="PRIORITY" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="skillLevelRef"
+            class="org.mlink.agent.model.SkillLevelRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SKILLLEVEL" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="locator"
+            class="org.mlink.agent.model.Locator"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="LOCATOR_ID" 
+            />
+        </many-to-one>
+
+        <property
+            name="scheduleGroup"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SCHEDULEGROUP" 
+            />
+        </property>
+        
+		<property
+            name="expiryTypeId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="EXPIRYTYPEID" 
+            />
+        </property>
+        
+        <property
+            name="expiryType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="EXPIRYTYPE" 
+            />
+        </property>
+        
+        <property
+            name="expiryNumOfDays"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="EXPIRYNUMOFDAYS" 
+            />
+        </property>
+        
+        <set
+            name="preceedingTasks"
+            lazy="false"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="SEQUENCEGROUP"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.TaskView"
+            />
+
+        </set>
+
+        <set
+            name="followingTasks"
+            lazy="false"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="SEQUENCEGROUP"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.TaskView"
+            />
+
+        </set>
+
+        <set
+            name="actions"
+            lazy="false"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="TASK_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.Action"
+            />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-TaskView.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

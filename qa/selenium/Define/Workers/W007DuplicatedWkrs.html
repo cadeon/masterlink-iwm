@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://butler.vm:8080/" />
+<title>W007DuplicatedWkrs</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Example</td></tr>
+</thead><tbody>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/Home.do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>j_username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<!-->>>>>>>>MAKE WORKER!!!-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Worker']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>workerEditTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AAATest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>AATest</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>type</td>
+	<td>label=Internal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerLocatorFilter_0</td>
+	<td>label=Criminal Justice</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>-Select Campus -Criminal JusticeDowntownEastMcCoyOsceolaSandlakeCenterWestWinter Park</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerOrganizationFilter_0</td>
+	<td>label=Maintenance</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>saveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='workerSkillsPopupHeader']/h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='workerSkillsPopupHeader']/h2</td>
+	<td></td>
+</tr>
+<!--Had a problems hanging here... waitForVisible works better-->
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='workerRights']/div[1]/h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Maintenance Request</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Mobile Worker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Maintenance Request</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Mobile Worker</td>
+	<td></td>
+</tr>
+<!--click Mobile Worker-->
+<tr>
+	<td>click</td>
+	<td>workerRightsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>AAATest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<!-->>>>>>>>>>>>>MAKE CLONE!!!!-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Worker']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>workerEditTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AAATest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>AATest</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>type</td>
+	<td>label=Internal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerLocatorFilter_0</td>
+	<td>label=Criminal Justice</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>-Select Campus -Criminal JusticeDowntownEastMcCoyOsceolaSandlakeCenterWestWinter Park</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerOrganizationFilter_0</td>
+	<td>label=Maintenance</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='saveButton']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAlertPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>username AATest is not available. Please choose a different name!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Cancel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='AAATest' and @name='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>getAlert</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

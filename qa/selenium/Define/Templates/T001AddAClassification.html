@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://butler.vm:8080/" />
+<title>T001AddAClassification</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">T001AddAClassification</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Templates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='Calendar']</td>
+	<td></td>
+</tr>
+<!--Add a Classification-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Classification']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>popupTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>parentObjectClassificationFilter_0</td>
+	<td>label=[01] General Requirements</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>parentObjectClassificationFilter_1</td>
+	<td>label=[01800] Facility Operation</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>parentObjectClassificationFilter_2</td>
+	<td>label=[01830] Operation &amp; Maintenance</td>
+</tr>
+<!--Component level select list should not exist-->
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>AA Test Class</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>abbr</td>
+	<td>AATC</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save' and @type='button' and @onclick='theObjectClassificationEditPopup.save()']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

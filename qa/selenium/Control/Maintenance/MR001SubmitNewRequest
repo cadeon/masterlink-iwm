@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.vm:8080/" />
+<title>MR001SubmitNewRequest</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">MR001SubmitNewRequest</td></tr>
+</thead><tbody>
+<!--Duplication Error-->
+<!--Login-->
+<tr>
+	<td>open</td>
+	<td>/Home.do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Maintenance Req</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='View']</td>
+	<td></td>
+</tr>
+<!--Submit a New Request-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Submit New Request']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Maintenance Requests</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>tenantEmail</td>
+	<td>test@tmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>tenantName</td>
+	<td>Tester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>tenantPhone</td>
+	<td>1-800-Test-Man</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>problemId</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>jobDescription</td>
+	<td>AATest Request</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>note</td>
+	<td>Test request for Maintenance Request.</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>newRequestLocatorFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>newRequestLocatorFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>newRequestLocatorFilter_2</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>newRequestLocatorFilter_3</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>newRequestLocatorFilter_4</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[5]</td>
+	<td>CJI.01.In.1st.1-100</td>
+</tr>
+<!--Verify new request show up on the list-->
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[5]</td>
+	<td>CJI.01.In.1st.1-100</td>
+</tr>
+<!--verifyText            //tbody[@id='dataTableBody']/tr[1]/td[3]           INS or RFS    cannot test due to status change-->
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[7]</td>
+	<td>INT</td>
+</tr>
+<!--!!^!!                   [error] There was an unexpected Alert! [Your request has been submitted and job is scheduled You may track the job status by using Job Tracker. Job id = 158725] -->
+<tr>
+	<td>click</td>
+	<td>//img[@alt='View']</td>
+	<td></td>
+</tr>
+<!--View the request and verify the information-->
+<tr>
+	<td>waitForTitle</td>
+	<td>Maintenance Requests</td>
+	<td></td>
+</tr>
+<!--!!^!! Cannot verify the fields, unknown command(s)-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

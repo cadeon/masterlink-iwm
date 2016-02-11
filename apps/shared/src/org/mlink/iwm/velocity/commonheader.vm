@@ -1,0 +1,24 @@
+<style>
+    .title {
+        font-size: 18pt;
+        margin-left:10pt;
+        color:red;
+    }
+
+    .label {
+        font-size: 12pt;
+        font-style:italic;
+        margin-top:5pt;
+    }
+    .field {
+        font-size:12pt;
+    }
+    .exception {
+        font-size:10pt;background-color:cyan;
+    }
+    .footer {
+        bottom:0;
+        color: #AAA;
+        font-size: 10px;
+    }
+</style>

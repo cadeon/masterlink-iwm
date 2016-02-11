@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="module_iwmear" default="compile.module.iwmear">
+
+  <dirname property="module.iwmear.basedir" file="${ant.file.module_iwmear}"/>
+
+  
+
+  <property name="module.jdk.home.iwmear" value="${project.jdk.home}"/>
+
+  <property name="module.jdk.classpath.iwmear" value="${project.jdk.classpath}"/>
+
+  
+
+  <property name="compiler.args.iwmear" value="${compiler.args}"/>
+
+  
+
+  <property name="iwmear.output.dir" value="${module.iwmear.basedir}/../../../jboss-4.0.2/server/default/deploy/iwmapp35.ear"/>
+
+  <property name="iwmear.testoutput.dir" value="${module.iwmear.basedir}/../../../jboss-4.0.2/server/default/deploy/iwmapp35.ear"/>
+
+  
+
+  <path id="iwmear.module.bootclasspath">
+
+    <!-- Paths to be included in compilation bootclasspath -->
+
+  </path>
+
+  
+
+  <path id="iwmear.module.classpath">
+
+    <path refid="${module.jdk.classpath.iwmear}"/>
+
+  </path>
+
+  
+
+  
+
+  <patternset id="excluded.from.module.iwmear">
+
+    <patternset refid="ignored.files"/>
+
+  </patternset>
+
+  
+
+  <patternset id="excluded.from.compilation.iwmear">
+
+    <patternset refid="excluded.from.module.iwmear"/>
+
+  </patternset>
+
+  
+
+  <path id="iwmear.module.sourcepath">
+
+    <dirset dir="${module.iwmear.basedir}/../apps">
+
+      <include name="iwmear"/>
+
+    </dirset>
+
+  </path>
+
+  
+
+  
+
+  <target name="compile.module.iwmear" depends="compile.module.iwmear.production,compile.module.iwmear.tests" description="Compile module iwmear"/>
+
+  
+
+  <target name="compile.module.iwmear.production" description="Compile module iwmear; production classes">
+
+    <mkdir dir="${iwmear.output.dir}"/>
+
+    <javac2 destdir="${iwmear.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memoryMaximumSize="${compiler.max.memory}" fork="true" executable="${module.jdk.home.iwmear}/bin/javac">
+
+      <compilerarg line="${compiler.args.iwmear}"/>
+
+      <bootclasspath refid="iwmear.module.bootclasspath"/>
+
+      <classpath refid="iwmear.module.classpath"/>
+
+      <src refid="iwmear.module.sourcepath"/>
+
+    </javac2>
+
+    
+
+    <copy todir="${iwmear.output.dir}">
+
+      <fileset dir="${module.iwmear.basedir}/../apps/iwmear">
+
+        <patternset refid="compiler.resources"/>
+
+        <type type="file"/>
+
+      </fileset>
+
+    </copy>
+
+  </target>
+
+  
+
+  <target name="compile.module.iwmear.tests" depends="compile.module.iwmear.production" description="compile module iwmear; test classes" unless="skip.tests"/>
+
+  
+
+  <target name="clean.module.iwmear" description="cleanup module">
+
+    <delete dir="${iwmear.output.dir}"/>
+
+    <delete dir="${iwmear.testoutput.dir}"/>
+
+  </target>
+
+</project>

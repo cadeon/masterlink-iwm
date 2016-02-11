@@ -1,0 +1,194 @@
+#!/bin/bash 
+
+#JBossfoo by Chris Duffy. This version uses fuctions! Wow!
+#This one does arrays! Woo!
+#This is offically version 3 of jbossfoo. I'm commiting it to CVS.
+
+## Use: jbossfoo command instance instance instance . . .
+
+#Set Vars!
+
+defaultuser="mlink"
+defaulthome="/opt/mlink"
+
+## Grab the command, and shift the command line args
+cmd=$1
+shift
+
+## Grab the defaults from the config file. Vars in there are capitals.
+if [ -f /etc/default/masterlink ]; then
+. /etc/default/masterlink
+fi
+
+## Use the instances from the command line, else the config file. 
+if [ $1 ]; then
+instances=( $@ )
+else
+instances=( ${INSTANCES[*]} )
+fi
+
+## Use the user and home from the config file, else the defaults defined in this script
+mlinkuser=${MLINKUSER:-$defaultuser}
+mlinkhome=${MLINKHOME:-$defaulthome}
+
+#Note: all of these commands should have like named functions defined below
+valid_commands=( status tail start stop restart screen )
+
+function usage {
+## Display usage message and exit
+
+echo "Usage: jbossfoo command instance"
+echo "Valid commands are" ${valid_commands[*]}
+echo "'jbossfoo status all' is the only exception to the rule"
+exit 0
+}
+
+function validate {
+## Check that both parameters are filled out, 
+## and that the first parameter is valid. 
+## On fail, display cryptic error message 
+## and call usage, on success return.
+
+## FIXME: add instance name verification
+
+if [ ! $cmd ] || [ ! $instances ]; then usage; fi 
+
+is_valid=0
+for ((a=0; a <= ${#valid_commands[@]} ; a++))
+do
+if [ "$cmd" = "${valid_commands[$a]}" ]; then
+	is_valid=1
+fi
+done
+
+if [ $is_valid = 0 ]; then
+echo "Invalid Command!"
+usage
+fi
+
+}
+
+function usertest {
+## Verify that the script is running as superuser.
+## On fail, display message and exit
+## On success, return
+
+if [ $USER != "root" ]; then
+echo "This script must be run as root.\
+
+Try: sudo ./jbossfoo . . ."
+exit 0
+fi
+}
+
+function grab_pid {
+## Grab the PID of the instance 
+## specified, if running. 
+## Note: The index for the pidofinstance array 
+## needs to match the index for the associated
+## instances. 
+
+## FIXME 1: There's gotta be a better way . . .
+## perhaps PID files? but what if jboss dies?
+
+for ((a=0; a < ${#instances[@]} ; a++))
+do
+psstring=`ps ax | grep java | grep /jboss/${instances[$a]}/bin/`
+pidofinstance[$a]=${psstring:0:6}
+done
+}
+
+function status {
+## Print the PID of a running instance,
+## State of a non-running instance,
+## and ps ax output if 'all' is requested
+
+## FIXME: Make status a function that can accept
+## instance names as args, so I can call it from 
+## other functions and not lose my for loop.
+## (Yes, I know I could just rename the $a var,
+## but it would be cooler to call it with what 
+## names I want to know about)
+
+ if [ "$instances" = "all" ]; then
+        ps ax | grep java | grep jboss
+        else
+
+for ((a=0; a < ${#instances[@]} ; a++))
+do
+                if [ ${pidofinstance[$a]} > 0 ]; then
+                        echo ${instances[$a]} "is running at PID" ${pidofinstance[$a]}
+			echo
+                else
+                        echo ${instances[$a]} "is down."
+			echo
+                fi
+done
+        fi
+}
+
+
+function stop {
+## Verify and kill a running instance
+
+for ((a=0; a < ${#instances[@]} ; a++))
+do
+	if [ ${pidofinstance[$a]} ]; then
+		su $mlinkuser -c "kill ${pidofinstance[$a]}"
+		echo "Shutting down" ${instances[$a]}
+		echo 
+	else
+		echo ${instances[$a]} "not running."
+		echo
+	fi
+done
+}
+
+function start {
+## Verify and start a stopped instance
+
+for ((a=0; a < ${#instances[@]} ; a++))
+do
+	if [ ${pidofinstance[$a]} ]; then
+		echo ${instances[$a]} "JBoss Already Started! Please stop it first"
+		echo
+	else
+	echo "Starting" ${instances[$a]} "JBoss instance"
+	su $mlinkuser -c "nohup $mlinkhome/jboss/${instances[$a]}/bin/run.sh > /dev/null &"
+	echo "Done! Allow some time for JBoss to come up before reporting an error"
+	echo
+	fi
+done
+}
+
+
+function screen {
+## Blah, historical
+	echo "Screen is deprecated. Use Tail instead."
+}
+
+function tail {
+## Open a tail -f on $instancename's server.log
+## FIXME 2: Add the same functionality for agents.log
+
+echo "Opening a tail -f on" $instances"'s server.log"
+echo 
+	su $mlinkuser -c "tail -f $mlinkhome/jboss/$instances/server/default/log/server.log"
+}
+
+function restart {
+## Why am I commenting here?
+stop
+start
+}
+
+#Let's do this thing.
+#
+
+usertest
+validate
+grab_pid
+$cmd
+
+exit 0
+

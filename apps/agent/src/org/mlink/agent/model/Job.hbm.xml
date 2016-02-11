@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.Job"
+        table="JOB"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="sequence">
+                <param name="sequence">job_seq</param>
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Job.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="createdBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="CREATEDBY"
+        />
+
+        <property
+            name="createdDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="CREATED_DATE"
+        />
+
+        <property
+            name="dispatchedDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="DISPATCHED_DATE"
+        />
+
+        <property
+            name="startedDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="STARTED_DATE"
+        />
+
+        <property
+            name="finishby"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="FINISHBY"
+        />
+
+        <property
+            name="estimatedTime"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="ESTIMATEDTIME"
+        />
+
+        <property
+            name="lastUpdated"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="LAST_UPDATED"
+        />
+
+        <property
+            name="numberOfWorkers"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="NUMBER_WORKERS"
+        />
+
+        <property
+            name="completedDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="COMPLETED_DATE"
+        />
+
+        <property
+            name="earliestStart"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="EARLIEST_START"
+        />
+
+        <property
+            name="latestStart"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="LATEST_START"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+        />
+
+        <property
+            name="scheduledDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="SCHEDULED_DATE"
+        />
+
+        <property
+            name="sequenceLevel"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="SEQUENCE_LEVEL"
+        />
+
+        <property
+            name="sticky"
+            type="yes_no"
+            update="true"
+            insert="true"
+            column="STICKY"
+        />
+
+        <property
+            name="jobTypeId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="JOB_TYPE_ID"
+        />
+
+        <property
+            name="objectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="OBJECT_ID"
+        />
+
+        <property
+            name="organizationId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="ORGANIZATION_ID"
+        />
+
+        <property
+            name="totalTime"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="TOTAL_TIME"
+        />
+
+        <one-to-one
+            name="jobPrecedes"
+            class="org.mlink.agent.model.JobPrecedes"
+            cascade="none"
+            outer-join="auto"
+            constrained="false"
+        />
+
+        <set
+            name="jobTasks"
+            lazy="false"
+            inverse="true"
+            cascade="save-update"
+            sort="unsorted"
+        >
+
+            <key
+                column="JOB_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.JobTask"
+            />
+
+        </set>
+
+        <set
+            name="jobSchedules"
+            lazy="false"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+            where="DELETED_TIME IS NULL"
+        >
+
+            <key
+                column="JOB_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.JobSchedule"
+            />
+
+        </set>
+
+        <many-to-one
+            name="locator"
+            class="org.mlink.agent.model.Locator"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="LOCATOR_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="scheduleResponsibilityRef"
+            class="org.mlink.agent.model.ScheduleResponsibilityRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SCHEDULE_RESPONSIBILITY_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="skillLevelRef"
+            class="org.mlink.agent.model.SkillLevelRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SKILL_LEVEL_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="skillTypeRef"
+            class="org.mlink.agent.model.SkillTypeRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SKILL_TYPE_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="priorityRef"
+            class="org.mlink.agent.model.PriorityRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="PRIORITY_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="statusRef"
+            class="org.mlink.agent.model.JobStatusRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="STATUS_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="project"
+            class="org.mlink.agent.model.Project"
+            cascade="save-update"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="PROJECT_ID" 
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Job.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

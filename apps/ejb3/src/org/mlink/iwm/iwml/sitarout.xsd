@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sitar="http://www.mlink.org/sitar/taps" targetNamespace="http://www.mlink.org/sitar/taps" version="1.0">
+	<!--todo some tags might be more appropriate as attributes-->
+	<xs:complexType name="WorkerType">
+		<xs:sequence>
+			<xs:element name="userId" type="xs:string"/>
+			<xs:element name="skillgroup" type="xs:string"/>
+			<xs:element name="skilllevel" type="xs:string"/>
+			<xs:element name="rate" type="xs:float"/>
+			<xs:element name="rating" type="xs:string"/>
+			<xs:element name="PNEC" type="xs:string"/>
+			<xs:element name="DNEC" type="xs:string"/>
+			<xs:element name="certification" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="qualification" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="licence" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="readiness" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommandRequirementsType">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="value" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="WorkCenterType">
+		<xs:sequence>
+			<xs:element name="readiness" type="xs:float"/>
+			<xs:element name="command-requirements" type="sitar:CommandRequirementsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="worker" type="sitar:WorkerType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="DivisionType">
+		<xs:sequence>
+			<xs:element name="readiness" type="xs:float"/>
+			<xs:element name="command-requirements" type="sitar:CommandRequirementsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="work-center" type="sitar:WorkCenterType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="DepartmentType">
+		<xs:sequence>
+			<xs:element name="readiness" type="xs:float"/>
+			<xs:element name="command-requirements" type="sitar:CommandRequirementsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="division" type="sitar:DivisionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="UnitType">
+		<xs:sequence>
+			<xs:element name="readiness" type="xs:float"/>
+			<xs:element name="command-requirements" type="sitar:CommandRequirementsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="department" type="sitar:DepartmentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:element name="sitar" type="sitar:sitarType"/>
+	<xs:complexType name="sitarType">
+		<xs:sequence>
+			<xs:element name="generated-date" type="xs:long"/>
+			<xs:element name="unit" type="sitar:UnitType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

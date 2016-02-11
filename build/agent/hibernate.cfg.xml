@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<!-- Generated file - Do not edit! -->
+
+<hibernate-configuration>
+
+	<!-- a SessionFactory instance listed as /jndi/name -->
+	<session-factory name="java:/hibernate/SessionFactory">
+
+		<!-- properties -->
+		<property name="connection.datasource">java:/iwm_ds</property>
+		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="show_sql">false</property>
+		<property name="use_outer_join">false</property>
+
+		<property name="hibernate.jdbc.batch_size">20</property>
+		<property name="hibernate.jdbc.wrap_result_sets">true</property>
+
+		<!-- mapping files -->
+		<mapping resource="org/mlink/agent/model/JobTaskTime.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/PriorityRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/JobTask.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/SchedulerJob.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/Task.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/TaskView.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/SkillLevelRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/JobSchedule.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/TaskSequence.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/World.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/JobPrecedes.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/TaskTypeRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/ProjectTypeRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/JobStatusRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/Project.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/WorkObject.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/JSMJob.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/ScheduleResponsibilityRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/Person.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/PlannerTask.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/JobView.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/Locator.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/SkillTypeRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/WorkSchedule.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/TaskGroup.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/Action.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/JobAction.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/ShiftMgrJob.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/Skill.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/SchemaRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/ShiftRef.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/Job.hbm.xml"/>
+		<mapping resource="org/mlink/agent/model/WorkScheduleStatusRef.hbm.xml"/>
+	</session-factory>
+
+</hibernate-configuration>

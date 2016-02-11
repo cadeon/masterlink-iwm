@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<!DOCTYPE policy PUBLIC
+      "-//JBoss//DTD JBOSS Security Config 3.0//EN"
+      "http://www.jboss.org/j2ee/dtd/security_config.dtd">
+
+<policy>
+    <application-policy name="iwm_domain">
+        <authentication>
+            <login-module code="org.jboss.security.auth.spi.DatabaseServerLoginModule"
+                flag="required">
+                <module-option name="dsJndiName">java:/iwm_ds</module-option>
+                <module-option name="principalsQuery">
+                    select password from appuser where user_name=?
+                </module-option>
+                <module-option name="rolesQuery">
+                    select role.name,'Roles' from user_role,appuser,role where appuser.USER_NAME=? and appuser.id=user_role.USER_ID and user_role.ROLE_ID=role.ID
+                </module-option>
+            </login-module>
+        </authentication>
+    </application-policy>
+</policy>
+

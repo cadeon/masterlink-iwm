@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.vm:8080/" />
+<title>O004OrgHierarchy</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">O004OrgHierarchy</td></tr>
+</thead><tbody>
+<!--This test breaks the Organization list. After running it up to the current last line the the database must be modified to fix the recurring error.-->
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Organizations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Organization']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>EDIT_ORG_NAME</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AATestOrg</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>type</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>url</td>
+	<td>www.AATestOrg.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>AATestorg@malf.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>phone</td>
+	<td>999-999-9999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>fax</td>
+	<td>111-111-111</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgOrganizationFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>AATestOrg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Bruce Wright|AATestOrg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>EDIT_ORG_NAME</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgOrganizationFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>AATestOrg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

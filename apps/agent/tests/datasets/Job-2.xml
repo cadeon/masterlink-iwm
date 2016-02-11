@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+ <object class="org.mlink.agent.model.Job"> 
+  <void property="description"> 
+   <string>2</string> 
+  </void> 
+  <void property="estTime"> 
+   <int>60</int> 
+  </void> 
+  <void property="id"> 
+   <long>2</long> 
+  </void> 
+  <void property="job"> 
+   <void property="numberOfWorkers"> 
+    <int>1</int> 
+   </void> 
+   <void property="priorityRef"> 
+    <object class="org.mlink.agent.model.PriorityRef"> 
+     <void property="code"> 
+      <string>5</string> 
+     </void> 
+     <void property="id"> 
+      <int>5</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void property="skillLevelRef"> 
+    <object class="org.mlink.agent.model.SkillLevelRef"> 
+     <void property="code"> 
+      <string>2</string> 
+     </void> 
+     <void property="description"> 
+      <string>2</string> 
+     </void> 
+     <void property="id"> 
+      <int>2</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void property="skillTypeRef"> 
+    <object class="org.mlink.agent.model.SkillTypeRef"> 
+     <void property="code"> 
+      <string>1</string> 
+     </void> 
+     <void property="description"> 
+      <string>1</string> 
+     </void> 
+     <void property="id"> 
+      <int>1</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void property="statusRef"> 
+    <object class="org.mlink.agent.model.JobStatusRef"> 
+     <void property="code"> 
+      <string>RFS</string> 
+     </void> 
+     <void property="description"> 
+      <string>RFS</string> 
+     </void> 
+     <void property="id"> 
+      <int>10</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void property="sticky"> 
+    <boolean>false</boolean> 
+   </void> 
+  </void> 
+  <void property="locator"> 
+   <object class="org.mlink.agent.model.Locator"> 
+    <void property="fullLocator"> 
+     <string>2</string> 
+    </void> 
+    <void property="id"> 
+     <long>2</long> 
+    </void> 
+   </object> 
+  </void> 
+ </object> 
+</java> 

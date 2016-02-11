@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4" relativePaths="true" type="J2EE_APPLICATION_MODULE" j2ee-integration="JBoss Server">
+  <component name="ApplicationModuleBuildComponent">
+    <setting name="EXPLODED_URL" value="file://$APPLICATION_HOME_DIR$/bin/C:/jboss-4.0.4.GA/server/default/deploy/iwmapp35.ear" />
+    <setting name="EXPLODED_ENABLED" value="false" />
+    <setting name="JAR_URL" value="file://$MODULE_DIR$/../../dist/EARBuild.ear" />
+    <setting name="JAR_ENABLED" value="false" />
+    <setting name="SYNC_EXPLODED_DIR" value="false" />
+    <setting name="BUILD_ON_FRAME_DEACTIVATION" value="false" />
+  </component>
+  <component name="ApplicationModuleProperties">
+    <containerElement type="module" name="iwmejb">
+      <attribute name="method" value="4" />
+      <attribute name="URI" value="iwmejb.jar" />
+      <attribute name="contextRoot" value="&lt;N/A&gt;" />
+    </containerElement>
+    <containerElement type="module" name="iwmweb">
+      <attribute name="method" value="4" />
+      <attribute name="URI" value="iwmweb.war" />
+      <attribute name="contextRoot" value="iwmweb" />
+    </containerElement>
+    <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/../../apps/iwmear/META-INF/application.xml" optional="false" version="1.3" />
+    <deploymentDescriptor name="" url="file://$MODULE_DIR$/../../apps/iwmear/META-INF/jboss-app.xml" optional="false">
+      <option name="DEFAULT_DIR" value="META-INF" />
+      <option name="NAME" value="" />
+      <option name="DESCRIPTION" value="" />
+    </deploymentDescriptor>
+  </component>
+  <component name="ModuleRootManager" />
+  <component name="NewModuleRootManager">
+    <exclude-output />
+    <exploded url="file://$APPLICATION_HOME_DIR$/bin/C:/jboss-4.0.4.GA/server/default/deploy/iwmapp35.ear" />
+    <exclude-exploded />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="iwmejb" />
+    <orderEntry type="module" module-name="iwmweb" />
+    <orderEntryProperties />
+  </component>
+  <component name="WeblogicApplicationModuleProperties">
+    <option name="IS_RUN_APPC" value="true" />
+  </component>
+  <component name="com.fuhrer.idea.plugin.jboss.JBossAppModule" />
+</module>
+

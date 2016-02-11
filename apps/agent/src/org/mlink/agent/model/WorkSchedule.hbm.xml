@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.WorkSchedule"
+        table="WORK_SCHEDULE"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-WorkSchedule.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="day"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="DAY"
+        />
+        
+        <property
+            name="archivedDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="ARCHIVED_DATE"
+        />
+
+        <property
+            name="notschedulable"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="NOTSCHEDULABLE"
+        />
+
+        <property
+            name="time"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="TIME"
+        />
+
+        <property
+            name="utilityRating"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="UTILITY_RATING"
+        />
+
+        <many-to-one
+            name="statusRef"
+            class="org.mlink.agent.model.WorkScheduleStatusRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="STATUS_ID"
+        />
+
+        <many-to-one
+            name="locator"
+            class="org.mlink.agent.model.Locator"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="LOCATOR_ID" 
+            />
+        </many-to-one>
+
+        <set
+            name="jobSchedules"
+            lazy="false"
+            inverse="true"
+            cascade="save-update"
+            sort="unsorted"
+            where="DELETED_TIME IS NULL"
+        >
+
+            <key
+                column="WORK_SCHEDULE_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.JobSchedule"
+            />
+
+        </set>
+
+        <many-to-one
+            name="person"
+            class="org.mlink.agent.model.Person"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="PERSON_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="shiftRef"
+            class="org.mlink.agent.model.ShiftRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SHIFT_ID" 
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-WorkSchedule.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

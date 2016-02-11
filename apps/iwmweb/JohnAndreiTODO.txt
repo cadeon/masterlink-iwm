@@ -1,0 +1,78 @@
+ANDREI -LocatorEdit. Add validation and allow multiple emails.
+ANDREI DONE - LocatorData. add isDisplay column to database.  Per Roberto desc it optional and need further specs
+JOHN - Make a generic js object that will convert DWR objects to JSON.
+*DONE* JOHN - See if we can make a generic object for handling popups.
+ANDREI- TemplatePlanEdit. New field rangeStart and rangeEnd need discussuin with Roberto as how they are used and this is neww DDL.
+        Discussed with Roberto, may need to discuss with John Hartman
+JOHN - Objects. In v3 we display indications about whether data,task,group was customized. Also whether object is active we need a way to do this in v3.5 as well
+                see comments in objectList.jsp
+ANDREI -  TemplateTasks ServiceCalendar is new Task property. Needs disc with Roberto
+
+ANDREI: - TemplateData	: "Edit in Field" needs discussion with Roberto
+ANDREI: - ObjectTasks: Prototype is missing ActiveStatus and StartDate. Need dis with Roberto
+*DONE* John - create live search (text filter) javascript
+ANDREI: - Jobs table is too dense. Added createddate. Need disc with John
+ANDREI: - Jobs screen Failure Filter needs clarification
+
+*DONE* John - recheck css for datatables. some styles might have been over written
+*DONE* John - ajax call onChange (delayed) for the text filter
+*DONE* John - menu is too sensitive. delay or expand the area where the menu changes.
+John - on mouse over on jobs screen update a side panel with more detail
+*NOT DOING* John - can we condense the icon options (like ebay) into a drop down
+*DONE* John - hour min spinner control
+John - Finish adding icons
+*DONE* John - Jobs list need to resize the dropdowns
+*DONE* John - sign out need to apply focus to user name. enter should submit form.
+*NOT DOING* John - Jobs list need to make ebay like menus to save space.  Jobs screen is too crowded.
+John - Job list if we are using the history filter we need to make the edit screen read only.
+*DONE* John - Job list need to add style t table
+*DONE* John - Menu needs to go back to mouse over
+*DONE* John - need to add settings page
+*DONE* John - add password update to settings page
+*DONE* John - Job edit screen needs to be more nice looking
+*DONE* John - Job Schedule page layout needs work
+*DONE* John - Add Maintenance Request needs to be a popup
+John - For the calendar widget, can we disable past dates
+John - look into having the gears roll only when loading page content
+
+John - page is jumpy need to account for scroll bars on the popups
+
+John - research making the popups dragable
+
+John - keep popups hidden till the are populated
+
+*DONE* John - Edit Organization styles are messed up
+
+*DONE* John - when you blur a text filter it always does the search. that is annoying
+
+*DONE* John - on login screen error message isnt showing up in a good spot.
+*DONE* John - create maint request screen looks bad. fix it.
+*DONE* John - edit template task spacing is messed up. fix it.
+*DONE* John - spinner is busted in firefox.
+John - need task group icon for objects list
+Andrei - text filter should not be case sensitive
+John - dont show the page count until we get results back from the ajax. right now when the page loads you can see "no matching records" and you shouldnt.
+John - spacing between location and shift is wrong on worker calendar
+
+John - showCallBackMethod in the IWMCOmmon should be part of the datatable object and is only used for delete.  rename to delete callback.
+
+John -  menu is not gracefully resizing on browser window resize=======
+
+John - on history filter sub view where edit is.  view would have a new popup.  just do static
+html, all the fields should be there replace dropdowns with text input. andrei will hook 
+this into the backend.
+
+John - loading message doesnt show up till after the delete. Create an object then delete it.
+You should see the loading message isnt showing up when it should.
+
+*DONE* John - Job schedule. making lots of ajax calls on mouse over the jbs icon. fix that
+*DONE* John - Job schedule. if bubble then dont change to the hand. Or change to a popup.
+John - need to add * for required field
+
+*DONE* John - shrink staus column on jobs list.
+John - roberto is talking to ppl seeing if we can remove some columns on jobs list
+John - worker list name column needs to be aligned to the left
+*DONE* John - add organization popup says edit.
+
+John - templates data. display in field. should be Y/N rather 1/0
+*DONE* John - template reorder action. dropdown not displaying correctly. 123456 is the only option.

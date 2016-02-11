@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Class-Path: shared.jar agent.jar commons-beanutils-1.7.jar config/

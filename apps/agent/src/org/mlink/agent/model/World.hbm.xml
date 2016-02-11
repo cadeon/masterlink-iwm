@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.World"
+        table="WORLD"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="sequence">
+                <param name="sequence">world_seq</param>
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-World.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="isProduction"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="IS_PRODUCTION"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="name"
+        />
+
+        <property
+            name="schema"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="schema"
+        />
+
+        <property
+            name="parent"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="parent"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-World.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

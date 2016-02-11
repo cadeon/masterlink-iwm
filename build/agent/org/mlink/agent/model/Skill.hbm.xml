@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.Skill"
+        table="SKILL"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Skill.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <many-to-one
+            name="person"
+            class="org.mlink.agent.model.Person"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="PERSON_ID"
+        />
+
+        <many-to-one
+            name="skillLevelRef"
+            class="org.mlink.agent.model.SkillLevelRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="SKILL_LEVEL_ID"
+        />
+
+        <many-to-one
+            name="skillTypeRef"
+            class="org.mlink.agent.model.SkillTypeRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="SKILL_TYPE_ID"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Skill.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

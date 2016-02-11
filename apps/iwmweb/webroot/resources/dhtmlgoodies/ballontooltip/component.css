@@ -1,0 +1,45 @@
+#bubble_tooltip{
+    width:147px;
+    position:absolute;
+    display:none;
+}
+#bubble_tooltip .bubble_top{
+    background-image: url('images/bubble_top.gif');
+    background-repeat:no-repeat;
+    height:16px;
+}
+#bubble_tooltip .bubble_middle{
+    background-image: url('images/bubble_middle.gif');
+    background-repeat:repeat-y;
+    background-position:bottom left;
+    padding-left:7px;
+    padding-right:7px;
+}
+#bubble_tooltip .bubble_middle span{
+    position:relative;
+    top:-8px;
+    font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+    font-size:11px;
+}
+#bubble_tooltip .bubble_bottom{
+    background-image: url('images/bubble_bottom.gif');
+    background-repeat:no-repeat;
+    height:44px;
+    position:relative;
+    top:-6px;
+}
+/************************************************************************************************************
+(C) www.dhtmlgoodies.com, September 2005
+
+This is a script from www.dhtmlgoodies.com. You will find this and a lot of other scripts at our website.
+
+Terms of use:
+You are free to use this script as long as the copyright message is kept intact. However, you may not
+redistribute, sell or repost it without our permission.
+
+Thank you!
+
+www.dhtmlgoodies.com
+Alf Magne Kalleland
+
+************************************************************************************************************/

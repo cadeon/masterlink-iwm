@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.JobView"
+        table="JOBVIEW"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="OBJECT_ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-JobView.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="jobId"
+            type="java.lang.Long"
+            update="false"
+            insert="false"
+            column="JOBID"
+        />
+
+        <property
+            name="priority"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="PRIORITY"
+        />
+
+        <property
+            name="type"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="TYPE"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="DESCRIPTION"
+        />
+
+        <property
+            name="lastUpdate"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="LASTUPDATE"
+        />
+
+        <property
+            name="created"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="CREATED"
+        />
+
+        <property
+            name="completed"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="COMPLETED"
+        />
+
+        <property
+            name="dispatched"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="DISPATCHED"
+        />
+
+        <property
+            name="earliestStart"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="EARLIESTSTART"
+        />
+
+        <property
+            name="latestStart"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="LATESTSTART"
+        />
+
+        <property
+            name="finishBy"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="FINISHBY"
+        />
+
+        <property
+            name="status"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="STATUS"
+        />
+
+        <property
+            name="estTime"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="ESTIMATEDTIME"
+        />
+
+        <property
+            name="skillType"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="SKILLTYPE"
+        />
+
+        <property
+            name="skillLevel"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="SKILLLEVEL"
+        />
+
+        <property
+            name="workerActive"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="WORKERACTIVE"
+        />
+
+        <property
+            name="workSchedule"
+            type="java.lang.Long"
+            update="false"
+            insert="false"
+            column="WORKSCHEDULE"
+        />
+
+        <property
+            name="securityLevel"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="SECURITYLEVEL"
+        />
+
+        <property
+            name="locator"
+            type="java.lang.Long"
+            update="false"
+            insert="false"
+            column="LOCATOR"
+        />
+
+        <property
+            name="party"
+            type="java.lang.Long"
+            update="false"
+            insert="false"
+            column="PARTY"
+        />
+
+        <property
+            name="preceeds"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="PRECEEDS"
+        />
+
+        <property
+            name="incomplete"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="INCOMPLETE"
+        />
+
+        <property
+            name="ready"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="READY"
+        />
+
+        <property
+            name="scheduleResponsibility"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="SCHEDULERESPONSIBILITY"
+        />
+
+        <property
+            name="numWorkers"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="WORKERS"
+        />
+
+        <property
+            name="scheduleStatus"
+            type="java.lang.String"
+            update="false"
+            insert="false"
+            column="SCHEDULESTATUS"
+        />
+
+        <property
+            name="scheduleDate"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="SCHEDULEDATE"
+        />
+
+        <property
+            name="scheduled"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="SCHEDULED"
+        />
+
+        <property
+            name="started"
+            type="java.sql.Date"
+            update="false"
+            insert="false"
+            column="STARTED"
+        />
+
+        <property
+            name="time"
+            type="java.lang.Integer"
+            update="false"
+            insert="false"
+            column="TIME"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-JobView.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.vm:8080/" />
+<title>L002AddEditDelLocatorData</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">L002AddEditDelLocatorData</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Locators</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<!--Add a locator-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Locator']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='locators_edit']/div[1]/h2/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>parentLocatorFilter_0</td>
+	<td>index= 1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>parentLocatorFilter_1</td>
+	<td>index= 1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>parentLocatorFilter_2</td>
+	<td>index= 1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>parentLocatorFilter_3</td>
+	<td>index= 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AATest Locator</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>abbr</td>
+	<td>AATL</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>address</td>
+	<td>A1A 000 North</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>emergencyContact</td>
+	<td>Test@test.com, Test2@test2.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inServiceDate</td>
+	<td>03/20/2014</td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>inServiceDate</td>
+	<td></td>
+</tr>
+<!--Right click to close cal-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>pagemeter_pageSize</td>
+	<td>label=250</td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>CJI.01.In.1st.AATL</td>
+	<td></td>
+</tr>
+<!--Edit the new locator locator data-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@id='CJI.01.In.1st.AATL']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Locator Data : AATest Locator</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Locator Data']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//span[@id='popupTitle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dataTypeId</td>
+	<td>index= 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dataLabel</td>
+	<td>TestLabel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dataValue</td>
+	<td>99999999999999999999</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>uomId</td>
+	<td>index= 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@id='TestLabel']</td>
+	<td></td>
+</tr>
+<!--Verify the fields populated-->
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[1]</td>
+	<td>Design Data</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[2]</td>
+	<td>TestLabel</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[3]</td>
+	<td>99999999999999999999</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[4]</td>
+	<td>Acreage</td>
+</tr>
+<!--Reopen Data and edit the fields-->
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//span[@id='popupTitle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dataTypeId</td>
+	<td>index= 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dataLabel</td>
+	<td>TestLabel2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dataValue</td>
+	<td>0000000000000000000000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>uomId</td>
+	<td>index= 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<!--Verify the fields populated-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Electrical Data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[1]</td>
+	<td>Electrical Data</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[2]</td>
+	<td>TestLabel2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[3]</td>
+	<td>0000000000000000000000</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[4]</td>
+	<td>British Thermal Units / Hour</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getAlert</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Back to Locator List']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>CJI.01.In.1st.AATL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='CJI.01.In.1st.AATL' and @name='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getAlert</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

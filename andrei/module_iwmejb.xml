@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="module_iwmejb" default="compile.module.iwmejb">
+
+  <dirname property="module.iwmejb.basedir" file="${ant.file.module_iwmejb}"/>
+
+  
+
+  <property name="module.jdk.home.iwmejb" value="${project.jdk.home}"/>
+
+  <property name="module.jdk.classpath.iwmejb" value="${project.jdk.classpath}"/>
+
+  
+
+  <property name="compiler.args.iwmejb" value="${compiler.args}"/>
+
+  
+
+  <property name="iwmejb.output.dir" value="${module.iwmejb.basedir}/../build/iwmejb/classes"/>
+
+  <property name="iwmejb.testoutput.dir" value="${module.iwmejb.basedir}/../build/iwmejb/classes"/>
+
+  
+
+  <path id="iwmejb.module.bootclasspath">
+
+    <!-- Paths to be included in compilation bootclasspath -->
+
+  </path>
+
+  
+
+  <path id="iwmejb.module.classpath">
+
+    <path refid="${module.jdk.classpath.iwmejb}"/>
+
+    <path refid="library.jboss_4.0.2.classpath"/>
+
+    <pathelement location="${shared.output.dir}"/>
+
+    <path refid="library.shared.classpath"/>
+
+    <path refid="library.tools.classpath"/>
+
+  </path>
+
+  
+
+  
+
+  <patternset id="excluded.from.module.iwmejb">
+
+    <patternset refid="ignored.files"/>
+
+  </patternset>
+
+  
+
+  <patternset id="excluded.from.compilation.iwmejb">
+
+    <patternset refid="excluded.from.module.iwmejb"/>
+
+  </patternset>
+
+  
+
+  <path id="iwmejb.module.sourcepath">
+
+    <dirset dir="${module.iwmejb.basedir}/../apps/iwmejb">
+
+      <include name="src"/>
+
+    </dirset>
+
+  </path>
+
+  
+
+  
+
+  <target name="compile.module.iwmejb" depends="compile.module.iwmejb.production,compile.module.iwmejb.tests" description="Compile module iwmejb"/>
+
+  
+
+  <target name="compile.module.iwmejb.production" depends="compile.module.shared" description="Compile module iwmejb; production classes">
+
+    <mkdir dir="${iwmejb.output.dir}"/>
+
+    <javac2 destdir="${iwmejb.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memoryMaximumSize="${compiler.max.memory}" fork="true" executable="${module.jdk.home.iwmejb}/bin/javac">
+
+      <compilerarg line="${compiler.args.iwmejb}"/>
+
+      <bootclasspath refid="iwmejb.module.bootclasspath"/>
+
+      <classpath refid="iwmejb.module.classpath"/>
+
+      <src refid="iwmejb.module.sourcepath"/>
+
+    </javac2>
+
+    
+
+    <copy todir="${iwmejb.output.dir}">
+
+      <fileset dir="${module.iwmejb.basedir}/../apps/iwmejb/src">
+
+        <patternset refid="compiler.resources"/>
+
+        <type type="file"/>
+
+      </fileset>
+
+    </copy>
+
+  </target>
+
+  
+
+  <target name="compile.module.iwmejb.tests" depends="compile.module.iwmejb.production" description="compile module iwmejb; test classes" unless="skip.tests"/>
+
+  
+
+  <target name="clean.module.iwmejb" description="cleanup module">
+
+    <delete dir="${iwmejb.output.dir}"/>
+
+    <delete dir="${iwmejb.testoutput.dir}"/>
+
+  </target>
+
+  
+
+  <property name="iwmejb.dir.exploded" value="${module.iwmejb.basedir}/../../../jboss-4.0.2/server/default/deploy/iwmapp35.ear/iwmejb.jar"/>
+
+  <property name="iwmejb.path.jar" value="${module.iwmejb.basedir}/../build/iwmejb/iwmejb.jar"/>
+
+  <target name="j2ee.build.iwmejb" depends="compile.module.iwmejb, compile.module.shared" description="Build configured J2EE directories and archives for module 'iwmejb'">
+
+    <antcall target="j2ee.build.exploded.iwmejb">
+
+      <param name="j2ee.dir.exploded" value="${iwmejb.dir.exploded}"/>
+
+    </antcall>
+
+    <antcall target="j2ee.build.jar.iwmejb">
+
+      <param name="j2ee.path.jar" value="${iwmejb.path.jar}"/>
+
+    </antcall>
+
+  </target>
+
+  <target name="j2ee.build.exploded.iwmejb" description="Build exploded directory for module 'iwmejb'">
+
+    <copy file="${module.iwmejb.basedir}/../apps/iwmejb/META-INF/jbosscmp-jdbc.xml" tofile="${j2ee.dir.exploded}/META-INF/jbosscmp-jdbc.xml"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/iwmejb/META-INF/jboss.xml" tofile="${j2ee.dir.exploded}/META-INF/jboss.xml"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/iwmejb/META-INF/ejb-jar.xml" tofile="${j2ee.dir.exploded}/META-INF/ejb-jar.xml"/>
+
+    <copy todir="${j2ee.dir.exploded}/">
+
+      <fileset dir="${module.iwmejb.basedir}/../build/iwmejb/classes"/>
+
+    </copy>
+
+  </target>
+
+  <target name="j2ee.build.jar.iwmejb" description="Build J2EE archive for module 'iwmejb'">
+
+    <dirname property="jar.dir" file="${j2ee.path.jar}"/>
+
+    <mkdir dir="${jar.dir}"/>
+
+    <jar destfile="${j2ee.path.jar}" duplicate="preserve">
+
+      <manifest>
+
+        <attribute name="Class-Path" value="antlr.jar commons-beanutils.jar commons-collections.jar commons-digester.jar commons-lang-2.0.jar commons-logging.jar commons-validator.jar jakarta-oro.jar velocity-1.4.jar velocity-dep-1.4.jar shared.jar"/>
+
+        <attribute name="Created-By" value="IntelliJ IDEA"/>
+
+        <attribute name="Manifest-Version" value="1.0"/>
+
+      </manifest>
+
+      <zipfileset dir="${module.iwmejb.basedir}/../build/iwmejb/classes" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../apps/iwmejb/META-INF/ejb-jar.xml" prefix="META-INF"/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../apps/iwmejb/META-INF/jboss.xml" prefix="META-INF"/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../apps/iwmejb/META-INF/jbosscmp-jdbc.xml" prefix="META-INF"/>
+
+    </jar>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/antlr.jar" tofile="${j2ee.path.jar}/../antlr.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/commons-beanutils.jar" tofile="${j2ee.path.jar}/../commons-beanutils.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/commons-collections.jar" tofile="${j2ee.path.jar}/../commons-collections.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/commons-digester.jar" tofile="${j2ee.path.jar}/../commons-digester.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/commons-lang-2.0.jar" tofile="${j2ee.path.jar}/../commons-lang-2.0.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/commons-logging.jar" tofile="${j2ee.path.jar}/../commons-logging.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/commons-validator.jar" tofile="${j2ee.path.jar}/../commons-validator.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/jakarta-oro.jar" tofile="${j2ee.path.jar}/../jakarta-oro.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/velocity-1.4.jar" tofile="${j2ee.path.jar}/../velocity-1.4.jar"/>
+
+    <copy file="${module.iwmejb.basedir}/../apps/lib/velocity-dep-1.4.jar" tofile="${j2ee.path.jar}/../velocity-dep-1.4.jar"/>
+
+    <jar destfile="${j2ee.path.jar}/../shared.jar" duplicate="preserve">
+
+      <manifest>
+
+        <attribute name="Created-By" value="IntelliJ IDEA"/>
+
+        <attribute name="Manifest-Version" value="1.0"/>
+
+      </manifest>
+
+      <fileset dir="${module.shared.basedir}/../build/shared/classes"/>
+
+    </jar>
+
+  </target>
+
+</project>

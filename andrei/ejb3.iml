@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="false" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="IWMPU" value="mlink_vcc" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/../apps/ejb3/META-INF/persistence.xml" optional="false" version="1.0" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../build/ejb3" />
+    <exclude-output />
+    <output-test url="file://$MODULE_DIR$/../build/ejb3" />
+    <content url="file://$MODULE_DIR$/../apps/ejb3">
+      <sourceFolder url="file://$MODULE_DIR$/../apps/ejb3/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../apps/ejb3/tests" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Jboss" level="project" />
+    <orderEntry type="module" module-name="shared" />
+    <orderEntry type="library" name="Shared" level="project" />
+    <orderEntry type="library" name="JBossWS" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/javaee.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Tools" level="project" />
+    <orderEntryProperties />
+  </component>
+</module>
+

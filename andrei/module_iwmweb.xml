@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="module_iwmweb" default="compile.module.iwmweb">
+
+  <dirname property="module.iwmweb.basedir" file="${ant.file.module_iwmweb}"/>
+
+  
+
+  <property name="module.jdk.home.iwmweb" value="${project.jdk.home}"/>
+
+  <property name="module.jdk.classpath.iwmweb" value="${project.jdk.classpath}"/>
+
+  
+
+  <property name="compiler.args.iwmweb" value="${compiler.args}"/>
+
+  
+
+  <property name="iwmweb.output.dir" value="${module.iwmweb.basedir}/../build/iwmweb/webroot/WEB-INF/classes"/>
+
+  <property name="iwmweb.testoutput.dir" value="${module.iwmweb.basedir}/../build/iwmweb/webroot/WEB-INF/classes"/>
+
+  
+
+  <path id="iwmweb.module.bootclasspath">
+
+    <!-- Paths to be included in compilation bootclasspath -->
+
+  </path>
+
+  
+
+  <path id="iwmweb.module.classpath">
+
+    <path refid="${module.jdk.classpath.iwmweb}"/>
+
+    <path refid="library.jboss_4.0.2.classpath"/>
+
+    <path refid="library.shared.classpath"/>
+
+    <path refid="library.tools.classpath"/>
+
+    <pathelement location="${iwmejb.output.dir}"/>
+
+    <pathelement location="${shared.output.dir}"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/standard.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/dwr.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/jfreechart-1.0.0-rc1.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts-legacy.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts-el.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/jasperreports-1.2.0.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/jcommon-1.0.0-rc1.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/poi-2.0-final-20040126.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/jstl.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/ajax-wrapper-comp.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/jakarta-oro.jar"/>
+
+    <pathelement location="${module.iwmweb.basedir}/../apps/iwmweb/lib/itext-1.4.1.jar"/>
+
+  </path>
+
+  
+
+  
+
+  <patternset id="excluded.from.module.iwmweb">
+
+    <patternset refid="ignored.files"/>
+
+  </patternset>
+
+  
+
+  <patternset id="excluded.from.compilation.iwmweb">
+
+    <patternset refid="excluded.from.module.iwmweb"/>
+
+  </patternset>
+
+  
+
+  <path id="iwmweb.module.sourcepath">
+
+    <dirset dir="${module.iwmweb.basedir}/../apps/iwmweb">
+
+      <include name="src"/>
+
+    </dirset>
+
+  </path>
+
+  
+
+  
+
+  <target name="compile.module.iwmweb" depends="compile.module.iwmweb.production,compile.module.iwmweb.tests" description="Compile module iwmweb"/>
+
+  
+
+  <target name="compile.module.iwmweb.production" depends="compile.module.shared,compile.module.iwmejb" description="Compile module iwmweb; production classes">
+
+    <mkdir dir="${iwmweb.output.dir}"/>
+
+    <javac2 destdir="${iwmweb.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memoryMaximumSize="${compiler.max.memory}" fork="true" executable="${module.jdk.home.iwmweb}/bin/javac">
+
+      <compilerarg line="${compiler.args.iwmweb}"/>
+
+      <bootclasspath refid="iwmweb.module.bootclasspath"/>
+
+      <classpath refid="iwmweb.module.classpath"/>
+
+      <src refid="iwmweb.module.sourcepath"/>
+
+    </javac2>
+
+    
+
+    <copy todir="${iwmweb.output.dir}">
+
+      <fileset dir="${module.iwmweb.basedir}/../apps/iwmweb/src">
+
+        <patternset refid="compiler.resources"/>
+
+        <type type="file"/>
+
+      </fileset>
+
+    </copy>
+
+  </target>
+
+  
+
+  <target name="compile.module.iwmweb.tests" depends="compile.module.iwmweb.production" description="compile module iwmweb; test classes" unless="skip.tests"/>
+
+  
+
+  <target name="clean.module.iwmweb" description="cleanup module">
+
+    <delete dir="${iwmweb.output.dir}"/>
+
+    <delete dir="${iwmweb.testoutput.dir}"/>
+
+  </target>
+
+  
+
+  <property name="iwmweb.dir.exploded" value="${module.iwmweb.basedir}/../../../jboss-4.0.2/server/default/deploy/iwmapp35.ear/iwmweb.war"/>
+
+  <property name="iwmweb.path.jar" value="${module.iwmweb.basedir}/../build/iwmweb/iwmweb.war"/>
+
+  <target name="j2ee.build.iwmweb" depends="compile.module.iwmweb, compile.module.shared" description="Build configured J2EE directories and archives for module 'iwmweb'">
+
+    <antcall target="j2ee.build.exploded.iwmweb">
+
+      <param name="j2ee.dir.exploded" value="${iwmweb.dir.exploded}"/>
+
+    </antcall>
+
+    <antcall target="j2ee.build.jar.iwmweb">
+
+      <param name="j2ee.path.jar" value="${iwmweb.path.jar}"/>
+
+    </antcall>
+
+  </target>
+
+  <target name="j2ee.build.exploded.iwmweb" description="Build exploded directory for module 'iwmweb'">
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/webroot/WEB-INF/jboss-web.xml" tofile="${j2ee.dir.exploded}/WEB-INF/jboss-web.xml"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/webroot/WEB-INF/web.xml" tofile="${j2ee.dir.exploded}/WEB-INF/web.xml"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/struts.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts-legacy.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/struts-legacy.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts-el.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/struts-el.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/standard.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/standard.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/poi-2.0-final-20040126.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/poi-2.0-final-20040126.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jstl.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/jstl.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jfreechart-1.0.0-rc1.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/jfreechart-1.0.0-rc1.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jcommon-1.0.0-rc1.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/jcommon-1.0.0-rc1.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jasperreports-1.2.0.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/jasperreports-1.2.0.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jakarta-oro.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/jakarta-oro.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/itext-1.4.1.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/itext-1.4.1.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/dwr.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/dwr.jar"/>
+
+    <copy file="${module.iwmweb.basedir}/../apps/iwmweb/lib/ajax-wrapper-comp.jar" tofile="${j2ee.dir.exploded}/WEB-INF/lib/ajax-wrapper-comp.jar"/>
+
+    <copy todir="${j2ee.dir.exploded}/WEB-INF/classes">
+
+      <fileset dir="${module.iwmweb.basedir}/../apps/iwmweb/lib"/>
+
+    </copy>
+
+    <copy todir="${j2ee.dir.exploded}/">
+
+      <fileset dir="${module.iwmweb.basedir}/../apps/iwmweb/webroot"/>
+
+    </copy>
+
+    <copy todir="${j2ee.dir.exploded}/WEB-INF/classes">
+
+      <fileset dir="${module.iwmweb.basedir}/../build/iwmweb/webroot/WEB-INF/classes"/>
+
+    </copy>
+
+  </target>
+
+  <target name="j2ee.build.jar.iwmweb" description="Build J2EE archive for module 'iwmweb'">
+
+    <dirname property="jar.dir" file="${j2ee.path.jar}"/>
+
+    <mkdir dir="${jar.dir}"/>
+
+    <jar destfile="${j2ee.path.jar}" duplicate="preserve">
+
+      <manifest>
+
+        <attribute name="Class-Path" value="shared.jar"/>
+
+        <attribute name="Created-By" value="IntelliJ IDEA"/>
+
+        <attribute name="Manifest-Version" value="1.0"/>
+
+      </manifest>
+
+      <zipfileset dir="${module.iwmweb.basedir}/../build/iwmweb/webroot/WEB-INF/classes" prefix="WEB-INF/classes"/>
+
+      <zipfileset dir="${module.iwmweb.basedir}/../apps/iwmweb/webroot" prefix=""/>
+
+      <zipfileset dir="${module.iwmweb.basedir}/../apps/iwmweb/lib" prefix="WEB-INF/classes"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/ajax-wrapper-comp.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/dwr.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/itext-1.4.1.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jakarta-oro.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jasperreports-1.2.0.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jcommon-1.0.0-rc1.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jfreechart-1.0.0-rc1.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/jstl.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/poi-2.0-final-20040126.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/standard.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts-el.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts-legacy.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/lib/struts.jar" prefix="WEB-INF/lib"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/webroot/WEB-INF/web.xml" prefix="WEB-INF"/>
+
+      <zipfileset file="${module.iwmweb.basedir}/../apps/iwmweb/webroot/WEB-INF/jboss-web.xml" prefix="WEB-INF"/>
+
+    </jar>
+
+    <jar destfile="${j2ee.path.jar}/../shared.jar" duplicate="preserve">
+
+      <manifest>
+
+        <attribute name="Created-By" value="IntelliJ IDEA"/>
+
+        <attribute name="Manifest-Version" value="1.0"/>
+
+      </manifest>
+
+      <fileset dir="${module.shared.basedir}/../build/shared/classes"/>
+
+    </jar>
+
+  </target>
+
+</project>

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE dwr PUBLIC
+        "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+        "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+
+<dwr>
+    <allow>
+
+        <convert converter="bean" match="java.lang.Object"/>
+
+        <create creator="new" javascript="JDate">
+            <param name="class" value="java.util.Date"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="Locators">
+            <param name="class" value="org.mlink.iwm.dwr.Locators"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.Locator"/>
+        <convert converter="bean" match="org.mlink.iwm.bean.ResponsePage"/>
+        <convert converter="bean" match="org.mlink.iwm.lookup.OptionItem"/>
+
+
+
+        <create creator="new" scope="application" javascript="Organizations">
+            <param name="class" value="org.mlink.iwm.dwr.Organizations"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.Organization"/>
+
+
+        <create creator="new" scope="application" javascript="SessionUtil">
+            <param name="class" value="org.mlink.iwm.dwr.SessionUtil"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="ValidationUtil">
+            <param name="class" value="org.mlink.iwm.dwr.ValidationUtil"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="FilterSupport">
+            <param name="class" value="org.mlink.iwm.dwr.FilterSupport"/>
+        </create>
+        <!--EWRequest use only-->
+        <create creator="new" scope="application" javascript="LocatorFilter">
+            <param name="class" value="org.mlink.iwm.dwr.LocatorFilter"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="Templates">
+            <param name="class" value="org.mlink.iwm.dwr.Templates"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.Template"/>
+        <convert converter="bean" match="org.mlink.iwm.bean.ServicePlan"/>
+
+        <create creator="new" scope="application" javascript="LocatorsData">
+            <param name="class" value="org.mlink.iwm.dwr.LocatorsData"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.LocatorData"/>
+
+        <create creator="new" scope="application" javascript="Objects">
+            <param name="class" value="org.mlink.iwm.dwr.Objects"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ObjectInstance"/>
+
+        <create creator="new" scope="application" javascript="TemplatesData">
+            <param name="class" value="org.mlink.iwm.dwr.TemplatesData"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TemplateData"/>
+
+        <create creator="new" scope="application" javascript="ObjectsData">
+            <param name="class" value="org.mlink.iwm.dwr.ObjectsData"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ObjectData"/>
+
+        <create creator="new" scope="application" javascript="TemplateTasks">
+            <param name="class" value="org.mlink.iwm.dwr.TemplateTasks"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TemplateTask"/>
+
+        <create creator="new" scope="application" javascript="ObjectTasks">
+            <param name="class" value="org.mlink.iwm.dwr.ObjectTasks"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ObjectTask"/>
+
+        <create creator="new" scope="application" javascript="TemplateTaskGroups">
+            <param name="class" value="org.mlink.iwm.dwr.TemplateTaskGroups"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TaskGroupTemplate"/>
+
+        <create creator="new" scope="application" javascript="TaskGroups">
+            <param name="class" value="org.mlink.iwm.dwr.TaskGroups"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TaskGroup"/>
+
+        <create creator="new" scope="application" javascript="TemplateTaskActions">
+            <param name="class" value="org.mlink.iwm.dwr.TemplateTaskActions"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TemplateTaskAction"/>
+
+        <create creator="new" scope="application" javascript="TaskActions">
+            <param name="class" value="org.mlink.iwm.dwr.TaskActions"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TaskAction"/>
+
+        <create creator="new" scope="application" javascript="Workers">
+            <param name="class" value="org.mlink.iwm.dwr.Workers"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.Worker"/>
+
+        <create creator="new" scope="application" javascript="SystemProps">
+            <param name="class" value="org.mlink.iwm.dwr.SystemProps"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.SystemProp"/>
+        
+        <create creator="new" scope="application" javascript="ShiftRefs">
+            <param name="class" value="org.mlink.iwm.dwr.ShiftRefs"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ShiftRef"/>
+        
+        <create creator="new" scope="application" javascript="SkillTypes">
+            <param name="class" value="org.mlink.iwm.dwr.SkillTypes"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.SkillType"/>
+        
+        <create creator="new" scope="application" javascript="Jobs">
+            <param name="class" value="org.mlink.iwm.dwr.Jobs"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.Job"/>
+
+        <create creator="new" scope="application" javascript="MobileWorkerJobs">
+            <param name="class" value="org.mlink.iwm.dwr.MobileWorkerJobs"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.MWJob"/>
+
+		<create creator="new" scope="application" javascript="MWLocations">
+            <param name="class" value="org.mlink.iwm.dwr.MWLocations"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.MWLocation"/>
+
+        <create creator="new" scope="application" javascript="JobTasks">
+            <param name="class" value="org.mlink.iwm.dwr.JobTasks"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.JobTask"/>
+
+        <create creator="new" scope="application" javascript="JobTaskActions">
+            <param name="class" value="org.mlink.iwm.dwr.JobTaskActions"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.JobTaskAction"/>
+
+        <create creator="new" scope="application" javascript="TimeSpecs">
+            <param name="class" value="org.mlink.iwm.dwr.TimeSpecs"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TimeSpec"/>
+
+        <create creator="new" scope="application" javascript="ScheduledJobs">
+            <param name="class" value="org.mlink.iwm.dwr.ScheduledJobs"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ScheduledJob"/>
+         
+        <create creator="new" scope="application" javascript="JobSchedules">
+            <param name="class" value="org.mlink.iwm.dwr.JobSchedules"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.WorkSchedule"/>
+
+        <create creator="new" scope="application" javascript="JobHistory">
+            <param name="class" value="org.mlink.iwm.dwr.JobHistory"/>
+        </create>
+        <create creator="new" scope="application" javascript="Counters">
+            <param name="class" value="org.mlink.iwm.dwr.Counters"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.KeyValuePair"/>
+
+        <create creator="new" scope="application" javascript="TenantRequests">
+            <param name="class" value="org.mlink.iwm.dwr.TenantRequests"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.TenantRequest"/>
+
+        <create creator="new" scope="application" javascript="UserRoles">
+            <param name="class" value="org.mlink.iwm.dwr.UserRoles"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.UserRole"/>
+
+        <create creator="new" scope="application" javascript="JobTaskTimes">
+            <param name="class" value="org.mlink.iwm.dwr.JobTaskTimes"/>
+        </create>
+
+
+        <create creator="new" scope="application" javascript="WorkScheduleJobs">
+            <param name="class" value="org.mlink.iwm.dwr.WorkScheduleJobs"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="ObjectCreateWizard">
+            <param name="class" value="org.mlink.iwm.dwr.ObjectCreateWizard"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="JobCreateWizard">
+            <param name="class" value="org.mlink.iwm.dwr.JobCreateWizard"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="MobileWorkerJobTasks">
+            <param name="class" value="org.mlink.iwm.dwr.MobileWorkerJobTasks"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.JobTaskTime"/>
+
+        <create creator="new" scope="application" javascript="WorkerCreateWizard">
+            <param name="class" value="org.mlink.iwm.dwr.WorkerCreateWizard"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="Users">
+            <param name="class" value="org.mlink.iwm.dwr.Users"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.User"/>
+
+        <create creator="new" scope="application" javascript="Projects">
+            <param name="class" value="org.mlink.iwm.dwr.Projects"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.Project"/>
+
+        <create creator="new" scope="application" javascript="ProjectJobs">
+            <param name="class" value="org.mlink.iwm.dwr.ProjectJobs"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ProjectJob"/>
+
+        <create creator="new" scope="application" javascript="ProjectStencils">
+            <param name="class" value="org.mlink.iwm.dwr.ProjectStencils"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ProjectStencil"/>
+
+        <create creator="new" scope="application" javascript="ProjectStencilTasks">
+            <param name="class" value="org.mlink.iwm.dwr.ProjectStencilTasks"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ProjectStencilTask"/>
+
+        <create creator="new" scope="application" javascript="GlobalSearch">
+            <param name="class" value="org.mlink.iwm.dwr.GlobalSearch"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.GlobalSearchResponseItem"/>
+
+        <create creator="new" scope="application" javascript="Uploads">
+            <param name="class" value="org.mlink.iwm.dwr.Uploads"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="Attachments">
+            <param name="class" value="org.mlink.iwm.dwr.Attachments"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="AgentToolsLog">
+            <param name="class" value="org.mlink.iwm.dwr.AgentToolsLog"/>
+        </create>
+
+        <create creator="new" scope="application" javascript="ProjectItems">
+            <param name="class" value="org.mlink.iwm.dwr.ProjectItems"/>
+        </create>
+        <convert converter="bean" match="org.mlink.iwm.bean.ProjectItems"/>
+
+        <create creator="new" scope="application" javascript="CustomRequest">
+            <param name="class" value="org.mlink.iwm.dwr.CustomRequest"/>
+        </create>
+
+    </allow>
+
+
+    <!-- this defines HashMap key and value datatypes in getData method. This is done to avoid annoying warning from uk.ltd.getahead.dwr.impl.DefaultConverterManager
+        'Missing type info for getData(0<0>). Assuming this is a map with String keys. Please add to <signatures> in dwr.xml'-->
+    <signatures>
+        <![CDATA[
+            import java.util.HashMap;
+            import org.mlink.iwm.dwr.*;
+            Workers.getData(HashMap<String,String>,int, int ,String ,String);
+            Workers.saveItem(HashMap<String,String>);
+            Jobs.getData(HashMap<String,String>,int, int ,String ,String);
+            Jobs.saveItem(HashMap<String,String>);
+            JobSchedules.getData(HashMap<String,String>,int, int ,String ,String);
+            JobSchedules.saveItem(HashMap<String,String>);
+            JobTaskActions.getData(HashMap<String,String>,int, int ,String ,String);
+            JobTaskActions.saveItem(HashMap<String,String>);
+            JobTasks.getData(HashMap<String,String>,int, int ,String ,String);
+            JobTasks.saveItem(HashMap<String,String>);
+            Locators.getData(HashMap<String,String>,int, int ,String ,String);
+            Locators.saveItem(HashMap<String,String>);
+            LocatorsData.getData(HashMap<String,String>,int, int ,String ,String);
+            LocatorsData.saveItem(HashMap<String,String>);
+            MobileWorkerJobs.getData(HashMap<String,String>,int, int ,String ,String);
+            MobileWorkerJobs.saveItem(HashMap<String,String>);
+            MobileWorkerJobTasks.getData(HashMap<String,String>,int, int ,String ,String);
+            MobileWorkerJobTasks.saveItem(HashMap<String,String>);
+            Objects.getData(HashMap<String,String>,int, int ,String ,String);
+            Objects.getUnattachedData(HashMap<String,String>);
+            Objects.attachChild(int , int , int, int);
+            Objects.saveItem(HashMap<String,String>);
+            ObjectsData.getData(HashMap<String,String>,int, int ,String ,String);
+            ObjectsData.saveItem(HashMap<String,String>);
+            ObjectTasks.getData(HashMap<String,String>,int, int ,String ,String);
+            ObjectTasks.saveItem(HashMap<String,String>);
+            Organizations.getData(HashMap<String,String>,int, int ,String ,String);
+            Organizations.saveItem(HashMap<String,String>);
+            ProjectJobs.getData(HashMap<String,String>,int, int ,String ,String);
+            ProjectJobs.saveItem(HashMap<String,String>);
+            Projects.getData(HashMap<String,String>,int, int ,String ,String);
+            Projects.saveItem(HashMap<String,String>);
+            ProjectStencils.getData(HashMap<String,String>,int, int ,String ,String);
+            ProjectStencils.saveItem(HashMap<String,String>);
+            ProjectStencils.getHistory(HashMap<String,String>);
+            ProjectStencils.saveItem(HashMap<String,String>);
+            TaskActions.getData(HashMap<String,String>,int, int ,String ,String);
+            Jobs.saveItem(HashMap<String,String>);
+            TaskGroups.getData(HashMap<String,String>,int, int ,String ,String);
+            TaskGroups.saveItem(HashMap<String,String>);
+            Templates.getData(HashMap<String,String>,int, int ,String ,String);
+            Templates.saveItem(HashMap<String,String>);
+            TemplatesData.getData(HashMap<String,String>,int, int ,String ,String);
+            TemplatesData.saveItem(HashMap<String,String>);
+            TemplateTaskActions.getData(HashMap<String,String>,int, int ,String ,String);
+            TemplateTaskActions.saveItem(HashMap<String,String>);
+            TemplateTaskGroups.getData(HashMap<String,String>,int, int ,String ,String);
+            TemplateTaskGroups.saveItem(HashMap<String,String>);
+            TemplateTasks.getData(HashMap<String,String>,int, int ,String ,String);
+            TemplateTasks.saveItem(HashMap<String,String>);
+            TenantRequests.getData(HashMap<String,String>,int, int ,String ,String);
+            TenantRequests.saveItem(HashMap<String,String>);
+            TimeSpecs.getData(HashMap<String,String>,int, int ,String ,String);
+            TimeSpecs.saveItem(HashMap<String,String>);
+            ScheduledJobs.getData(HashMap<String,String>,int, int ,String ,String);
+            Uploads.getData(HashMap<String,String>,int, int ,String ,String);
+            Attachments.getData(HashMap<String,String>,int, int ,String ,String);
+            WorkScheduleJobs.getData(HashMap<String,String>,int, int ,String ,String);
+            JobHistory.getData(HashMap<String,String>);
+            JobTaskTimes.getData(HashMap<String,String>);
+            UserRoles.getData(HashMap<String,String>);
+            WorkerCreateWizard.saveWorkerInfo(HashMap<String,String>);
+            ObjectCreateWizard.getData(HashMap<String,String>);
+            TemplateTasks.getTemplates(HashMap<String,String>);
+            TemplateTasks.saveItem(HashMap<String,String>);
+            JobCreateWizard.getObjects(HashMap<String,String>,int, int ,String ,String);
+            ProjectItems.getData(HashMap<String,String>);  
+            MWLocations.getData(HashMap<String,String>,int, int ,String ,String);          
+            JobTaskActions.startTask(long, long, String);
+            JobTaskActions.stopTask(long, long, String);
+            ]]>
+    </signatures>
+</dwr>

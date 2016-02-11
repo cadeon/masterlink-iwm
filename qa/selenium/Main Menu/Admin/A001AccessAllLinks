@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.vm:8080/" />
+<title>A001AccessAllLinks</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">A001AccessAllLinks</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/JobList.do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>loginHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>System Properties</td>
+	<td></td>
+</tr>
+<!--Choose each green link and make sure it navigates to a working page-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Uploads</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Uploaded Content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Uploaded Content</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Browse Worker Schedules</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Worker Schedules</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Worker Schedules</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Browse Scheduled Jobs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Scheduled Jobs</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Scheduled Jobs</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Agent Tools</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Agent Tools</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Agent Tools</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=System Properties</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Property List</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Property List</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Shift Refs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Shift Ref List</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Shift Ref List</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Skill Types</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Skill Type List</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Skill Type List</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Mobile Worker Location</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Worker Location and Work Time</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Worker Location and Work Time</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>System Properties</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--Finish-->
+
+</tbody></table>
+</body>
+</html>

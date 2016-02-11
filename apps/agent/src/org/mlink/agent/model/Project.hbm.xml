@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.Project"
+        table="PROJECT"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="sequence">
+                <param name="sequence">project_seq</param>
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Project.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="createdDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="CREATED_DATE"
+        />
+
+        <property
+            name="latestStartDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="LATEST_START_DATE"
+        />
+
+        <property
+            name="earliestStartDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="EARLIEST_START_DATE"
+        />
+
+        <property
+            name="finishbyDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="FINISHBY_DATE"
+        />
+
+        <property
+            name="createdBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="CREATEDBY"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="NAME"
+        />
+
+        <many-to-one
+            name="projectTypeRef"
+            class="org.mlink.agent.model.ProjectTypeRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="PROJECT_TYPE_ID" 
+            />
+        </many-to-one>
+
+        <set
+            name="jobs"
+            lazy="true"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="PROJECT_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.Job"
+            />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Project.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

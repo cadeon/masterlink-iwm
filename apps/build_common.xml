@@ -1,0 +1,64 @@
+<project name="build.common" default="" basedir=".">
+
+    <property file="local.build.properties"/>
+    <property file="build.properties"/>
+
+    <patternset id="ignored.files">
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/SCCS/**"/>
+        <exclude name="**/RCS/**"/>
+        <exclude name="**/rcs/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.svn/**"/>
+    </patternset>
+
+    <patternset id="compiler.resources">
+        <include name="**/?*.properties"/>
+        <include name="**/?*.xml"/>
+        <include name="**/?*.gif"/>
+        <include name="**/?*.png"/>
+        <include name="**/?*.jpeg"/>
+        <include name="**/?*.jpg"/>
+        <include name="**/?*.html"/>
+        <include name="**/?*.dtd"/>
+        <include name="**/?*.tld"/>
+        <include name="**/?*.vm"/>
+        <include name="**/?*.mf"/>
+        <include name="**/?*.MF"/>
+        <include name="**/?*.xsd"/>
+        <include name="**/?*.jrxml"/>
+        <!--include name="**/?*.sh"/>
+        <include name="**/?*.par"/>
+        <include name="**/?*.ksh"/>
+        <include name="**/?*.sql"/>
+        <include name="**/?*.par"/-->
+    </patternset>
+
+    <path id="project.classpath" >
+    	<fileset dir="${jboss.home}/lib/endorsed">
+    		<include name="*.jar"/>
+    	</fileset>
+        <fileset dir="${lib}" >
+            <include name="*.jar"/>
+        </fileset>
+    	<fileset dir="${jboss.home}/client" >
+            <include name="jboss-jaxws.jar"/>
+            <include name="jaxb-api.jar"/>
+            <include name="jbossall-client.jar"/>
+    		<include name="jbossws-spi.jar"/>
+        </fileset>
+    	<fileset dir="${tools}" >
+            <include name="*.jar"/>
+        </fileset>    	
+	  		
+    	<!-- javax.persistence.* -->
+		<fileset dir="${jboss.home}/common/lib">
+	   		<include name="ejb3-persistence.jar"/>
+	   	</fileset>
+
+        <!-- was used jboss' WebAuthentication class-->
+        <fileset dir="${jboss.home}/server/default/deploy/jbossweb.sar" >
+            <include name="jbossweb.jar"/>
+        </fileset> 	
+    </path>
+</project>

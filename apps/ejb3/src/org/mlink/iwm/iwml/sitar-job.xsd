@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="jobType">
+        <xs:sequence>
+            <xs:element name="jcn" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="locator" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="organization" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <!--xs:element name="skill" type="skillType" minOccurs="1" maxOccurs="1"/-->
+            <xs:element name="number-of-workers" type="xs:integer" minOccurs="0" maxOccurs="1" default="1"/>
+            <xs:element name="work-unit-code" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="estimated-time" type="xs:integer" minOccurs="0" maxOccurs="1" default="60"/>
+            <xs:element name="priority" type="xs:string" minOccurs="0" maxOccurs="1" default="Medium"/>
+            <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+   <!--xs:complexType name="skillType">
+       <xs:attribute name="type" type="xs:string" use="required"/>
+       <xs:attribute name="level" type="xs:string" use="required"/>
+    </xs:complexType-->
+
+    <xs:complexType name="jobsType">
+        <xs:sequence>
+            <xs:element name="job" maxOccurs="unbounded" type="jobType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="sitar-jobs" type="jobsType">
+    </xs:element>
+</xs:schema>
+

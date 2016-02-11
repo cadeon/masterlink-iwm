@@ -1,0 +1,21 @@
+
+#environment specific properties. Provide values appropriate to your environment
+jboss.home=/usr/local/jboss
+project.root=/mlc/iwm_v35
+
+# global (all environments) properties. has been moved to global.build.properties
+# all build files have been updated accordingly
+# this file is still used as template to build.properties which is for local env props only
+
+## Set these variable to run unit tests without a jboss instance:
+## They are used by DBAccess only if it fails to find a Datasource using
+## InitialContext .
+#database.driver=oracle.jdbc.driver.OracleDriver
+#database.url=jdbc:oracle:thin:@127.0.0.1:1521:xe
+#database.userid=my_user
+#database.password=my_user
+#database.schema=my_user
+
+
+
+

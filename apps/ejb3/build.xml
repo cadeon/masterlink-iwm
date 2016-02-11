@@ -1,0 +1,76 @@
+
+
+<project name="ejb3" default="exploded" basedir=".">
+
+    <property file="../local.build.properties"/>
+    <property file="../build.properties"/>
+
+    <property name="build.dir" value="${exploded.dir}/ejb3.jar"/>
+    <property name="source.dir" value="."/>
+
+    <import file="${project.root}/apps/build_common.xml"/>
+
+
+    <target name="init">
+        <!-- Create timestamp -->
+        <tstamp/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${exploded.dir}"/>
+    </target>
+
+    <path id="module.classpath">
+        <path refid="project.classpath"/>
+        <fileset dir="${exploded.dir}" >
+            <include name="*.jar"/>
+        </fileset>
+    	<pathelement location="${exploded.dir}/agent.jar"/>
+    </path>
+	
+    <target name="compile.tests" depends="compile" description="Compile test classes into the build directory">
+        <javac srcdir="${source.dir}/tests" destdir="${build.dir}" debug="${debugflag}">
+            <classpath refid="module.classpath" />
+        </javac>
+    </target>
+
+	<target name="test" depends="compile.tests">
+	   <junit printsummary="yes" 
+	          fork="yes"
+	          haltonfailure="no">
+				<classpath refid="module.classpath" />
+		  <formatter type="plain" usefile="false"/>
+		  <batchtest>
+		    <fileset dir="tests">
+		      <include name="**/*Test.java"/> 
+		    </fileset>
+		  </batchtest>
+		</junit>
+	</target>
+
+	<target name="runtest" depends="compile.tests">
+      <java classname="org.mlink.iwm.session.PolicyBeanTest" fork="yes" dir="tests">
+         <classpath refid="module.classpath"/>
+      </java>
+	</target>
+	
+    <target name="compile" depends="init" description="Compile ejb classes into the build directory">
+        <echo message="Compiling ejbs.. from ${source.dir}/src to ${build.dir}" />
+    	<echo message="${module.classpath}"/>
+        <javac srcdir="${source.dir}/src" destdir="${build.dir}" debug="${debugflag}" >
+            <classpath refid="module.classpath" />
+        </javac>
+        <copy todir="${build.dir}" preservelastmodified="true">
+            <fileset dir="${source.dir}">
+                <patternset refid="compiler.resources"/>
+                <exclude name="build.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="exploded" depends="compile" description="Default. Creates ejb-exploded folder">
+    </target>
+
+    <target name="clean" unless="noclean">
+        <delete dir="${build.dir}" failonerror="false"/>
+    </target>
+
+</project>

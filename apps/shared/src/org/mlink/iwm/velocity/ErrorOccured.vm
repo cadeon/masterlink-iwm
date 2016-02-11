@@ -1,0 +1,20 @@
+#parse("org/mlink/iwm/velocity/commonheader.vm")
+
+<div class="title">Application Generated an Error</div>
+
+#if($exceptionmessage)
+
+<div class="label">Exception Message:</div>
+    <div class="field">$exceptionmessage</div>
+#end
+
+#if($exceptionstacktrace)
+<div class="label">Stack Trace:</div>
+    <div class="exception">$exceptionstacktrace</div>
+#end
+
+
+
+
+
+

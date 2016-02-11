@@ -1,0 +1,100 @@
+html, body {
+ 	margin: 0px;
+    font-size: 14px;
+	height: 100%;
+	font-family: Arial, Sans-Serif;
+	background-color: white;
+}
+
+#theBody {
+	position: relative;
+	background-image: url('../images0/EWR_header.gif' );
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: white;
+	height: 100%;
+}
+
+#header {
+    color:white;
+    margin-left:60pt;
+    padding-top:5pt;
+    padding-bottom:10pt;
+    font-family: 'Century Gothic', Verdana, Arial, Sans-Serif;
+    font-size:18pt;
+}
+
+#footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    color: #AAA;
+	font-size: 10px;
+}
+
+#content {
+    margin-left: 30px;
+	padding: 10px;
+}
+
+#greeting {
+    position:relative;
+    font-size: 12px;
+    width:370px;
+    left:530px;
+}
+
+
+#defectInfo{
+    margin-top:10px;
+    position:absolute;
+    width:500px;
+}
+
+#exception-text {
+    display:none;
+    margin-left:10px;
+    margin-right:20px;
+    margin-top:5px;
+    background-color:khaki;
+    z-index:5;
+}
+#exception {
+    font-family: Arial, Sans-Serif;
+    font-size:14pt; font-weight:bold;color:red;
+}
+
+.button {
+		margin-top: 15px;
+		margin-left: 5px;
+        color: #000000;
+		background-color: #E5E5E5;
+		cursor: pointer;
+		padding: 3px;
+        width:80px;
+}
+
+legend{
+    font-weight:bold;
+    font-size:10pt;
+}
+
+.formField {
+    padding-top: 10px;
+}
+
+.formField label{
+    width: 100px; float: left;
+}
+
+.formField select{
+    width: 180px;
+}
+
+.formField input{
+    width: 180px;
+}
+
+
+
+

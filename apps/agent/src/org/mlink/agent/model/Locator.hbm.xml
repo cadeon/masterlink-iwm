@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.Locator"
+        table="LOCATOR"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Locator.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="securityLevel"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="SECURITY_LEVEL"
+        />
+
+        <property
+            name="fullLocator"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FULL_LOCATOR"
+        />
+
+        <property
+            name="abbr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="ABBR"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="NAME"
+        />
+
+        <many-to-one
+            name="parent"
+            class="org.mlink.agent.model.Locator"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="PARENT_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="schemaRef"
+            class="org.mlink.agent.model.SchemaRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SCHEMA_ID" 
+            />
+        </many-to-one>
+
+        <property
+            name="topParentId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="TOP_PARENT_ID"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Locator.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

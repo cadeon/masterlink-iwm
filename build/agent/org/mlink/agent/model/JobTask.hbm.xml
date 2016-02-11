@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.JobTask"
+        table="JOB_TASK"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="sequence">
+                <param name="sequence">job_task_seq</param>
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-JobTask.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+            not-null="true"
+        />
+
+        <property
+            name="estimatedTime"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="ESTIMATED_TIME"
+            not-null="true"
+        />
+
+        <property
+            name="numberWorkers"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="NUMBER_WORKERS"
+            not-null="true"
+        />
+
+        <property
+            name="priorityId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="PRIORITY_ID"
+            not-null="true"
+        />
+
+        <property
+            name="skillLevelId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="SKILL_LEVEL_ID"
+            not-null="true"
+        />
+
+        <property
+            name="skillTypeId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="SKILL_TYPE_ID"
+            not-null="true"
+        />
+
+        <property
+            name="taskTypeId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="TASK_TYPE_ID"
+            not-null="true"
+        />
+
+        <many-to-one
+            name="job"
+            class="org.mlink.agent.model.Job"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="JOB_ID"
+            not-null="true"
+        />
+
+        <property
+            name="taskId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="TASK_ID"
+            not-null="true"
+        />
+
+        <set
+            name="jobTaskTimes"
+            lazy="true"
+            inverse="true"
+            cascade="all"
+            sort="unsorted"
+        >
+
+            <key
+                column="JOB_TASK_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.JobTaskTime"
+            />
+
+        </set>
+
+        <set
+            name="jobActions"
+            lazy="true"
+            inverse="true"
+            cascade="all"
+            sort="unsorted"
+        >
+
+            <key
+                column="JOB_TASK_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.JobAction"
+            />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-JobTask.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

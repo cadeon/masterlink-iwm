@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="iwmv35" default="all">
+
+  
+
+  
+
+  <property file="iwmv35.properties"/>
+
+  <!-- Uncomment the following property if no tests compilation is needed -->
+
+  <!-- 
+
+  <property name="skip.tests" value="true"/>
+
+   -->
+
+  
+
+  <!-- The task requires the following libraries from IntelliJ IDEA distribution: -->
+
+  <!--   javac2.jar; jdom.jar; bcel.jar -->
+
+  <taskdef name="javac2" classname="com.intellij.uiDesigner.ant.Javac2"/>
+
+  
+
+  <!-- Compiler options -->
+
+  
+
+  <property name="compiler.debug" value="on"/>
+
+  <property name="compiler.generate.no.warnings" value="off"/>
+
+  <property name="compiler.args" value=""/>
+
+  <property name="compiler.max.memory" value="128m"/>
+
+  <patternset id="ignored.files">
+
+    <exclude name="**/CVS/**"/>
+
+    <exclude name="**/SCCS/**"/>
+
+    <exclude name="**/RCS/**"/>
+
+    <exclude name="**/rcs/**"/>
+
+    <exclude name="**/.DS_Store/**"/>
+
+    <exclude name="**/.svn/**"/>
+
+  </patternset>
+
+  <patternset id="compiler.resources">
+
+    <include name="**/?*.properties"/>
+
+    <include name="**/?*.xml"/>
+
+    <include name="**/?*.gif"/>
+
+    <include name="**/?*.png"/>
+
+    <include name="**/?*.jpeg"/>
+
+    <include name="**/?*.jpg"/>
+
+    <include name="**/?*.html"/>
+
+    <include name="**/?*.dtd"/>
+
+    <include name="**/?*.tld"/>
+
+    <include name="**/?*.vm"/>
+
+  </patternset>
+
+  
+
+  <!-- JDK definitions -->
+
+  <path id="jdk.classpath.1.5">
+
+    <fileset dir="${jdk.home.1.5}">
+
+      <include name="jre/lib/charsets.jar"/>
+
+      <include name="jre/lib/deploy.jar"/>
+
+      <include name="jre/lib/javaws.jar"/>
+
+      <include name="jre/lib/jce.jar"/>
+
+      <include name="jre/lib/jsse.jar"/>
+
+      <include name="jre/lib/plugin.jar"/>
+
+      <include name="jre/lib/rt.jar"/>
+
+      <include name="jre/lib/ext/dnsns.jar"/>
+
+      <include name="jre/lib/ext/localedata.jar"/>
+
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+
+    </fileset>
+
+  </path>
+
+  
+
+  <property name="project.jdk.home" value="${jdk.home.1.5}"/>
+
+  <property name="project.jdk.classpath" value="jdk.classpath.1.5"/>
+
+  
+
+  
+
+  <!-- Project Libraries -->
+
+  
+
+  <path id="library.tools.classpath">
+
+    <pathelement location="${basedir}/../tools/jboss-common-jdbc-wrapper.jar"/>
+
+    <pathelement location="${basedir}/../tools/jbossall-client.jar"/>
+
+    <pathelement location="${basedir}/../tools/junit.jar"/>
+
+    <pathelement location="${basedir}/../tools/log4j-1.2.8.jar"/>
+
+    <pathelement location="${basedir}/../tools/ojdbc14.jar"/>
+
+    <pathelement location="${basedir}/../tools/servlet.jar"/>
+
+    <pathelement location="${basedir}/../tools/mail.jar"/>
+
+    <pathelement location="${basedir}/../tools/activation.jar"/>
+
+  </path>
+
+  
+
+  <path id="library.shared.classpath">
+
+    <pathelement location="${basedir}/../apps/lib/antlr.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/commons-beanutils.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/commons-collections.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/commons-digester.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/commons-lang-2.0.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/commons-logging.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/commons-validator.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/jakarta-oro.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/velocity-1.4.jar"/>
+
+    <pathelement location="${basedir}/../apps/lib/velocity-dep-1.4.jar"/>
+
+  </path>
+
+  
+
+  
+
+  <!-- Application Server Libraries -->
+
+  
+
+  <path id="library.jboss_4.0.2.classpath">
+
+    <pathelement location="C:/jboss-4.0.2/server/all/lib/jboss-j2ee.jar"/>
+
+    <pathelement location="C:/jboss-4.0.2/server/all/lib/javax.servlet.jar"/>
+
+    <pathelement location="C:/jboss-4.0.2/server/all/lib/javax.servlet.jsp.jar"/>
+
+  </path>
+
+  
+
+  <!-- Modules -->
+
+  
+
+  <import file="${basedir}/EARBuild/module_earbuild.xml"/>
+
+  
+
+  <import file="${basedir}/module_iwmear.xml"/>
+
+  
+
+  <import file="${basedir}/module_shared.xml"/>
+
+  
+
+  <import file="${basedir}/module_iwmejb.xml"/>
+
+  
+
+  <import file="${basedir}/module_iwmweb.xml"/>
+
+  
+
+  <target name="init" description="Build initialization">
+
+    <!-- Perform any build initialization in this target -->
+
+  </target>
+
+  
+
+  <target name="clean" depends="clean.module.earbuild, clean.module.iwmear, clean.module.shared, clean.module.iwmejb, clean.module.iwmweb" description="cleanup all"/>
+
+  
+
+  <target name="all" depends="init, clean, j2ee.build.earbuild, compile.module.iwmear, compile.module.shared, j2ee.build.iwmejb, j2ee.build.iwmweb" description="build all"/>
+
+</project>

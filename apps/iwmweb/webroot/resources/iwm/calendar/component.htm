@@ -1,0 +1,17 @@
+<input type="text"  id="${uuid}"   size="9" name="${uuid}" onchange="onCalendarChange()">
+
+<!--button id="trigger.${uuid}" title="Choose date">...</button-->
+
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      inputField  : "${uuid}",             // ID of the input field
+      ifFormat    : "%m/%d/%Y",                                     // the date format
+      button      : "${uuid}",      // ID of the button
+      eventName   : "focus",
+      onUpdate    :  function f(){onDateUpdate()}
+    }
+  );
+  function onDateUpdate(){/*can be overriden by calling pages*/}
+  function onCalendarChange(){/*can be overriden by calling pages*/}
+</script>

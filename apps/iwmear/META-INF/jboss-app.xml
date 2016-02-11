@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE jboss-app PUBLIC "-//JBoss//DTD J2EE Application 1.4//EN"
+        "http://www.jboss.org/j2ee/dtd/jboss-app_4_0.dtd">
+<jboss-app>
+    <!--see disc on ClassLoading Configurations, flat vs scoped etc
+        http://wiki.jboss.org/wiki/Wiki.jsp?page=ClassLoadingConfiguration-->
+    <!--loader-repository>
+        universum:loader=iwm-loader-repository
+        <loader-repository-config>
+            java2ParentDelegation=false
+        </loader-repository-config>
+    </loader-repository-->
+    <module>
+        <har>agent.jar</har>
+    </module>
+</jboss-app>

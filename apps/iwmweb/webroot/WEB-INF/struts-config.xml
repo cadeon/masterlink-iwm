@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="MaintRequestForm"
+			type="org.mlink.iwm.struts.form.MaintRequestForm" />
+		<form-bean name="AgentToolsForm"
+			type="org.mlink.iwm.struts.form.AgentToolsForm" />
+		<form-bean name="DefectReportForm"
+			type="org.mlink.iwm.struts.form.DefectReportForm" />
+		<form-bean name="BaseForm"
+			type="org.mlink.iwm.struts.form.BaseForm" />
+		<form-bean name="WorldsMaintForm"
+			type="org.mlink.iwm.struts.form.WorldsMaintForm" />
+		<form-bean name="WorldSummaryForm"
+			type="org.mlink.iwm.struts.form.WorldSummaryForm" />
+		<form-bean name="ReportForm"
+			type="org.mlink.reports.form.ReportForm" />
+		<form-bean name="ExternalWorkRequestForm"
+			type="org.mlink.iwm.struts.form.ExternalWorkRequestForm" />
+		<form-bean name="MobileWorkerMaintForm"
+			type="org.mlink.iwm.struts.form.MobileWorkerMaintForm" />
+		<form-bean name="MobileWorkerTasksMaintForm"
+			type="org.mlink.iwm.struts.form.MobileWorkerTasksMaintForm" />
+		<form-bean name="ObjectDetailsForm"
+			type="org.mlink.iwm.struts.form.ObjectDetailsForm" />
+		<form-bean name="JobDetailsForm"
+			type="org.mlink.iwm.struts.form.JobDetailsForm" />
+		<form-bean name="WorkerDetailsForm"
+			type="org.mlink.iwm.struts.form.WorkerDetailsForm" />
+		<form-bean name="UploadForm"
+			type="org.mlink.iwm.upload.UploadForm" />
+
+		<form-bean name="Skill" type="org.mlink.iwm.bean.Skill" />
+		<form-bean name="CQLS" type="org.mlink.iwm.bean.CQLS" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="failure" path="/iwm/Error.jsp" redirect="false" />
+		<!--forward name="passwordUpdate" path="/PasswordUpdateRequired.do?forward=updateRequired" redirect="false"/-->
+		<forward name="passwordUpdate" path=".ChangePassword"
+			redirect="false" />
+		<forward name="home" path="/Home.do" redirect="true" />
+	</global-forwards>
+
+	<action-mappings>
+		<!-- IMPORTED from v3-->
+
+		<!-- Added by Chris, who doesn't really know what he's doing -->
+		<action path="/MWSync" type="org.mlink.iwm.web.action.MWSync"
+			name="BaseForm" validate="false" scope="request">
+		</action>
+
+		<action path="/ReadReport"
+			type="org.mlink.reports.action.ReadReport" name="ReportForm"
+			validate="false" scope="request">
+			<forward name="parameters"
+				path="/reports/PromptParameters.jsp" redirect="false" />
+		</action>
+
+		<action path="/ShiftTimingReport"
+			type="org.mlink.reports.action.ShiftTimingReport" name="ReportForm"
+			validate="false" scope="request">
+			<forward name="csv"
+				path="/reports/ShiftTimingReport.jsp" redirect="false" />
+		</action>
+
+		<action path="/DefectReport"
+			type="org.mlink.iwm.struts.action.DefectReport"
+			name="DefectReportForm" scope="request">
+			<forward name="read" path="/iwm/DefectReport.jsp"
+				redirect="false" />
+			<forward name="submit" path="/iwm/DefectReportSubmitted.jsp"
+				redirect="false" />
+		</action>
+
+		<action path="/Admin" type="org.mlink.iwm.struts.action.Admin"
+			name="BaseForm" validate="true" scope="request">
+			<forward name="read" path=".Admin" redirect="false" />
+		</action>
+
+		<action path="/ExternalWorkRequest"
+			type="org.mlink.iwm.struts.action.ExternalWorkRequest"
+			name="ExternalWorkRequestForm" validate="false" scope="request">
+			<forward name="welcome" path=".ExternalWorkRequestWelcome"
+				redirect="false" />
+			<forward name="new" path=".ExternalWorkRequestCreate"
+				redirect="false" />
+			<forward name="track" path=".ExternalWorkRequestTrack"
+				redirect="false" />
+		</action>
+
+		<!-- Chris adds internal work request from device -->
+
+		<action path="/InternalWorkRequest"
+			type="org.mlink.iwm.struts.action.TenantRequestMaint"
+			name="MaintRequestForm" validate="false" scope="request">
+			<forward name="read" path=".MaintRequestCreate"
+				redirect="false" />
+		</action>
+
+		<action path="/SubmitExternalWorkRequest"
+			type="org.mlink.iwm.struts.action.ExternalWorkRequest"
+			name="ExternalWorkRequestForm" validate="true" scope="request">
+			<forward name="submit"
+				path="/ExternalWorkRequest.do?forward=track&amp;message=&amp;jobId="
+				redirect="true" />
+		</action>
+
+		<action path="/AgentTools"
+			type="org.mlink.iwm.struts.action.AgentTools" name="AgentToolsForm"
+			validate="false" scope="request">
+			<forward name="read" path=".AgentTools" redirect="true" />
+			<forward name="jsm" path="/AgentTools.do?forward=read"
+				redirect="true" />
+			<forward name="planner" path="/AgentTools.do?forward=read"
+				redirect="true" />
+			<forward name="printStateMachine"
+				path="/AgentTools.do?forward=read" redirect="true" />
+			<forward name="reloadStateMachine"
+				path="/AgentTools.do?forward=read" redirect="true" />
+			<forward name="setAgentInterval"
+				path="/AgentTools.do?forward=read" redirect="true" />
+			<forward name="scheduler" path="/AgentTools.do?forward=read"
+				redirect="true" />
+			<forward name="shiftManager"
+				path="/AgentTools.do?forward=read" redirect="true" />
+			<forward name="runAllButPlanner"
+				path="/AgentTools.do?forward=read" redirect="true" />
+			<forward name="runAll" path="/AgentTools.do?forward=read"
+				redirect="true" />
+		</action>
+
+		<action path="/WorldsMaint"
+			type="org.mlink.iwm.struts.action.WorldsMaint" name="WorldsMaintForm"
+			validate="false" scope="request">
+			<forward name="read" path=".WorldsMaint" redirect="false" />
+			<forward name="select" path="/WorldsMaint.do?forward=read"
+				redirect="false" />
+			<forward name="delete" path="/WorldsMaint.do?forward=read"
+				redirect="false" />
+		</action>
+
+		<action path="/WorldSummary"
+			type="org.mlink.iwm.struts.action.WorldSummary"
+			name="WorldSummaryForm" validate="false" scope="request">
+			<forward name="clone" path=".WorldSummary" redirect="false" />
+			<forward name="delete" path=".WorldSummary"
+				redirect="false" />
+			<forward name="export" path=".WorldSummary"
+				redirect="false" />
+			<forward name="import" path=".WorldSummary"
+				redirect="false" />
+			<forward name="modify" path=".WorldSummary"
+				redirect="false" />
+			<forward name="read" path=".WorldSummary" redirect="false" />
+			<forward name="rename" path=".WorldSummary"
+				redirect="false" />
+			<forward name="reports" path=".WorldSummary"
+				redirect="false" />
+			<forward name="run" path=".WorldSummary" redirect="false" />
+		</action>
+
+		<action path="/Logout" forward="/Login.do?forward=logout" />
+
+		<action path="/Login" type="org.mlink.iwm.struts.action.Login"
+			name="BaseForm" validate="false" scope="request">
+			<forward name="login" path=".Login" redirect="true" />
+			<!-- used by j_security_check in web.xml-->
+			<forward name="error" path=".Login" redirect="true" />
+			<!-- used by j_security_check in web.xml-->
+			<forward name="access_denied" path=".Message"
+				redirect="true" />
+			<!-- used by j_security_check in web.xml-->
+			<forward name="logout" path="/Home.do" redirect="true" />
+			<forward name="passwordUpdateRequired"
+				path=".ChangePassword" redirect="true" />
+			<forward name="extend" path=".Login" redirect="true" />
+		</action>
+
+		<action path="/ChangePassword"
+			type="org.mlink.iwm.struts.action.Login" name="BaseForm"
+			validate="false" scope="request">
+			<forward name="login" path=".ChangePassword"
+				redirect="true" />
+			<forward name="error" path=".ChangePassword"
+				redirect="true" />
+		</action>
+
+		<!-- END IMPORTED-->
+
+		<action path="/Locators" name="BaseForm"
+			type="org.mlink.iwm.struts.action.LocatorMaint">
+			<forward name="read" path=".Locators" redirect="false" />
+			<forward name="test" path="/PageContextTest.jsp"
+				redirect="false" />
+		</action>
+
+		<action path="/Templates" name="BaseForm"
+			type="org.mlink.iwm.struts.action.TemplateMaint">
+			<forward name="read" path=".Templates" redirect="false" />
+		</action>
+
+		<!-- *********************************************** -->
+		<!-- DEFINE SECTION ******************************** -->
+
+		<!-- Locators -->
+		<action path="/LocatorList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.LocatorMaint">
+			<forward name="read" path=".LocatorList" redirect="false" />
+			<forward name="test" path=".LocatorList" redirect="false" />
+		</action>
+
+		<action path="/LocatorData" name="BaseForm"
+			type="org.mlink.iwm.struts.action.LocatorDataMaint">
+			<forward name="read" path=".LocatorData" redirect="false" />
+		</action>
+
+		<!-- Templates -->
+		<action path="/TemplateList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.TemplateMaint">
+			<forward name="read" path=".TemplateList" redirect="false" />
+		</action>
+		<action path="/TemplateData" name="BaseForm"
+			type="org.mlink.iwm.struts.action.TemplateDataMaint">
+			<forward name="read" path=".TemplateData" redirect="false" />
+		</action>
+
+		<action path="/TemplateTasks" name="BaseForm"
+			type="org.mlink.iwm.struts.action.TemplateTasksMaint">
+			<forward name="read" path=".TemplateTasks" redirect="false" />
+		</action>
+
+		<action path="/TemplateTaskActions" name="BaseForm"
+			type="org.mlink.iwm.struts.action.TemplateTaskActionsMaint">
+			<forward name="read" path=".TemplateTaskActions"
+				redirect="false" />
+		</action>
+
+		<action path="/TemplateTaskGroup" name="BaseForm"
+			type="org.mlink.iwm.struts.action.TemplateTaskGroupsMaint">
+			<forward name="read" path=".TemplateTaskGroup"
+				redirect="false" />
+		</action>
+
+		<!-- Organizations -->
+		<action path="/OrganizationList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.OrganizationMaint">
+			<forward name="read" path=".OrganizationList"
+				redirect="false" />
+		</action>
+
+		<action path="/OrganizationCalendar" name="BaseForm"
+			type="org.mlink.iwm.struts.action.OrganizationCalendarMaint">
+			<forward name="read" path=".OrganizationCalendar"
+				redirect="false" />
+		</action>
+
+		<!-- Workers -->
+		<action path="/WorkerList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.WorkerMaint">
+			<forward name="read" path=".WorkerList" redirect="false" />
+		</action>
+		
+		<action path="/WorkerDetails" name="WorkerDetailsForm"
+			type="org.mlink.iwm.struts.action.WorkerDetails">
+			<forward name="read" path=".WorkerDetails" redirect="false" />
+		</action>
+
+		<action path="/SystemPropList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.SystemPropMaint">
+			<forward name="read" path=".SystemPropList" redirect="false" />
+		</action>
+		
+		<action path="/ShiftRefList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ShiftRefMaint">
+			<forward name="read" path=".ShiftRefList" redirect="false" />
+		</action>
+		
+		<action path="/SkillTypeList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.SkillTypeMaint">
+			<forward name="read" path=".SkillTypeList" redirect="false" />
+		</action>
+		
+		<action path="/WorkerCalendar" name="BaseForm"
+			type="org.mlink.iwm.struts.action.WorkerCalendarMaint">
+			<forward name="read" path=".WorkerCalendar"
+				redirect="false" />
+		</action>
+
+		<action path="/WorkerCalendarJobs" name="BaseForm"
+			type="org.mlink.iwm.struts.action.WorkerCalendarJobsMaint">
+			<forward name="read" path=".WorkerCalendarJobs"
+				redirect="false" />
+		</action>
+
+		<action path="/OrganizationWorkerCalendarJobs" name="BaseForm"
+			type="org.mlink.iwm.struts.action.WorkerCalendarJobsMaint">
+			<forward name="read" path=".OrganizationWorkerCalendarJobs"
+				redirect="false" />
+		</action>
+
+
+		<action path="/WorkerManager" name="BaseForm"
+			type="org.mlink.iwm.struts.action.WorkerManagerMaint">
+			<forward name="read" path=".WorkerManager" redirect="false" />
+		</action>
+
+		<!-- ************************************************** -->
+		<!-- IMPLEMENT SECTION ******************************** -->
+		<action path="/ObjectList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ObjectMaint">
+			<forward name="read" path=".ObjectList" redirect="false" />
+		</action>
+
+		<action path="/ObjectDetails" name="ObjectDetailsForm"
+			type="org.mlink.iwm.struts.action.ObjectDetailsMaint">
+			<forward name="read" path=".ObjectDetails" redirect="false" />
+			<forward name="printLabel" path="/jsp/implement/objectDataPrintLabel.jsp" />
+		</action>
+
+		<action path="/ObjectTasks" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ObjectTasksMaint">
+			<forward name="read" path=".ObjectTasks" redirect="false" />
+		</action>
+
+		<action path="/ObjectTaskActions" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ObjectTaskActionsMaint">
+			<forward name="read" path=".ObjectTaskActions"
+				redirect="false" />
+		</action>
+
+		<action path="/ObjectTaskGroup" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ObjectTaskGroupsMaint">
+			<forward name="read" path=".ObjectTaskGroup"
+				redirect="false" />
+		</action>
+
+		<action path="/StencilList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.StencilMaint">
+			<forward name="read" path=".StencilList" redirect="false" />
+		</action>
+
+		<!-- StencilResources not yet functional-->
+		<action path="/StencilResources" name="BaseForm"
+			type="org.mlink.iwm.struts.action.StencilResourcesMaint">
+			<forward name="read" path=".StencilResources"
+				redirect="false" />
+		</action>
+
+		<action path="/ProjectStencilTasks" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ProjectStencilTaskMaint">
+			<forward name="read" path=".ProjectStencilTasks"
+				redirect="false" />
+		</action>
+
+		<!-- *********************************************** -->
+		<!-- CONTROL SECTION ******************************** -->
+
+
+		<action path="/TenantRequestMaint" name="MaintRequestForm"
+			type="org.mlink.iwm.struts.action.TenantRequestMaint">
+			<forward name="read" path=".TenantRequestMaint"
+				redirect="false" />
+			<forward name="submit" path="/InternalWorkRequest.do"
+				redirect="true" />
+		</action>
+
+		<action path="/MobileWorkerList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.WorkerMaint">
+			<forward name="read" path=".MobileWorkerList"
+				redirect="false" />
+		</action>
+
+		<action path="/MWLocationList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.MWLocationMaint">
+			<forward name="read" path=".MWLocationList"
+				redirect="false" />
+		</action>
+
+		<action path="/ScheduledJobs" name="BaseForm"
+			type="org.mlink.iwm.struts.action.WorkerMaint">
+			<forward name="read" path=".ScheduledJobList"
+				redirect="false" />
+		</action>
+
+		<action path="/MWJobs" name="MobileWorkerMaintForm"
+			type="org.mlink.iwm.struts.action.MobileWorkerMaint">
+			<forward name="read" path=".MobileWorker" redirect="false" />
+			<forward name="endshift" path="/Logout.do" redirect="false" />
+			<forward name="logout" path="/Logout.do" redirect="false" />
+			<forward name="message" path=".Message" redirect="false" />
+		</action>
+
+		<action path="/MobileWorkerTasks"
+			name="MobileWorkerTasksMaintForm"
+			type="org.mlink.iwm.struts.action.MobileWorkerTasksMaint">
+			<forward name="read" path=".MobileWorkerTasks"
+				redirect="false" />
+		</action>
+
+		<action path="/JobList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.JobMaint">
+			<forward name="read" path=".JobList" redirect="false" />
+		</action>
+
+		<action path="/ProjectList" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ProjectMaint">
+			<forward name="read" path=".ProjectList" redirect="false" />
+		</action>
+
+		<action path="/ProjectJobs" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ProjectJobsMaint">
+			<forward name="read" path=".ProjectJobs" redirect="false" />
+		</action>
+
+
+		<action path="/ProjectItems" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ProjectItems">
+			<forward name="read" path=".ProjectItems" redirect="false" />
+		</action>
+
+		<action path="/ProjectJobTasks" name="BaseForm"
+			type="org.mlink.iwm.struts.action.JobTasksMaint">
+			<forward name="read" path=".ProjectJobTasks"
+				redirect="false" />
+		</action>
+		<action path="/ProjectJobTaskActions" name="BaseForm"
+			type="org.mlink.iwm.struts.action.JobTaskActionsMaint">
+			<forward name="read" path=".ProjectJobTaskActions"
+				redirect="false" />
+		</action>
+
+
+
+		<action path="/Home" name="BaseForm"
+			type="org.mlink.iwm.struts.action.Home">
+			<forward name="jobs" path="/JobList.do" redirect="true" />
+			<forward name="mobileWorker" path="/MWJobs.do"
+				redirect="true" />
+		</action>
+
+
+		<action path="/JobTasks" name="BaseForm"
+			type="org.mlink.iwm.struts.action.JobTasksMaint">
+			<forward name="read" path=".JobTasks" redirect="false" />
+		</action>
+
+		<action path="/JobDetails" name="JobDetailsForm"
+			type="org.mlink.iwm.struts.action.JobDetails">
+			<forward name="read" path=".JobDetails" redirect="false" />
+		</action>
+		
+
+
+		<action path="/JobTaskActions" name="BaseForm"
+			type="org.mlink.iwm.struts.action.JobTaskActionsMaint">
+			<forward name="read" path=".JobTaskActions"
+				redirect="false" />
+		</action>
+
+		<action path="/JobSchedule" name="BaseForm"
+			type="org.mlink.iwm.struts.action.JobScheduleMaint">
+			<forward name="read" path=".JobSchedule" redirect="false" />
+		</action>
+
+		<action path="/ProjectJobSchedule" name="BaseForm"
+			type="org.mlink.iwm.struts.action.JobScheduleMaint">
+			<forward name="read" path=".ProjectJobSchedule"
+				redirect="false" />
+		</action>
+
+		<action path="/Reports" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ReportsMaint">
+			<forward name="read" path=".Reports" redirect="false" />
+		</action>
+
+		<action path="/WorkerSkillsMaint" name="Skill"
+			type="org.mlink.iwm.struts.action.WorkerSkillsMaint">
+			<forward name="read"
+				path="/jsp/define/popups/worker_skills_body.jsp" redirect="false" />
+			<forward name="addSkill"
+				path="/jsp/define/popups/worker_skills_body.jsp" redirect="false" />
+			<forward name="removeSkill"
+				path="/jsp/define/popups/worker_skills_body.jsp" redirect="false" />
+			<forward name="updateSkillLevel"
+				path="/jsp/define/popups/worker_skills_body.jsp" redirect="false" />
+			<forward name="save"
+				path="/jsp/define/popups/worker_skills_body.jsp" redirect="false" />
+		</action>
+
+		<action path="/WorkerCertificationsMaint" name="CQLS"
+			type="org.mlink.iwm.struts.action.WorkerCQLSMaint">
+			<forward name="read"
+				path="/jsp/define/popups/worker_certifications_body.jsp"
+				redirect="false" />
+			<forward name="add"
+				path="/jsp/define/popups/worker_certifications_body.jsp"
+				redirect="false" />
+			<forward name="remove"
+				path="/jsp/define/popups/worker_certifications_body.jsp"
+				redirect="false" />
+			<forward name="update"
+				path="/jsp/define/popups/worker_certifications_body.jsp"
+				redirect="false" />
+			<forward name="save"
+				path="/jsp/define/popups/worker_certifications_body.jsp"
+				redirect="false" />
+		</action>
+
+		<action path="/WorkerQualificationsMaint" name="CQLS"
+			type="org.mlink.iwm.struts.action.WorkerCQLSMaint">
+			<forward name="read"
+				path="/jsp/define/popups/worker_qualifications_body.jsp"
+				redirect="false" />
+			<forward name="add"
+				path="/jsp/define/popups/worker_qualifications_body.jsp"
+				redirect="false" />
+			<forward name="remove"
+				path="/jsp/define/popups/worker_qualifications_body.jsp"
+				redirect="false" />
+			<forward name="update"
+				path="/jsp/define/popups/worker_qualifications_body.jsp"
+				redirect="false" />
+			<forward name="save"
+				path="/jsp/define/popups/worker_qualifications_body.jsp"
+				redirect="false" />
+		</action>
+
+		<action path="/WorkerLicensesMaint" name="CQLS"
+			type="org.mlink.iwm.struts.action.WorkerCQLSMaint">
+			<forward name="read"
+				path="/jsp/define/popups/worker_licenses_body.jsp" redirect="false" />
+			<forward name="add"
+				path="/jsp/define/popups/worker_licenses_body.jsp" redirect="false" />
+			<forward name="remove"
+				path="/jsp/define/popups/worker_licenses_body.jsp" redirect="false" />
+			<forward name="update"
+				path="/jsp/define/popups/worker_licenses_body.jsp" redirect="false" />
+			<forward name="save"
+				path="/jsp/define/popups/worker_licenses_body.jsp" redirect="false" />
+		</action>
+
+		<action path="/Settings"
+			type="org.mlink.iwm.struts.action.Admin" name="BaseForm"
+			validate="true" scope="request">
+			<forward name="read" path=".Settings" redirect="false" />
+		</action>
+
+
+		<!-- ANALYZE -->
+
+		<!-- MEASURE -->
+		<action path="/ReportsMeasure" name="BaseForm"
+			type="org.mlink.iwm.struts.action.ReportsMaint">
+			<forward name="read" path=".ReportsMeasure"
+				redirect="false" />
+		</action>
+
+		<action path="/GlobalSearch" name="BaseForm"
+			type="org.mlink.iwm.struts.action.GlobalSearch">
+			<forward name="read" path=".GlobalSearch" redirect="false" />
+		</action>
+
+		<action path="/Attachments"
+			type="org.mlink.iwm.struts.action.AttachmentMaint" name="BaseForm">
+			<forward name="read" path=".Attachments" />
+			<forward name="view" path="/jsp/blank.jsp" />
+		</action>
+
+		<action path="/Uploads"
+			type="org.mlink.iwm.upload.UploadsAction" name="BaseForm">
+			<forward name="read" path=".Uploads" />
+			<forward name="view" path="" />
+		</action>
+
+		<action path="/Upload" type="org.mlink.iwm.upload.ChooseFile"
+			name="BaseForm">
+			<forward name="read" path=".Upload" />
+		</action>
+		<!-- Upload Action -->
+		<action path="/Upload-submit"
+			type="org.mlink.iwm.upload.UploadAction" name="UploadForm"
+			scope="request" input="input">
+			<!--forward name="input" path=".Upload" /-->
+			<forward name="input" path="/Upload.do" redirect="false" />
+			<forward name="integration" path=".UploadDisplay" />
+			<forward name="attachment"
+				path="/jsp/misc/popups/attachement_upload_response.jsp" />
+		</action>
+
+
+
+
+	</action-mappings>
+
+	<controller
+		processorClass="org.apache.struts.tiles.TilesRequestProcessor"
+		maxFileSize="2M" inputForward="true" />
+
+	<message-resources parameter="resources.application" />
+	<message-resources key="iwm.messages"
+		parameter="resources.messages" />
+	<message-resources key="iwm.upload"
+		parameter="org.mlink.iwm.upload.UploadResources" />
+
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="definitions-debug" value="2" />
+		<set-property property="definitions-parser-details" value="2" />
+		<set-property property="definitions-parser-validate"
+			value="false" />
+	</plug-in>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+
+</struts-config>
+
+

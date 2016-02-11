@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.taps-vss.com/dataagents"
+                  xmlns:apachesoap="http://xml.apache.org/xml-soap"
+                  xmlns:impl="http://www.taps-vss.com/dataagents"
+                  xmlns:intf="http://www.taps-vss.com/dataagents"
+                  xmlns:tns1="http://www.mlink.org/sitar/taps"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="http://www.mlink.org/sitar/taps" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://www.taps-vss.com/dataagents"/>
+   <complexType name="measureType">   
+    <simpleContent>
+     <extension>
+      <attribute name="_value" type="xsd:string"/>
+
+      <attribute name="readiness" type="xsd:double"/>
+     </extension>
+    </simpleContent>
+   </complexType>
+   <complexType name="certificationsType">
+    <sequence>
+     <element name="measure" type="tns1:measureType"/>
+    </sequence>
+    <attribute name="readiness" type="xsd:double"/>
+
+   </complexType>
+   <complexType name="qualificationsType">
+    <sequence>
+     <element name="measure" type="tns1:measureType"/>
+    </sequence>
+    <attribute name="readiness" type="xsd:double"/>
+   </complexType>
+   <complexType name="licencesType">
+    <sequence>
+
+     <element name="measure" type="tns1:measureType"/>
+    </sequence>
+    <attribute name="readiness" type="xsd:double"/>
+   </complexType>
+   <complexType name="qualified-for-tasking-measuresType">
+    <sequence>
+     <element name="certifications" type="tns1:certificationsType"/>
+     <element name="qualifications" type="tns1:qualificationsType"/>
+     <element name="licences" type="tns1:licencesType"/>
+
+     <element maxOccurs="unbounded" minOccurs="0" name="measure" type="tns1:measureType"/>
+    </sequence>
+   </complexType>
+   <complexType name="readinessType">
+    <sequence>
+     <element name="available-for-tasking-measures" nillable="true" type="impl:ArrayOf_tns1_measureType"/>
+     <element name="qualified-for-tasking-measures" nillable="true" type="tns1:qualified-for-tasking-measuresType"/>
+     <element name="ready-for-tasking-measures" nillable="true" type="impl:ArrayOf_tns1_measureType"/>
+    </sequence>
+
+   </complexType>
+   <complexType name="workCenterType">
+    <sequence>
+     <element name="readiness" type="tns1:readinessType"/>
+    </sequence>
+    <attribute name="name" type="xsd:string"/>
+   </complexType>
+   <complexType name="divisionType">
+    <sequence>
+
+     <element name="readiness" type="tns1:readinessType"/>
+     <element name="workcenter" type="tns1:workCenterType"/>
+    </sequence>
+    <attribute name="name" type="xsd:string"/>
+   </complexType>
+   <complexType name="departmentType">
+    <sequence>
+     <element name="readiness" type="tns1:readinessType"/>
+     <element name="division" type="tns1:divisionType"/>
+
+    </sequence>
+    <attribute name="name" type="xsd:string"/>
+   </complexType>
+   <complexType name="unitType">
+    <sequence>
+     <element name="readiness" type="tns1:readinessType"/>
+     <element name="department" type="tns1:departmentType"/>
+    </sequence>
+    <attribute name="generated-time-msecs" type="xsd:long"/>
+
+    <attribute name="name" type="xsd:string"/>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://www.taps-vss.com/dataagents" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://www.mlink.org/sitar/taps"/>
+   <complexType name="ArrayOf_tns1_measureType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:measureType"/>
+    </sequence>
+
+   </complexType>
+   <element name="unit" type="tns1:unitType"/>
+   <element name="dataAgentResponse">
+    <complexType>
+     <sequence>
+      <element name="Result" type="xsd:int"/>
+      <element name="Message" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="publishDataRequest">
+
+      <wsdl:part element="impl:unit" name="unit"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="publishDataResponse">
+
+      <wsdl:part element="impl:dataAgentResponse" name="dataAgentResponse"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SitarAgentPort">
+
+      <wsdl:operation name="publishData" parameterOrder="unit">
+
+         <wsdl:input message="impl:publishDataRequest" name="publishDataRequest"/>
+
+         <wsdl:output message="impl:publishDataResponse" name="publishDataResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SitarAgentSoapBinding" type="impl:SitarAgentPort">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="publishData">
+
+         <wsdlsoap:operation soapAction="urn:#publishData"/>
+
+         <wsdl:input name="publishDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="publishDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SitarAgentService">
+
+      <wsdl:port binding="impl:SitarAgentSoapBinding" name="SitarAgent">
+
+         <wsdlsoap:address location="http://www.taps-vss.com:8080/axis/services/SitarAgent"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

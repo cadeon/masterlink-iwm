@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.vm:8080/" />
+<title>J001AddEditJob</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">J001AddEditJob</td></tr>
+</thead><tbody>
+<!--Defect error report popup-->
+<tr>
+	<td>open</td>
+	<td>/Home.do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Jobs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='contentPane']/h2/span</td>
+	<td>Jobs List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Job']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Jobs List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_2</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_3</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_2</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_3</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_4</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>id('ObjectListTable')/x:tr/x:td[1]/x:input</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>document.forms[0].elements[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Jobs List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='jobs_assignTasks']/div[1]/h2/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>//tbody[@id='TaskListTable']/tr[1]/td[1]/input</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Next' and @type='button' and @onclick='createJobWizardStep2.save()']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>AAATestJob</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>note</td>
+	<td>This Job is for the testing purposes only.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberOfWorkers</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='bn_save']</td>
+	<td></td>
+</tr>
+<!--Verify the new job exist on the list-->
+<tr>
+	<td>waitForText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[4]</td>
+	<td>AAATestJob</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[4]</td>
+	<td>AAATestJob</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Jobs List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>note</td>
+	<td>This Job is for the testing purposes only, edited.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>AAATestJobEdited</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>bn_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[4]</td>
+	<td>AAATestJobEdited</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr[1]/td[4]</td>
+	<td>AAATestJobEdited</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Jobs List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>description</td>
+	<td>AAATestJobEdited</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>note</td>
+	<td>This Job is for the testing purposes only, edited.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>bn_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

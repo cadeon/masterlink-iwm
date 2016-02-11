@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sitar="http://www.mlink.org/sitar/taps" targetNamespace="http://www.mlink.org/sitar/taps" version="1.0">
+
+    <xs:complexType name="measureType">
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="value" type="xs:double" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="readinessType">
+        <xs:sequence>
+            <xs:element type="sitar:measuresType" name="available-for-tasking"/>
+            <xs:element type="sitar:measuresType" name="certifications" />
+            <xs:element type="sitar:measuresType" name="qualifications" />
+            <xs:element type="sitar:measuresType" name="licences"       />
+            <xs:element type="sitar:measuresType" name="qualified-for-tasking"/>
+            <xs:element type="sitar:measuresType" name="ready-for-tasking"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="measuresType">
+        <xs:sequence>
+            <xs:element type="sitar:measureType" name="measure" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute type="xs:double" name="average-value" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="unitType">
+        <xs:sequence>
+            <xs:element type="sitar:readinessType" name="readiness"/>
+            <xs:element type="sitar:unitType" name="subUnut" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name"/>
+        <xs:attribute type="xs:string" name="type"/>
+    </xs:complexType>
+
+    <xs:complexType name="sitarType">
+        <xs:sequence>
+            <xs:element name="unit" type="sitar:unitType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute type="xs:long" name="generated-time-msecs"/>
+    </xs:complexType>
+    <xs:element name="sitar" type="sitar:sitarType"/>
+
+</xs:schema>

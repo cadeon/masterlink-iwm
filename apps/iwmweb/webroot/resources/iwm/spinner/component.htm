@@ -1,0 +1,35 @@
+<!--
+<div class="spinnerWidget">
+	<table>
+		<tr>
+			<td rowspan="2"><input id="${uuid}" type="text" value="0" onBlur="${uuid}Spinner.validate()"></td>
+			<td class="spinnerUpArrow"><img src="images/spinnerUpArrow.gif" onclick="${uuid}Spinner.increase();" ></td>
+		</tr>
+		<tr>
+			<td  class="spinnerDownArrow"><img src="images/spinnerDownArrow.gif" onclick="${uuid}Spinner.decrease();"></td>
+		</tr>
+	</table>
+</div>
+-->
+<div class="spinnerWidget">
+	<table>
+		<tr>
+			<td><input id="${uuid}" type="text" value="0" onBlur="${uuid}Spinner.validate()"></td>
+			<td>
+                <table>
+                    <tr>
+                        <td  class="spinnerUpArrow"><img src="images/spinnerUpArrow.gif" onclick="${uuid}Spinner.increase();" ></td>
+                    </tr>
+                    <tr>
+                        <td  class="spinnerDownArrow"><img src="images/spinnerDownArrow.gif" onclick="${uuid}Spinner.decrease();"></td>
+                    </tr>
+                </table>
+            </td>
+		</tr>
+	</table>
+</div>
+
+
+<script type="text/javascript" >
+    var ${uuid}Spinner = new SpinnerWidget(document.getElementById('${uuid}'), 0, 59);
+</script>

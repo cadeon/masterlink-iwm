@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<states>
+ <state>
+    <name>ANY</name>
+    <transition>
+      <targetState>EJO</targetState>
+      <condition type="isNull">
+        <propertyName>completedDate</propertyName>
+      </condition>
+      <condition type="equal" >
+        <propertyName>incomplete</propertyName>
+        <propertyClass>java.lang.Integer</propertyClass>
+        <value>0</value>
+      </condition>
+      <condition type="isNull">
+        <propertyName>scheduledDate</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+      </condition>
+      <condition type="lessThan">
+        <propertyName>latestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+    </transition>
+    <transition>
+      <targetState>WFP</targetState>
+      <condition type="equal" not="true">
+        <propertyName>incomplete</propertyName>
+        <propertyClass>java.lang.Integer</propertyClass>
+        <value>0</value>
+      </condition>
+    </transition>
+    <transition>
+      <targetState>DUN</targetState>
+      <condition type="isNull" not="true">
+        <propertyName>completedDate</propertyName>
+      </condition>
+    </transition>
+  </state>
+
+  <state>
+    <name>DJO</name>
+    <transition>
+      <targetState>DUN</targetState>
+      <condition type="isNull" not="true">
+        <propertyName>completedDate</propertyName>
+      </condition>
+    </transition>
+    <transition>
+      <targetState>RFS</targetState>
+      <condition type="isNull">
+        <propertyName>scheduledDate</propertyName>
+      </condition>
+      <condition type="lessThanOrEqual"> <!-- this and the next condition comprise "DateOK" -->
+        <propertyName>earliestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+      <condition type="greaterThanOrEqual">
+      	<propertyName>latestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+    </transition>
+    <!-- Jobs can have null latest starts, they last forever -->
+    <transition>
+      <targetState>RFS</targetState>
+      <condition type="isNull">
+        <propertyName>scheduledDate</propertyName>
+      </condition>
+      <condition type="lessThanOrEqual"> <!-- this and the next condition comprise "DateOK" -->
+        <propertyName>earliestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+      <condition type="isNull">
+      	<propertyName>latestStart</propertyName>
+      </condition>
+    </transition>
+  </state>
+
+  <state>
+    <name>DPD</name>
+    <transition>
+      <targetState>DJO</targetState>
+      <condition type="isNull" not="true">
+        <propertyName>dispatchedDate</propertyName>
+      </condition>
+    </transition>
+    <transition>
+      <targetState>RFS</targetState>
+      <condition type="isNull">
+        <propertyName>scheduledDate</propertyName>
+      </condition>
+      <condition type="lessThanOrEqual"> <!-- this and the next condition comprise "DateOK" -->
+        <propertyName>earliestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+      <condition type="greaterThanOrEqual">
+      	<propertyName>latestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+    </transition>
+    <transition>
+      <targetState>RFS</targetState>
+      <condition type="isNull">
+        <propertyName>scheduledDate</propertyName>
+      </condition>
+      <condition type="lessThanOrEqual"> <!-- this and the next condition comprise "DateOK" -->
+        <propertyName>earliestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+      <condition type="isNull">
+      	<propertyName>latestStart</propertyName>
+      </condition>
+    </transition>
+  </state>
+  <state>
+    <name>DUN</name> <!--  final state -->
+  </state>
+  <state>
+    <name>EJO</name> <!--  final state -->
+  </state>
+  
+  <state>
+    <name>INS</name>
+    <transition>
+      <targetState>WFP</targetState>
+      <condition type="noGuard"/>
+    </transition>
+  </state>
+  <state>
+    <name>PJO</name>
+    <transition>
+      <targetState>RFS</targetState>
+      <condition type="lessThanOrEqual">
+        <propertyName>earliestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+    </transition>
+  </state>
+  <state>
+    <name>RFS</name>
+    <transition>
+      <targetState>DPD</targetState>
+      <condition type="isNull" not="true">
+        <propertyName>scheduledDate</propertyName>
+      </condition>
+    </transition>
+    <transition>
+      <targetState>INS</targetState>
+      <condition type="greaterThan">
+        <propertyName>earliestStart</propertyName>
+        <propertyClass>java.sql.Date</propertyClass>
+        <value>today</value>
+      </condition>
+      <condition type="isNull">
+		<propertyName>scheduledDate</propertyName>
+	</condition>
+</transition>
+  </state>
+  <state>
+    <name>WFP</name>
+    <transition>
+      <targetState>PJO</targetState>
+      <condition type="equal" >
+        <propertyName>incomplete</propertyName>
+        <propertyClass>java.lang.Integer</propertyClass>
+        <value>0</value>
+      </condition>
+    </transition>
+  </state>
+</states>

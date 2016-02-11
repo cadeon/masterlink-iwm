@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+    <persistence-unit name="iwm_dpc">
+        <jta-data-source>java:/iwm_ds</jta-data-source>
+        <properties>
+            <!--property name="hibernate.hbm2ddl.auto" value="validate"/   BigDeciaml to Double issue -->
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

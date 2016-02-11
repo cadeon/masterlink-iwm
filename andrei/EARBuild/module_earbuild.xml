@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="module_earbuild" default="compile.module.earbuild">
+
+  <dirname property="module.earbuild.basedir" file="${ant.file.module_earbuild}"/>
+
+  
+
+  
+
+  
+
+  <target name="compile.module.earbuild" depends="compile.module.earbuild.production,compile.module.earbuild.tests" description="Compile module EARBuild"/>
+
+  
+
+  <target name="compile.module.earbuild.production" description="Compile module EARBuild; production classes"/>
+
+  
+
+  <target name="compile.module.earbuild.tests" depends="compile.module.earbuild.production" description="compile module EARBuild; test classes" unless="skip.tests"/>
+
+  
+
+  <target name="clean.module.earbuild" description="cleanup module"/>
+
+  
+
+  <property name="earbuild.dir.exploded" value="${module.earbuild.basedir}/../../../../jboss-4.0.2/server/default/deploy/iwmapp35.ear"/>
+
+  <property name="earbuild.path.jar" value="${module.earbuild.basedir}/../../dist/EARBuild.ear"/>
+
+  <target name="j2ee.build.earbuild" depends="j2ee.build.iwmejb, j2ee.build.iwmweb" description="Build configured J2EE directories and archives for module 'EARBuild'">
+
+    <antcall target="j2ee.build.exploded.earbuild">
+
+      <param name="j2ee.dir.exploded" value="${earbuild.dir.exploded}"/>
+
+    </antcall>
+
+    <antcall target="j2ee.build.jar.earbuild">
+
+      <param name="j2ee.path.jar" value="${earbuild.path.jar}"/>
+
+    </antcall>
+
+  </target>
+
+  <target name="j2ee.build.exploded.earbuild" description="Build exploded directory for module 'EARBuild'">
+
+    <copy file="${module.earbuild.basedir}/../../apps/iwmear/META-INF/jboss-app.xml" tofile="${j2ee.dir.exploded}/META-INF/jboss-app.xml"/>
+
+    <copy file="${module.earbuild.basedir}/../../apps/iwmear/META-INF/application.xml" tofile="${j2ee.dir.exploded}/META-INF/application.xml"/>
+
+    <copy todir="${j2ee.dir.exploded}/iwmweb.war">
+
+      <fileset dir="${iwmweb.dir.exploded}"/>
+
+    </copy>
+
+    <copy todir="${j2ee.dir.exploded}/iwmejb.jar">
+
+      <fileset dir="${iwmejb.dir.exploded}"/>
+
+    </copy>
+
+  </target>
+
+  <target name="j2ee.build.jar.earbuild" description="Build J2EE archive for module 'EARBuild'">
+
+    <dirname property="jar.dir" file="${j2ee.path.jar}"/>
+
+    <mkdir dir="${jar.dir}"/>
+
+    <jar destfile="${j2ee.path.jar}" duplicate="preserve">
+
+      <manifest>
+
+        <attribute name="Created-By" value="IntelliJ IDEA"/>
+
+        <attribute name="Manifest-Version" value="1.0"/>
+
+      </manifest>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/antlr.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/commons-beanutils.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/commons-collections.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/commons-digester.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/commons-lang-2.0.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/commons-logging.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/commons-validator.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/jakarta-oro.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/velocity-1.4.jar" prefix=""/>
+
+      <zipfileset file="${module.iwmejb.basedir}/../../apps/lib/velocity-dep-1.4.jar" prefix=""/>
+
+      <zipfileset dir="${shared.output.dir}" prefix="shared.jar"/>
+
+      <zipfileset file="${iwmejb.path.jar}" prefix=""/>
+
+      <zipfileset dir="${shared.output.dir}" prefix="shared.jar"/>
+
+      <zipfileset file="${iwmweb.path.jar}" prefix=""/>
+
+      <zipfileset file="${module.earbuild.basedir}/../../apps/iwmear/META-INF/application.xml" prefix="META-INF"/>
+
+      <zipfileset file="${module.earbuild.basedir}/../../apps/iwmear/META-INF/jboss-app.xml" prefix="META-INF"/>
+
+    </jar>
+
+  </target>
+
+</project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.TaskGroup"
+        table="TASK_GROUP"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.math.BigDecimal"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-TaskGroup.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+            length="150"
+        />
+
+        <property
+            name="custom"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="CUSTOM"
+            length="22"
+        />
+
+        <many-to-one
+            name="object"
+            class="org.mlink.agent.model.WorkObject"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="OBJECT_ID" 
+            />
+        </many-to-one>
+
+        <property
+            name="taskGroupDef"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="TASK_GROUP_DEF_ID" 
+            />
+        </property>
+
+        <many-to-one
+            name="skillTypeRef"
+            class="org.mlink.agent.model.SkillTypeRef"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SKILL_TYPE_ID" 
+            />
+        </many-to-one>
+
+        <set
+            name="tasks"
+            lazy="true"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="GROUP_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.Task"
+            />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-TaskGroup.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

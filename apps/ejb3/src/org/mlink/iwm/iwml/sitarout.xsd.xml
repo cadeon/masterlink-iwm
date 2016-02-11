@@ -1,0 +1,44 @@
+<taps:sitar name="string" xmlns:taps="http://www.mlink.org/sitar/taps">
+  <generated-date>10</generated-date>
+  <!--1 or more repetitions:-->
+  <unit name="string">
+    <readiness>1.5E2</readiness>
+    <!--Zero or more repetitions:-->
+    <command-requirements name="string" value="string"/>
+    <!--1 or more repetitions:-->
+    <department name="string">
+      <readiness>1.5E2</readiness>
+      <!--Zero or more repetitions:-->
+      <command-requirements name="string" value="string"/>
+      <!--1 or more repetitions:-->
+      <division name="string">
+        <readiness>1.5E2</readiness>
+        <!--Zero or more repetitions:-->
+        <command-requirements name="string" value="string"/>
+        <!--1 or more repetitions:-->
+        <work-center name="string">
+          <readiness>1.5E2</readiness>
+          <!--Zero or more repetitions:-->
+          <command-requirements name="string" value="string"/>
+          <!--1 or more repetitions:-->
+          <worker>
+            <userId>string</userId>
+            <skillgroup>string</skillgroup>
+            <skilllevel>string</skilllevel>
+            <rate>1.5E2</rate>
+            <rating>string</rating>
+            <PNEC>string</PNEC>
+            <DNEC>string</DNEC>
+            <!--Zero or more repetitions:-->
+            <certification>string</certification>
+            <!--Zero or more repetitions:-->
+            <qualification>string</qualification>
+            <!--Zero or more repetitions:-->
+            <licence>string</licence>
+            <readiness>1.5E2</readiness>
+          </worker>
+        </work-center>
+      </division>
+    </department>
+  </unit>
+</taps:sitar>

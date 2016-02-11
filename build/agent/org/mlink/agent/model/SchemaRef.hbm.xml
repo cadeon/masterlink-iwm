@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.SchemaRef"
+        table="SCHEMA_REF"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-SchemaRef.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="changeTime"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="CHANGETIME"
+        />
+
+        <property
+            name="code"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="CODE"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+        />
+
+        <property
+            name="parent"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="PARENT"
+        />
+
+        <property
+            name="schemaType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="SCHEMA_TYPE"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-SchemaRef.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

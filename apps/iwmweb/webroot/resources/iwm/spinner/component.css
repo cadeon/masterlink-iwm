@@ -1,0 +1,33 @@
+div.spinnerWidget {
+    display: inline;
+    position: relative;
+    margin-right: 5px;
+}
+
+div.spinnerWidget table {
+    border-collapse: collapse;
+    display: inline;
+}
+div.spinnerWidget table td{
+    border: 1px solid #AAA;
+    padding: 0px;
+}
+
+div.spinnerWidget input{
+    border: 0px;
+    width: 26px;
+    height: 16px;
+    padding: 1px;
+}
+
+div.spinnerWidget td.spinnerDownArrow, div.spinnerWidget td.spinnerUpArrow {
+    cursor: pointer;
+    background-image: url(/IWM/images/buttonBackground.gif);
+    background-position: 0px 100%;
+    background-repeat: repeat-x;
+    border:0px;
+}
+
+div.spinnerWidget td.spinnerUpArrow {
+    border-bottom:1px  solid #AAA;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Mobile Worker</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.6, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="YES">
+    <link rel="apple-touch-icon" href="Images/WebClipIcon.png">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="Parts/Transitions.css">
+    <script type="text/javascript" src="Parts/parts.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/ButtonHandler.js" charset="utf-8"></script>
+    <script type="text/javascript" src="yahoo.js" charset="utf-8"></script>
+    <script type="text/javascript" src="json.js" charset="utf-8"></script>
+    <script type="text/javascript" src="main.js" charset="utf-8"></script>
+</head>
+<body onload="load();">
+    <div id="browser">
+        <div id="header">
+            <div id="back_button" class="back_button_template dashcode-header-backbutton"></div>
+        </div>
+        <div id="stackLayout">
+            <div id="LoginView">
+                <div id="text"></div>
+                <input type="text" name="" value="" id="username" onchange="updateUsername(event)">
+                <div id="text1"></div>
+                <input type="text" name="" value="" id="password" onchange="updatePassword(event)">
+                <div id="loginButton"></div>
+            </div><div id="ScheduleView">
+                <ul id="ScheduleList">
+                    <li id="ScheduleListRow" class="ScheduleListRow_template first">
+                        <div id="label" class="label_template"></div>
+                        <div id="arrow" class="arrow_template"></div>
+                        <div class="time_template" id="time"></div>
+                        <div id="ovalShape" class="ovalShape_template">
+                            <div class="numberOfJobs_template" id="numberOfJobs"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div><div id="JobsView">
+                <ul id="JobsList">
+                    <li id="listRowTemplate" class="listRowTemplate_template first">
+                        <div id="desc" class="desc_template"></div>
+                        <div id="arrow1" class="arrow1_template">
+                        </div>
+                        <div class="jobid_template" id="jobid"></div>
+                        <div class="locator_template" id="locator"></div>
+                    </li>
+                </ul>
+            </div><div id="TasksView">
+                <div id="box">
+                    <div id="text3"></div>
+                    <div id="jobDesc"></div>
+                    <div id="jobNote"></div>
+                    <div id="jobTyp"></div>
+                </div>
+                <div id="box1">
+                    <div id="jobLoc"></div>
+                    <div id="objTag"></div>
+                </div>
+                <div id="infoButton"></div>
+                <div id="TasksLabel"></div>
+                <ul id="TasksList">
+                    <li id="listRowTemplate1" class="listRowTemplate1_template first last" style="border-top-width: 0px; ">
+                        <div id="task_desc" class="task_desc_template"></div>
+                        <div id="arrow2" class="arrow2_template">
+                        </div>
+                    </li>
+                </ul>
+                <div id="closeJobButton"></div>
+            </div><div id="ActionsView">
+                <input type="text" name="hrs" value="0" id="hrs" maxlength="2" onchange="updateTaskTime(event)">
+                <input type="text" name="mins" value="0" id="mins" maxlength="2" onchange="updateTaskTime(event)">
+                <div id="text2"></div>
+                <div id="actionslabel"></div>
+                <ul id="ActionsList">
+                    <li id="listRowTemplate2" class="listRowTemplate2_template first">
+                        <div id="ActionLabel" class="ActionLabel_template"></div>
+                        <input type="text" name="" value="" class="fc_template" id="fc" onchange="updateAction(event)">
+                    </li>
+                </ul>
+            </div><div id="RequestorView">
+                <div id="text5"></div>
+                <div id="reqNoteBox"></div>
+                <div id="text4"></div>
+                <div id="reqContactBox"></div>
+            </div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/*
+empty by design: I would like to keep on the styles organized in the  webroot/styles folder
+*/
+
+div.pageMeter div#noResults {
+    display: none;
+}
+
+div.pageMeter div.resultsCount select {
+    font-size:10px;
+}

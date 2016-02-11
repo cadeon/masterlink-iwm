@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: config/  velocity-1.4.jar velocity-dep-1.4.jar jxl-2.6.jar
+
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://butler.vm:8080/" />
+<title>W005AddWorkerSkillLvlDelSkill</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Example</td></tr>
+</thead><tbody>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>workerEditTitle</td>
+	<td></td>
+</tr>
+<!--Click first available skills icon-->
+<tr>
+	<td>click</td>
+	<td>Skills</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>SKILLS_WORKER_NAME</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='workerSkillsPopupHeader']/h2</td>
+	<td></td>
+</tr>
+<!--Click on the Add Skill button no matter where it is-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>addSkill</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>label=AC Tech</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>AC Tech</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>AC Tech</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>AC Tech</td>
+	<td>label=One</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--After creating the Skill, go back in and verify it-->
+<tr>
+	<td>click</td>
+	<td>Skills</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>AC Tech</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>AC Tech</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>AC Tech</td>
+	<td>One</td>
+</tr>
+<!--Now remove it and verify its deletion-->
+<tr>
+	<td>click</td>
+	<td>//img[@id='AC Tech']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>//table[@id='datatable']</td>
+	<td>AC Tech</td>
+</tr>
+<!--Save changes and logout-->
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--Finish-->
+</tbody></table>
+</body>
+</html>

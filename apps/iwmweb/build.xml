@@ -1,0 +1,133 @@
+<project name="web" default="exploded" basedir=".">
+    <property file="../local.build.properties"/>
+    <property file="../build.properties"/>
+
+    <property name="build.dir" value="${exploded.dir}/iwmweb.war/"/>
+    <property name="source.dir" value="."/>
+
+    <import file="${project.root}/apps/build_common.xml"/>
+
+    <path id="module.classpath">
+        <path refid="project.classpath"/>
+        <fileset dir="${exploded.dir}" >
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${exploded.dir}/ejb3.jar"/>
+    	<pathelement location="${exploded.dir}/agent.jar"/>
+    </path>
+
+	<target name="init" description="Prepares the build directory" >
+		<tstamp/>
+        <mkdir dir="${build.dir}"/>
+        <copy todir="${build.dir}/META-INF"  preservelastmodified="true"  >
+            <fileset dir="${source.dir}/META-INF">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+		<!-- No more reports
+        <copy todir="${exploded.dir}/reports" preservelastmodified="true" file="${reports}/reports.xml" />
+        -->
+    </target>
+
+	<target name="copy.webroot" depends="init" description="Copies webroot content into build directory">
+        <echo message="Copying content of ${source.dir}/webroot to ${build.dir}"/>
+        <copy todir="${build.dir}"  preservelastmodified="true" >
+            <fileset dir="${source.dir}/webroot">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${build.dir}/WEB-INF/lib"  preservelastmodified="true" >
+            <!--fileset dir="${source.dir}/lib">
+                <include name="**/*"/>
+            </fileset-->
+            <fileset dir="${lib}" >
+                <!--Commons-beanutils.jar and commons-digester.jar
+                    must be present in web lib in addition to ear level.
+                    This is due to Jboss hot deplyment issues. If digester left on ear level only the app loads up
+                    with no errors firts time, butany consecutive hot deployments results in classpath errors such as validator resources not found.
+                    Likely the hot deployment is done by a different classloader which is not aware of web module classpath.-->
+                <include name="commons-beanutils-1.7.jar"/>
+                <include name="commons-digester.jar"/>
+                <include name="ajax-wrapper-comp.jar"/>
+                <include name="commons-validator.jar"/>
+                <include name="dwr.jar"/>
+                <include name="jakarta-oro.jar"/>
+                <!--include name="jasperreports-1.2.0.jar"/-->
+                <include name="itext-1.4.1.jar"/>
+                <include name="jcommon-1.0.0.jar"/>
+                <include name="jfreechart-1.0.0.jar"/>
+                <!--include name="jasperreports-1.3.0.jar"/-->
+                <include name="jasperreports-2.0.1.jar"/>
+                
+                <include name="poi-2.0-final-20040126.jar"/>
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+                <include name="struts.jar"/>
+                <include name="struts-el.jar"/>
+                <include name="struts-legacy.jar"/>
+                <include name="commons-fileupload.jar"/>
+                
+            </fileset>
+        </copy>
+
+        <!-- to patch Jboss hot deploy loss of shared.jar-->
+        <!--copy todir="${build.dir}/WEB-INF/lib"  preservelastmodified="true" >
+            <fileset dir="${exploded.dir}" >
+                <include name="shared.jar"/>
+            </fileset>
+        </copy-->
+
+    </target>
+
+
+    <!-- =================================================================== -->
+	<!-- Builds application                                      -->
+	<!-- =================================================================== -->
+	<target name="compile" depends="init" description="Compiles web java sources into build directory">
+		<copy todir="${build.dir}/WEB-INF/classes" preservelastmodified="true" >
+			<fileset dir="${source.dir}/src">
+                <patternset refid="compiler.resources"/>
+            </fileset>
+        </copy>
+        <javac srcdir="${source.dir}/src" destdir="${build.dir}/WEB-INF/classes" debug="${debugflag}" >
+			<classpath refid="module.classpath"/>
+		</javac>
+
+    </target>
+
+	<!-- No more reports.
+    <target name="compile.reports" depends="init"
+            description="Compiles the XML report design and produces the .jasper file.">
+		<taskdef name="jrc" classname="net.sf.jasperreports.ant.JRAntCompileTask">
+			<classpath refid="module.classpath"/>
+		</taskdef>
+		<jrc destdir="${exploded.dir}/reports" tempdir="${exploded.dir}/reports">
+			<src>
+				<fileset dir="${reports}">
+					<include name="**/*.jrxml"/>
+				</fileset>
+			</src>
+            <classpath refid="module.classpath"/>
+        </jrc>
+    	<copy todir="${exploded.dir}/reports"  preservelastmodified="true"  >
+	        <fileset dir="${reports}">
+	            <exclude name="**/*.jrxml"/>
+	        </fileset>
+    	</copy>
+	</target>
+	-->
+	<!-- Reports used to be included in this target -->
+    <target name="exploded" depends="compile,copy.webroot" description="Default. Creates war-exploded folder">
+    </target>
+
+
+	<target name="clean" unless="noclean">
+		<delete dir="${build.dir}" failonerror="false"/>
+    </target>
+
+
+
+
+</project>
+<!-- End of file -->

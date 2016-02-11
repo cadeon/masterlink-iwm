@@ -1,0 +1,1154 @@
+@media screen {
+
+    body {
+        font-family: verdana,sans-serif;
+        font-size: 12px;
+    }
+
+    /* This is to fix IE's problem disabling 'disabled' select options*/
+    select, option {
+      behavior: url(/IWM/scripts/disableSelect.htc);
+    }
+
+
+select#failureFilter {
+	display: none;
+}
+	
+    #toolTip {
+        border: 1px solid #DDD;
+        border-bottom: 2px solid #CCC;
+        border-right: 2px solid #CCC;
+        display: inline;
+        position: absolute;
+        background-color: #FFFFCC;
+        padding: 3px;
+        display: none;
+        max-width: 250px;
+        z-index: 7;
+    }
+
+
+    span.required {
+        color: black;
+        font-size: 8px;
+    }
+
+    span.comment {
+        color: #777;
+        font-size: 10px;
+        display:block;
+    }
+
+    div.todo {
+        background-color: #FFFFCC;
+        border: 2px solid red;
+        position: absolute;
+        width: 300px;
+        padding: 5px;
+        top: -10px;
+        right: 5px;
+    }
+
+    div.todo ul li{
+        font-size: 8px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    div.todo ul{
+        margin-left: 0px;
+    }
+
+    table.formTable td{
+        font-family: verdana,sans-serif;
+        font-size: 12px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    table.formTable td.dataCol{
+        border: 1px solid #DDD;
+        background-color: #F6F6F6;
+        color: #666;
+        padding: 4px;
+    }
+
+    body a {
+        text-decoration: none;
+    }
+    
+
+
+    body a:hover {
+        text-decoration: underline;
+    }
+
+    table.dataTable div.centerText {
+        text-align: center;
+    }
+
+    div.icon {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    div.icon span.theNumber{
+        font-size: 8px;
+    }
+
+    /* CONTENT PANE **********************************/
+    div#contentPane {
+        position:absolute;
+        margin-left:50%;
+        top:90px;
+        left:-307px;
+        width: 791px;
+        background-image: url(../images/contentFooter.gif);
+        background-position:0px 100%;
+        padding-bottom: 33px;
+        background-repeat: no-repeat;
+        z-index: 5;
+    }
+
+    div#contentPane ul {
+        margin: 0px;
+    }
+
+    div#contentPane ul li{
+        padding-bottom: 3px;
+        padding-top: 3px;
+    }
+
+    div#contentPane h2 {
+        padding-left: 20px;
+        padding-top: 10px;
+        height: 26px;		/* total height = height+paddingtop */
+        background-image: url(../images/contentHeader.gif);
+        margin: 0px;
+        
+        font-weight: bold;
+        font-size: 16px;
+        background-repeat: no-repeat;
+        padding-bottom: 0px;
+    }
+
+    div#contentPane h3 {
+        margin: 0px;
+        padding-top: 10px;
+        font-size: 14px;
+
+    }
+
+    div#contentPane div.breadcrumbs {
+        padding-left: 20px;
+        height: 26px;
+        background-image: url(../images/contentBreadCrumbs.gif);
+        margin: 0px;
+        font-weight: bold;
+    }
+
+    div#contentPane div.content {
+        padding-left: 20px;
+        background-image: url(../images/contentBody.gif);
+        background-repeat: repeat-y;
+        position: relative;
+    }
+
+    /* DATA TABLE */
+    div#contentPane div.content table.dataTable{
+        width: 755px;
+        border-collapse: collapse;
+        border: 1px solid #AAAAAA;
+        font-size: 12px;
+        table-layout:fixed;
+        background-color: #FFF;
+        margin-top: 4px;
+    }
+
+    div#contentPane div.content table.dataTable img {
+        border: 0px;
+    }
+
+
+    div#contentPane div.content table.dataTable td {
+        border: 1px solid #DDDDDD;
+        padding: 3px;
+        text-overflow:ellipsis;
+        overflow:hidden;
+        white-space:nowrap;
+        font-size: 11px;
+    }
+
+
+    div#contentPane div.content table.dataTable thead td {
+        border: 1px solid #AAAAAA;
+        background-color: #C8C8C8;
+
+        background-image: url(../images/tableHeader.gif);
+        background-repeat: repeat-x;
+        background-position: 0px 100%;
+
+        padding: 3px;
+        padding-right: 5px;
+        text-overflow: ellipsis;
+        overflow:hidden;
+        white-space:nowrap;
+        font-size: 10px;
+        font-weight: bold;
+        font-family:  Verdana, Arial, Sans-Serif;
+    }
+
+    div#contentPane div.content table.dataTable tr.unshaded {
+        background-color: #FFF;
+    }
+
+    div#contentPane div.content table.dataTable tr.shaded {
+        background-color: #FAFAFA;
+    }
+
+
+
+
+    /* LEFT NAVIGATION BARS ************************/
+    #navigationGroup {
+        position:absolute;
+        margin-left:50%;
+        top:110px;
+        left:-488px;
+        z-index: 6;
+    }
+
+    div.navSection {
+        width: 185px;
+        background-image: url(../images/navFooter.gif);
+        background-position:-15px 100%;
+        padding-bottom: 22px;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+    div.navSection h2 {
+        padding-top: 5px;
+        height: 24px;
+        background-image: url(../images/navHeader.gif);
+        background-position: -15px; /* change offset for different sections */
+        margin: 0px;
+        font-family: impact,sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: white;
+        padding-left: 20px;
+
+
+    }
+
+    div.navSection div {
+        padding-left: 20px;
+        padding-right: 5px;
+        padding-top: 5px;
+        background-image: url(../images/navBody.gif);
+        background-position: -15px; /* change offset for different sections */
+    }
+
+    div#quickSearchNav {
+        display: none;
+    }
+
+    div#quickSearchNav label{
+        margin-bottom: 2px;
+    }
+
+    div#quickSearchNav select, div#quickSearchNav select{
+        margin-bottom: 5px;
+    }
+
+
+    div.report {
+    padding-top: 5px;
+
+    }
+
+    div#pageContextNav div h3 {
+        margin: 0px;
+        font-size: 10px;
+    }
+
+    div#pageContextNav div div {
+        padding: 0px;
+        font-size: 10px;
+        padding-bottom: 5px;
+        background-image: url(../images/spacer.gif);
+    }
+    div#pageContextNav p {
+        margin: 0px;
+        color: #999;
+        font-size: 10px;
+        padding-bottom: 8px;
+        padding-right: 10px;
+    }
+
+    /* PAGE METER *****************************************/
+    div.pagemeter {
+        font-size: 10px;
+        text-align: right;
+        float:right;
+        position: relative;
+        top: -10px;
+        right: 20px;
+        visibility: hidden;
+    }
+    
+
+    div.pagemeter span.pagelink:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    /* FILTERS FORM **********************************/
+    div.filter h4{
+        margin: 0px;
+        padding-top: 5px;
+        font-size: 10px;
+        color: #555;
+    }
+
+    div.filter table tfoot {
+        color: #888;
+        font-size: 9px;
+    }
+
+    div.filter table td {
+        padding: 0px;
+        padding-right: 5px;
+    }
+
+    div.filter table {
+        border-collapse: collapse;
+    }
+
+    div.filter select {
+        font-size: 10px;
+    }
+
+    div.filter input {
+        font-size: 10px;
+    }
+
+
+    div.filter td.fieldComment {
+        color:#777777;
+        font-size:9px;
+        padding:0px;
+    }
+
+    /* PAGE HEADER ****************************/
+    h1 span {
+        display: none;
+    }
+
+    h1 {
+        position: absolute;
+        top:10px;
+        left: -478px;
+        height: 83px;
+        width: 400px;
+        background-image: url(../images/headers.gif);
+        margin: 0px;
+        margin-left: 50%;
+        background-position: -400px; /* change offset for different sections */
+    }
+
+
+    /* PAGINATION *****************************/
+    #topPagination {
+        font-size: 10px;
+        float:right;
+        padding-right: 20px;
+        position:relative;
+        top: 11px;
+    }
+    div.buttonBar #bottomPagination {
+        float:right;
+        position:relative;
+        top: 5px;
+        width: 500px;
+    }
+    #bottomPagination {
+        font-size: 10px;
+        width: 751px;
+        text-align:right;
+        padding-right: 20px;
+    }
+
+
+    /* CRAP *********/
+    #testTable col.col4, #testTable col.col5, #testTable col.col6  {
+        width: 55px;
+        text-align:center
+    }
+
+    div#img1 {
+        position: absolute;
+        top: 57px;
+        height: 8px;
+        width: 974px;
+        margin-left: 50%;
+        left:-487px;
+        background-image: url(../images/topLines.gif);
+        background-position: 0px -40px;  /* -20px to change the color */
+        font-size: 3px;
+        z-index: 1;
+
+    }
+/* No Gears.
+    div#img2 {
+        position: absolute;
+        top: 8px;
+        height: 61px;
+        width: 75px;
+        left: -480px;
+        margin-left: 50%;
+        background-image: url(../images/gears.gif);
+        z-index: 200;
+
+    }
+**/
+
+    input.button {
+        margin-top: 5px;
+        border: 3px double #999999;
+        border-top-color: #CCCCCC;
+        border-left-color: #CCCCCC;
+        padding: 2px;
+        background-color: #FFFFFF;
+        background-image: url(../images/buttonBackground.gif);
+        background-position: 0px 100%;
+        background-repeat: repeat-x;
+        font-size: 11px;
+        font-weight: bold;
+        font-family: Verdana, Helvetica, Arial, sans-serif;
+    }
+
+    /* MENU **/
+
+    #sectionLinks {
+        position:absolute;
+        right: 0px;
+        top: 29px;
+        width: 100%;
+        height: 70px;
+        z-index: 10;
+    }
+
+    #topNav {
+        position:absolute;
+        top: 4px;
+        margin-left: 50%;
+        left: 240px;
+        z-index: 90;
+    }
+
+    #topNav div {
+        display: inline;
+        float: left;
+        padding: 0px;
+        background-color: white;
+        cursor: pointer;
+        color: #CCC;
+        padding-left: 17px;
+
+    }
+
+    div.topNavItem h4{
+        padding-top: 4px;
+        padding-bottom: 7px;
+        padding-right: 17px;
+        font-size: 10px;
+        margin: 0px;
+        color: #666;
+    }
+
+    div.selectNav h4{
+        background-image: url(../images/menuDarkRight.gif);
+        background-position: 100% -50px; /* - 100px change color */
+        background-repeat: no-repeat;
+        padding-top: 5px;
+        padding-bottom: 9px;
+        padding-right: 17px;
+        font-size: 10px;
+        margin: 0px;
+        color: white;
+    }
+
+    div#topNav div.selectNav {
+        background-image: url(../images/menuDarkLeft.gif);
+        background-position: 0px -50px; /* - 100px change color */
+    }
+
+    /* menu headers different colors */
+    div#topNav div#defineTopNav.selectNav h4{
+        background-position: 100% -50px; /* - 100px change color */
+    }
+    div#topNav div#implementTopNav.selectNav h4{
+        background-position: 100% -150px; /* - 100px change color */
+    }
+
+    div#topNav div#controlTopNav.selectNav h4{
+        background-position: 100% -250px; /* - 100px change color */
+    }
+
+    div#topNav div#measureTopNav.selectNav h4{
+        background-position: 100% -350px; /* - 100px change color */
+    }
+    div#topNav div#analyzeTopNav.selectNav h4{
+        background-position: 100% -450px; /* - 100px change color */
+    }
+
+
+    div#topNav div#defineTopNav.selectNav {
+        background-position: 0px -50px; /* - 100px change color */
+    }
+    div#topNav div#implementTopNav.selectNav {
+        background-position: 0px -150px; /* - 100px change color */
+    }
+
+    div#topNav div#controlTopNav.selectNav {
+        background-position: 0px -250px; /* - 100px change color */
+    }
+
+    div#topNav div#measureTopNav.selectNav {
+        background-position: 0px -350px; /* - 100px change color */
+    }
+    div#topNav div#analyzeTopNav.selectNav {
+        background-position: 0px -450px; /* - 100px change color */
+    }
+
+
+
+
+    div.topSubNav {
+        position:absolute;
+        top: 30px;
+        margin-left: 50%;
+        left: 75px;
+        height: 30px;
+        z-index: 80;
+        background-image: url(../images/menuLightLeft.gif);
+        background-position: 0% -100px; /* - 100px change color */
+        background-repeat: no-repeat;
+    }
+
+    div.highLight {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    div#defineSubNav {
+        left: -58px;
+        background-position: 0% -100px; /* - 100px change color */
+    }
+
+    div#implementSubNav {
+        left: 191px;
+        background-position: 0% -200px; /* - 100px change color */
+    }
+
+    div#controlSubNav {
+        left: 26px;
+        background-position: 0% -300px; /* - 100px change color */
+
+    }
+
+    div#measureSubNav {
+        background-position: 0% -400px; /* - 100px change color */
+        left: 282px;
+    }
+
+    div#analyzeSubNav {
+        background-position: 0% -500px; /* - 100px change color */
+        left: 321px;
+    }
+
+    div.topSubNav div {
+        display: inline;
+        float: left;
+        padding-top: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 10px;
+        color: #666;
+        height: 28px;
+        z-index: 110;
+        background-repeat: no-repeat;
+    }
+
+    div.topSubNav div a {
+        color: #666;
+    }
+
+    div#templatesSubNav {
+        background-image: url(../images/menuLightRight.gif);
+        background-position: 100% -100px; /* - 100px change color */
+    }
+    div#stencilsSubNav {
+        background-image: url(../images/menuLightRight.gif);
+        background-position: 100% -200px; /* - 100px change color */
+    }
+    /*div.highLight#stencilsSubNav{
+        text-decoration: none;
+    }*/
+
+    /*div#projectsSubNav {
+        color: #AAA;
+    }
+    div.highLight#projectsSubNav{
+        text-decoration: none;
+    }*/
+
+    div#reportsSubNav {
+        background-image: url(../images/menuLightRight.gif);
+        background-position: 100% -300px; /* - 100px change color */
+    }
+
+
+    div#somethingSubNav {
+        background-image: url(../images/menuLightRight.gif);
+        background-position: 100% -400px; /* - 100px change color */
+    }
+    div#menuItemSubNav {
+        background-image: url(../images/menuLightRight.gif);
+        background-position: 100% -500px; /* - 100px change color */
+    }
+
+    #defineSubNav, #controlSubNav, #implementSubNav, #measureSubNav, #analyzeSubNav {
+        visibility: hidden;
+    }
+
+    /* Set the width of the submenus.  Need to explictly set the widths because of how
+    windows and macs differ in rendering fonts. */
+    div#workerSubNav{width: 45px;padding-left: 30px;}
+    div#organizationSubNav{width: 70px;}
+    div#locatorsSubNav{width: 50px;}
+    div#templatesSubNav{width: 55px;padding-right: 30px;}
+
+    div#objectsSubNav{width: 45px;padding-left: 30px;}
+    div#stencilsSubNav{width: 83px;padding-right: 30px;}
+
+    div#jobsSubNav{width: 25px;padding-left: 30px;}
+    div#projectsSubNav{width: 40px;}
+    div#mobileWorkerSubNav{width: 80px;}
+    div#maintenanceSubNav{width: 98px;}
+    div#reportsSubNav{width: 35px;padding-right: 30px;}
+
+
+
+
+    /* SUBMENUS - need to show the user what section they are currently viewing
+    so we bold the section they are looking at */
+
+    /* define - workers */
+    body.define#workerList div#workerSubNav,
+    body.define#workerCalendar div#workerSubNav,
+    body.define#workerCalendarJobs div#workerSubNav,
+    body.define#workerManager div#workerSubNav{
+        font-weight: bold;
+    }
+
+    /* define - organization */
+    body.define#organizationList div#organizationSubNav{
+        font-weight: bold;
+    }
+    body.define#organizationCalendar div#organizationSubNav{
+        font-weight: bold;
+    }
+
+    /* define - locators */
+    body.define#locatorListing div#locatorsSubNav,
+    body.define#locatorData div#locatorsSubNav {
+        font-weight: bold;
+    }
+
+    /* define - templates */
+    body.define#templateList div#templatesSubNav,
+    body.define#templateData div#templatesSubNav,
+    body.define#templateTasks div#templatesSubNav,
+    body.define#templateTaskActions div#templatesSubNav,
+    body.define#templateTaskGroup div#templatesSubNav{
+        font-weight: bold;
+    }
+
+    /* implement - objects */
+    body.implement#objectList div#objectsSubNav,
+    body.implement#objectDetails div#objectsSubNav,
+    body.implement#objectTasks div#objectsSubNav,
+    body.implement#objectTaskActions div#objectsSubNav,
+    body.implement#objectTaskGroup div#objectsSubNav{
+        font-weight: bold;
+    }
+
+    /* control - jobs */
+    body.control#jobsList div#jobsSubNav,
+    body.control#jobTasks div#jobsSubNav,
+    body.control#jobTaskActions div#jobsSubNav,
+    body.control#jobSchedule div#jobsSubNav{
+        font-weight: bold;
+    }
+
+    /* control - projects */
+    body.control#projectJobs div#projectsSubNav,
+    body.control#projectList div#projectsSubNav,
+    body.control#projectJobTasks div#projectsSubNav,
+    body.control#projectJobTaskActions div#projectsSubNav {
+        font-weight: bold;
+    }
+
+
+    /* control - mobile worker */
+    body.control#mobileWorker div#mobileWorkerSubNav,
+    body.control#mobileWorkerTasks div#mobileWorkerSubNav {
+        font-weight: bold;
+    }
+
+    /* control - maint req */
+    body.control#maintenanceRequest div#maintenanceSubNav{
+        font-weight: bold;
+    }
+
+    /* control - reports */
+    body.control#reports div#reportsSubNav{
+        font-weight: bold;
+    }
+
+    /* measure - reports */
+    body.measure#reports div#measureReportsSubNav{
+        font-weight: bold;
+    }
+
+    /* CUSTOM COLORS ***************************/
+
+    /* DEFINE: WORKERS SECTION - change the color by shifting the graphic */
+    body.define div.navSection {
+        background-position:-15px 100%;  /* -200px change colors */
+    }
+    body.define div.navSection div {
+        background-position: -15px; /* -200px change colors */
+    }
+    body.define div.navSection h2 {
+        background-position: -15px; /* -200px change colors */
+    }
+    body.define h1 {
+        background-position: -0px; /* -400px change colors */
+    }
+    
+    body.define a {
+        color: #F06000; /* orange */
+    }
+    
+    body.define div#img1 {
+        background-position: 0px -20px;  /* -20px to change the color */
+    }
+    body.define div.pagemeter span.pagelink {
+        color: #F06000;
+    }
+
+    /* IMPLEMENT: */
+    body.implement div.navSection {
+        background-position:-215px 100%;  /* -200px change colors */
+    }
+    body.implement div.navSection div {
+        background-position: -215px; /* -200px change colors */
+    }
+    body.implement div.navSection h2 {
+        background-position: -215px; /* -200px change colors */
+    }
+    body.implement h1 {
+        background-position: -400px; /* -400px change colors */
+    }
+    
+    body.implement a {
+        color: #5C2F90; /* purple */
+    }
+    
+    body.implement div.pagemeter span.pagelink {
+        color: #5C2F90;
+    }
+    body.implement div#img1 {
+        background-position: 0px -40px;  /* -20px to change the color */
+    }
+
+    /* CONTROL: */
+    body.control div.navSection {
+        background-position:-415px 100%;  /* -200px change colors */
+    }
+    body.control div.navSection div {
+        background-position: -415px; /* -200px change colors */
+    }
+    body.control div.navSection h2 {
+        background-position: -415px; /* -200px change colors */
+    }
+    body.control h1 {
+        background-position: -800px; /* -400px change colors */
+    }
+    
+    body.control a {
+        color: #008000; /* green */
+    }
+    
+    body.control div.pagemeter span.pagelink {
+        color: #008000;
+    }
+    body.control div#img1 {
+        background-position: 0px -60px;  /* -20px to change the color */
+    }
+
+    body.control table.formTable#maintReqContactForm input.textField {
+        width: 250px;
+    }
+
+    body.control table.formTable#maintReqContactForm input.checkbox {
+        margin: 0px;
+        margin-right: 5px;
+
+    }
+
+    body.control table.formTable#maintReqForm input.textField {
+        width: 250px;
+    }
+
+    body.control table.formTable#maintReqForm textarea {
+        width: 250px;
+        height: 150px;
+    }
+    body.control table.formTable#maintReqForm select.selectField {
+        width: 250px;
+        margin-bottom: 3px;
+    }
+
+
+    /* MEASURE: */
+    body.measure div.navSection {
+        background-position:-615px 100%;  /* -200px change colors */
+    }
+    body.measure div.navSection div {
+        background-position: -615px; /* -200px change colors */
+    }
+    body.measure div.navSection h2 {
+        background-position: -615px; /* -200px change colors */
+    }
+    body.measure h1 {
+        background-position: -1200px; /* -400px change colors */
+    }
+    body.measure a {
+        color: #007CA6; /* blue */
+    }
+    body.measure div.pagemeter span.pagelink {
+        color: #007CA6;
+    }
+    body.measure div#img1 {
+        background-position: 0px -80px;  /* -20px to change the color */
+    }
+
+    /* ANALYZE: */
+    body.analyze div.navSection {
+        background-position:-815px 100%;  /* -200px change colors */
+    }
+    body.analyze div.navSection div {
+        background-position: -815px; /* -200px change colors */
+    }
+    body.analyze div.navSection h2 {
+        background-position: -815px; /* -200px change colors */
+    }
+    body.analyze h1 {
+        background-position: -1600px; /* -400px change colors */
+    }
+    body.analyze a {
+        color: #984614; /* orange */
+    }
+    body.analyze div.pagemeter span.pagelink {
+        color: #984614;
+    }
+    body.analyze div#img1 {
+        background-position: 0px -100px;  /* -20px to change the color */
+    }
+
+    #loading {
+        position: absolute;
+        margin-left: 50%;
+        top:100px;
+        left: -100px;
+        width: 200px;
+        text-align:center;
+    }
+
+
+    #topOptions {
+        position: absolute;
+        top: 3px;
+        width: 430px;
+        text-align:right;
+        margin-left: 50%;
+        left: 50px;
+        font-size: 10px;
+    }
+
+    /**** FOR TOP LEVEL PAGES HIDES THE LEFT NAV BAR*/
+
+    body#objectList div#navigationGroup,
+    body#projectStencilList div#navigationGroup,
+    body#jobsList div#navigationGroup,
+    body#projectList div#navigationGroup,
+    body#mobileWorker div#navigationGroup,
+    body#mobileWorkerTasks div#navigationGroup,
+    body#maintenanceRequest div#navigationGroup,
+    body#reports div#navigationGroup,
+    body#workerList div#navigationGroup,
+    body#mobileWorkerList div#navigationGroup,
+    body#scheduledJobList div#navigationGroup,
+    body#organizationList div#navigationGroup,
+    body#locatorListing div#navigationGroup,
+    body#jobDetails div#navigationGroup,
+    body#objectDetails div#navigationGroup,
+    body#workerDetails div#navigationGroup,
+    body#templateList div#navigationGroup {
+        display: none;
+    }
+
+    body#objectList div#contentPane,
+    body#projectStencilList div#contentPane,
+    body#jobsList div#contentPane,
+    body#projectList div#contentPane,
+    body#mobileWorker div#contentPane,
+    body#mobileWorkerTasks div#contentPane,
+    body#maintenanceRequest div#contentPane,
+    body#reports div#contentPane,
+    body#workerList div#contentPane,
+    body#mobileWorkerList div#contentPane,
+    body#scheduledJobList div#contentPane,
+    body#organizationList div#contentPane,
+    body#locatorListing div#contentPane,
+    body#jobDetails div#contentPane,
+    body#workerDetails div#contentPane,
+    body#objectDetails div#contentPane,
+    body#templateList div#contentPane {
+        margin-left:50%;
+        left:-488px;
+        width: 976px;
+    }
+
+    body#objectList div#contentPane div.content table.dataTable,
+    body#projectStencilList div#contentPane div.content table.dataTable,
+    body#jobsList div#contentPane div.content table.dataTable,
+    body#projectList div#contentPane div.content table.dataTable,
+    body#mobileWorker div#contentPane div.content table.dataTable,
+    body#mobileWorkerTasks div#contentPane div.content table.dataTable,
+    body#maintenanceRequest div#contentPane div.content table.dataTable,
+    body#reports div#contentPane div.content table.dataTable,
+    body#workerList div#contentPane div.content table.dataTable,
+    body#mobileWorkerList div#contentPane div.content table.dataTable,
+    body#scheduledJobList div#contentPane div.content table.dataTable,
+    body#organizationList div#contentPane div.content table.dataTable,
+    body#locatorListing div#contentPane div.content table.dataTable,
+    body#jobDetails div#contentPane div.content table.dataTable,
+    body#workerDetails div#contentPane div.content table.dataTable,
+    body#objectDetails div#contentPane div.content table.dataTable,
+    body#templateList div#contentPane div.content table.dataTable {
+        width: 930px;
+    }
+
+    body#objectList div#contentPane div.content,
+    body#projectStencilList div#contentPane div.content,
+    body#jobsList div#contentPane div.content,
+    body#projectList div#contentPane div.content,
+    body#mobileWorker div#contentPane div.content,
+    body#mobileWorkerTasks div#contentPane div.content,
+    body#maintenanceRequest div#contentPane div.content,
+    body#reports div#contentPane div.content,
+    body#workerList div#contentPane div.content,
+    body#mobileWorkerList div#contentPane div.content,
+    body#scheduledJobList div#contentPane div.content,
+    body#organizationList div#contentPane div.content,
+    body#locatorListing div#contentPane div.content,
+    body#jobDetails div#contentPane div.content,
+    body#workerDetails div#contentPane div.content,
+    body#objectDetails div#contentPane div.content,
+    body#templateList div#contentPane div.content {
+        background-image: url(../images/contentBodyWide.gif);
+    }
+
+    body#objectList div#contentPane div.breadcrumbs,
+    body#projectStencilList div#contentPane div.breadcrumbs,
+    body#jobsList div#contentPane div.breadcrumbs,
+    body#projectList div#contentPane div.breadcrumbs,
+    body#mobileWorker div#contentPane div.breadcrumbs,
+    body#mobileWorkerTasks div#contentPane div.breadcrumbs,
+    body#maintenanceRequest div#contentPane div.breadcrumbs,
+    body#reports div#contentPane div.breadcrumbs,
+    body#workerList div#contentPane div.breadcrumbs,
+    body#mobileWorkerList div#contentPane div.breadcrumbs,
+    body#scheduledJobList div#contentPane div.breadcrumbs,
+    body#organizationList div#contentPane div.breadcrumbs,
+    body#locatorListing div#contentPane div.breadcrumbs,
+    body#jobDetails div#contentPane div.breadcrumbs,
+    body#workerDetails div#contentPane div.breadcrumbs,
+    body#objectDetails div#contentPane div.breadcrumbs,
+    body#templateList div#contentPane div.breadcrumbs {
+        background-image: url(../images/contentBreadCrumbsWide.gif);
+    }
+
+    body#objectList div#contentPane h2,
+    body#projectStencilList div#contentPane h2,
+    body#jobsList div#contentPane h2,
+    body#projectList div#contentPane h2,
+    body#mobileWorker div#contentPane h2,
+    body#mobileWorkerTasks div#contentPane h2,
+    body#maintenanceRequest div#contentPane h2,
+    body#reports div#contentPane h2,
+    body#workerList div#contentPane h2,
+    body#mobileWorkerList div#contentPane h2,
+    body#scheduledJobList div#contentPane h2,
+    body#organizationList div#contentPane h2,
+    body#locatorListing div#contentPane h2,
+    body#jobDetails div#contentPane h2,
+    body#workerDetails div#contentPane h2,
+    body#objectDetails div#contentPane h2,
+    body#templateList div#contentPane h2 {
+         background-image: url(../images/contentHeaderWide.gif);
+    }
+
+    body#objectList div#contentPane,
+    body#projectStencilList div#contentPane,
+    body#jobsList div#contentPane,
+    body#projectList div#contentPane,
+    body#mobileWorker div#contentPane,
+    body#mobileWorkerTasks div#contentPane,
+    body#maintenanceRequest div#contentPane,
+    body#reports div#contentPane,
+    body#workerList div#contentPane,
+    body#mobileWorkerList div#contentPane,
+    body#scheduledJobList div#contentPane,
+    body#organizationList div#contentPane,
+    body#locatorListing div#contentPane,
+    body#jobDetails div#contentPane,
+    body#workerDetails div#contentPane,
+    body#objectDetails div#contentPane,
+    body#templateList div#contentPane {
+        background-image: url(../images/contentFooterWide.gif);
+    }
+
+    .textfilter{
+        position:absolute;
+    }
+
+
+}
+/*******************************************************************
+PRINT STYLES
+*******************************************************************/
+
+@media print {
+
+#contentPane.printView {
+    display:none;
+}
+div.popUp {
+    border: 1px solid black;
+}
+
+    body {
+        font-family: verdana,sans-serif;
+        font-size: 10px;
+    }
+
+    h1 {
+        display:none;
+    }
+
+    div.resultsCount {
+        display: none;
+    }
+
+    #sectionLinks, #loading, #topOptions, #navigationGroup, #img1, #img2, #brandImage{
+        display: none;
+    }
+
+    .pagelink {
+        display: none;
+        visibility: hidden;
+    }
+
+    div.pagemeter {
+        top: -10px;
+        right: 0px;
+    }
+
+    input.button {
+        display: none;
+    }
+
+    .breadcrumbs {
+        display: none;
+    }
+
+
+    /* FILTERS FORM **********************************/
+    div.filter h4{
+        margin: 0px;
+        padding-top: 5px;
+        font-size: 10px;
+        color: #555;
+    }
+
+    div.filter table tfoot {
+        color: #888;
+        font-size: 9px;
+    }
+
+    div.filter table td {
+        padding: 0px;
+        padding-right: 5px;
+    }
+
+    div.filter table {
+        border-collapse: collapse;
+    }
+
+    div.filter select {
+        font-size: 10px;
+    }
+
+    div.filter input {
+        font-size: 10px;
+    }
+
+
+    /* DATA TABLE */
+    div#contentPane div.content table.dataTable{
+        border: 1px solid #DDDDDD;
+        font-size: 10px;
+        margin-top: 4px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    div#contentPane div.content table.dataTable img {
+        border: 0px;
+    }
+
+    div#contentPane div.content table.dataTable td {
+        border: 1px solid #DDDDDD;
+        padding: 3px;
+        padding-right: 1em;
+        font-size: 10px;
+    }
+
+    div#contentPane div.content table.dataTable thead td {
+        border: 1px solid #DDDDDD;
+        padding: 3px;
+        padding-right: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    
+    
+}

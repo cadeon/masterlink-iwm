@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.Task"
+        table="TASK"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Task.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="plan"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="PLAN"
+            length="150"
+        />
+
+        <property
+            name="meterRule"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="METER_RULE"
+            length="150"
+        />
+
+        <property
+            name="startDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="START_DATE"
+            length="7"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+            length="150"
+        />
+
+        <property
+            name="lastServicedDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="LAST_SERVICED_DATE"
+        />
+
+        <property
+            name="numberWorkers"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="NUMBER_WORKERS"
+        />
+
+        <property
+            name="runHoursThreshold"
+            type="java.lang.Double"
+            update="true"
+            insert="true"
+            column="RUN_HOURS_THRESHOLD"
+        />
+
+        <property
+            name="active"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="ACTIVE"
+        />
+
+        <property
+            name="freqMonths"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FREQ_MONTHS"
+        />
+
+        <property
+            name="estimatedTime"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="ESTIMATED_TIME"
+        />
+
+        <property
+            name="lastPlannedDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="LAST_PLANNED_DATE"
+        />
+
+        <property
+            name="lastScheduledDate"
+            type="java.sql.Date"
+            update="true"
+            insert="true"
+            column="LAST_SCHEDULED_DATE"
+        />
+
+        <property
+            name="freqDays"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FREQ_DAYS"
+        />
+
+        <property
+            name="runHoursThresholdIncrement"
+            type="java.lang.Double"
+            update="true"
+            insert="true"
+            column="RUN_HOURS_THRESHOLD_INCREMENT"
+        />
+
+        <property
+            name="custom"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="CUSTOM"
+        />
+
+        <property
+            name="archivedDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="ARCHIVED_DATE"
+        />
+
+        <property
+            name="taskTypeId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="TASK_TYPE_ID"
+            not-null="true"
+        />
+
+        <property
+            name="taskDef"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="TASK_DEF_ID" 
+            />
+        </property>
+
+        <property
+            name="taskFrequencyId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FREQUENCY_ID" 
+            />
+        </property>
+
+        <property
+            name="objectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="OBJECT_ID" 
+            />
+        </property>
+
+        <property
+            name="organizationId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="ORGANIZATION_ID" 
+            />
+        </property>
+
+        <property
+            name="skillTypeId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SKILL_TYPE_ID" 
+            />
+        </property>
+
+        <property
+            name="priorityId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="PRIORITY_ID" 
+            />
+        </property>
+
+        <property
+            name="workerTypeId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="WORKER_TYPE_ID" 
+            />
+        </property>
+
+        <property
+            name="skillLevelId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SKILL_LEVEL_ID" 
+            />
+        </property>
+
+        <property
+            name="scheduleResponsibilityId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SCHEDULE_RESPONSIBILITY_ID" 
+            />
+        </property>
+
+        <property
+            name="groupId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="GROUP_ID" 
+            />
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Task.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

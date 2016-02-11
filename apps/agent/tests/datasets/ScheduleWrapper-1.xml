@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+ <object class="org.mlink.agent.algorithm.ScheduleWrapper"> 
+  <void property="skillLevels"> 
+   <void method="put"> 
+    <int>1</int> 
+    <int>5</int> 
+   </void> 
+  </void> 
+  <void property="workSchedule"> 
+   <object class="org.mlink.agent.model.WorkSchedule"> 
+    <void property="id"> 
+     <long>1</long> 
+    </void> 
+    <void property="locator"> 
+     <object class="org.mlink.agent.model.Locator"> 
+      <void property="fullLocator"> 
+       <string>2</string> 
+      </void> 
+      <void property="id"> 
+       <long>2</long> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="person"> 
+     <object class="org.mlink.agent.model.Person"> 
+      <void property="username"> 
+       <string>Bob1</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="shiftRef"> 
+     <object class="org.mlink.agent.model.ShiftRef"> 
+      <void property="code"> 
+       <string>1</string> 
+      </void> 
+      <void property="description"> 
+       <string>1</string> 
+      </void> 
+      <void property="id"> 
+       <int>1</int> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="time"> 
+     <int>480</int> 
+    </void> 
+   </object> 
+  </void> 
+ </object> 
+</java> 

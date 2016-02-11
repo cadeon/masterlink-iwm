@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://butler.vm:8080/" />
+<title>W009AllWrkSkillsMaxOut</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">W009AllWrkSkillsMaxOut</td></tr>
+</thead><tbody>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/Home.do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>j_username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<!--Create a temp worker-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Worker']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>workerEditTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>AAATest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>AATest</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>type</td>
+	<td>label=Internal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerLocatorFilter_0</td>
+	<td>label=Criminal Justice</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>-Select Campus -Criminal JusticeDowntownEastMcCoyOsceolaSandlakeCenterWestWinter Park</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>workerOrganizationFilter_0</td>
+	<td>label=Maintenance</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='saveButton']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='workerSkillsPopupHeader']/h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[@id='workerRights']/div[1]/h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>workerRightsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>AAATest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='AAATest' and @name='Skills']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//select[@id='addSkill']</td>
+	<td></td>
+</tr>
+<!--Select all skills and set all levels to Five-->
+<!--repeat index=1 so it uses all available skills-->
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[2]/td[1]</td>
+	<td>Superintendent</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[2]/td[1]</td>
+	<td>Superintendent</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[3]/td[1]</td>
+	<td>Supervisor</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[3]/td[1]</td>
+	<td>Supervisor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[4]/td[1]</td>
+	<td>Compliance Inspector</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[4]/td[1]</td>
+	<td>Compliance Inspector</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[5]/td[1]</td>
+	<td>Custodial Supervisor</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[5]/td[1]</td>
+	<td>Custodial Supervisor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[6]/td[1]</td>
+	<td>Custodial Lead</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[6]/td[1]</td>
+	<td>Custodial Lead</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[7]/td[1]</td>
+	<td>Fleet Supervisor</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[7]/td[1]</td>
+	<td>Fleet Supervisor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[8]/td[1]</td>
+	<td>Fleet Mechanic</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[8]/td[1]</td>
+	<td>Fleet Mechanic</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[9]/td[1]</td>
+	<td>Grounds Supervisor</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[9]/td[1]</td>
+	<td>Grounds Supervisor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[10]/td[1]</td>
+	<td>Grounds Working Supervisor</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[10]/td[1]</td>
+	<td>Grounds Working Supervisor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[11]/td[1]</td>
+	<td>Grounds Irrigation Spec.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[11]/td[1]</td>
+	<td>Grounds Irrigation Spec.</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[12]/td[1]</td>
+	<td>Grounds Lead</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[12]/td[1]</td>
+	<td>Grounds Lead</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[13]/td[1]</td>
+	<td>Trades Supervisor</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[13]/td[1]</td>
+	<td>Trades Supervisor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[14]/td[1]</td>
+	<td>AC Tech</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[14]/td[1]</td>
+	<td>AC Tech</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[15]/td[1]</td>
+	<td>Trades Maint Tech</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[15]/td[1]</td>
+	<td>Trades Maint Tech</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[16]/td[1]</td>
+	<td>Trades Maint Helper</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[16]/td[1]</td>
+	<td>Trades Maint Helper</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[17]/td[1]</td>
+	<td>Grounds Tech</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[17]/td[1]</td>
+	<td>Grounds Tech</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[18]/td[1]</td>
+	<td>Grounds Manager</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[18]/td[1]</td>
+	<td>Grounds Manager</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[19]/td[1]</td>
+	<td>HVAC Contractor</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[19]/td[1]</td>
+	<td>HVAC Contractor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>addSkill</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[20]/td[1]</td>
+	<td>Trades Mgr</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[20]/td[1]</td>
+	<td>Trades Mgr</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='AAATest' and @name='Skills']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>SKILLS_WORKER_NAME</td>
+	<td>AAATest</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>AC Tech</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Compliance Inspector</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Custodial Lead</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Custodial Supervisor</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Fleet Mechanic</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Fleet Supervisor</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Grounds Irrigation Spec.</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Grounds Lead</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Grounds Manager</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Grounds Supervisor</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Grounds Tech</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Grounds Working Supervisor</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>HVAC Contractor</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Superintendent</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Supervisor</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Trades Maint Helper</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Trades Maint Tech</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Trades Mgr</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Trades Supervisor</td>
+	<td>label=Five</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='AAATest' and @name='Skills']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>SKILLS_WORKER_NAME</td>
+	<td>AAATest</td>
+</tr>
+<!--Verify all skill selected and maxed out-->
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[2]/td[1]</td>
+	<td>AC Tech</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>AC Tech</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[3]/td[1]</td>
+	<td>Compliance Inspector</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Compliance Inspector</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[4]/td[1]</td>
+	<td>Custodial Lead</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Custodial Lead</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[5]/td[1]</td>
+	<td>Custodial Supervisor</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Custodial Supervisor</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[6]/td[1]</td>
+	<td>Fleet Mechanic</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Fleet Mechanic</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[7]/td[1]</td>
+	<td>Fleet Supervisor</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Fleet Supervisor</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[8]/td[1]</td>
+	<td>Grounds Irrigation Spec.</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Grounds Irrigation Spec.</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[9]/td[1]</td>
+	<td>Grounds Lead</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Grounds Lead</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[10]/td[1]</td>
+	<td>Grounds Manager</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Grounds Manager</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[11]/td[1]</td>
+	<td>Grounds Supervisor</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Grounds Supervisor</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[12]/td[1]</td>
+	<td>Grounds Tech</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Grounds Tech</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[13]/td[1]</td>
+	<td>Grounds Working Supervisor</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Grounds Working Supervisor</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[14]/td[1]</td>
+	<td>HVAC Contractor</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>HVAC Contractor</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[15]/td[1]</td>
+	<td>Superintendent</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Superintendent</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[16]/td[1]</td>
+	<td>Supervisor</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Supervisor</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[17]/td[1]</td>
+	<td>Trades Maint Helper</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Trades Maint Helper</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[18]/td[1]</td>
+	<td>Trades Maint Tech</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Trades Maint Tech</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[19]/td[1]</td>
+	<td>Trades Mgr</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Trades Mgr</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='workerSkillsTable']/tbody/tr[20]/td[1]</td>
+	<td>Trades Supervisor</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>Trades Supervisor</td>
+	<td>Five</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>skillsSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='AAATest' and @name='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getAlert</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>//tbody[@id='dataTableBody']</td>
+	<td>AAATest</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

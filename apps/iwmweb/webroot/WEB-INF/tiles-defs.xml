@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+        "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd"> 
+
+
+<tiles-definitions>
+
+    <!-- IMPORTED from v3-->
+    <definition path="/layout/IWMMain2.jsp" name=".AgentTools">
+        <put name="title" value="Agent Tools" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="agenttools" type="string" />
+        <put name="content" value="/jsp/AgentTools.jsp"  />
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Admin.do" value="System Properties"/>
+       </putList>
+    </definition>
+    <definition extends=".Base" name=".WorldsMaint">
+        <put value="Worlds" name="title" />
+        <put value="/iwm/WorldsMaint.jsp" name="body" />
+    </definition>
+    <definition extends=".Base" name=".WorldSummary">
+        <put value="World Summary" name="title" />
+        <put value="/simulators/WorldSummary.jsp" name="body" />
+    </definition>
+    <definition path="/layout/IWMMainLayout.jsp" name=".Base">
+        <!--put value="/layout/HomeNavbar.jsp" name="homebar" /-->
+        <!--put value=".Basebar.bar" name="navbartop" /-->
+    </definition>
+    <definition path="/layout/EWRLayout.jsp" name=".ExternalWorkRequestWelcome">
+        <put value="/iwm/LoginHeader.jsp" name="homebar" />
+        <put value="External Work Request" name="title" />
+        <put value="/iwm/EWR_Welcome.jsp" name="body" />
+    </definition>
+    <definition extends=".ExternalWorkRequestWelcome" name=".ExternalWorkRequestCreate">
+        <put value="/iwm/EWR_Create.jsp" name="body" />
+    </definition>
+    <definition extends=".ExternalWorkRequestWelcome" name=".ExternalWorkRequestTrack">
+        <put value="/iwm/EWR_Track.jsp" name="body" />
+    </definition>
+    <!-- Chris Adds internal request from a device -->
+    <definition path="/layout/device_IWRLayout.jsp" name=".MaintRequestWelcome">
+        <put value="/iwm/LoginHeader.jsp" name="homebar" />
+        <put value="Internal Work Request" name="title" />
+        <put value="/iwm/EWR_Welcome.jsp" name="body" />
+    </definition>
+    
+    <definition extends=".MaintRequestWelcome" name=".MaintRequestCreate">
+    <put value="/iwm/device_IWR_Create.jsp" name="body" />
+    </definition>
+    
+    <!-- END IMPORTED-->
+
+    <!-- ********************************************************** -->
+    <!-- DEFINE SECTION ******************************************* -->
+    <!-- TEST -->
+
+    <!-- LOCATORS -->
+    <definition path="/layout/IWMMain2.jsp" name=".LocatorList">
+        <put name="title" value="Locator List" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="locatorListing" type="string" />
+        <put name="content" value="/jsp/define/locatorList.jsp"  />
+       <putList name="Popups">
+            <add value="/jsp/define/popups/locators_edit.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/LocatorList.do" value="Locators List"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".LocatorData">
+        <put name="title" value="Locator Data" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="locatorData" type="string" />
+        <put name="content" value="/jsp/define/locatorData.jsp"  />
+        <putList name="Popups">
+             <add value="/jsp/define/popups/locators-data_edit.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/LocatorList.do" value="Locators List"/>
+            <item link="/Locators.do" value="Locator Data"/>
+        </putList>
+    </definition>
+
+    <!-- TEMPLATES -->
+    <definition path="/layout/IWMMain2.jsp" name=".TemplateList">
+        <put name="title" value="Template List" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="templateList" type="string" />
+        <put name="content" value="/jsp/define/templateList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/templates-tasks_calendar.jsp"/>
+            <add value="/jsp/define/popups/object_classification_edit.jsp"/>
+            <add value="/jsp/define/popups/template-inventory_edit.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/TemplateList.do" value="Template List"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".TemplateData">
+        <put name="title" value="Template Data" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="templateData" type="string" />
+        <put name="content" value="/jsp/define/templateData.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/templates-data_edit.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/TemplateList.do" value="Template List"/>
+            <item link="/TemplateData.do" value="Template Data"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".TemplateTasks">
+        <put name="title" value="Template Tasks" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="templateTasks" type="string" />
+        <put name="content" value="/jsp/define/templateTasks.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/templates-tasks_edit.jsp"/>
+            <add value="/jsp/define/popups/templates-taskgroups_edit.jsp"/>
+            <add value="/jsp/define/popups/templates_pickTemplate.jsp"/>            
+            <!--add value="/jsp/define/popups/templates-tasks_calendar.jsp"/-->
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/TemplateList.do" value="Template List"/>
+            <item link="/TemplateTasks.do" value="Template Tasks"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".TemplateTaskActions">
+        <put name="title" value="Template Task Actions" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="templateTaskActions" type="string" />
+        <put name="content" value="/jsp/define/templateTaskActions.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/templates-tasks-actions_edit.jsp"/>
+            <add value="/jsp/define/popups/templates-tasks-actions_order.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/TemplateList.do" value="Template List"/>
+           <item link="/TemplateTasks.do?id=" value="Template Tasks"/>
+           <item link="/TemplateTaskActions.do" value="Template Task Actions"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".TemplateTaskGroup">
+        <put name="title" value="Template Task Group" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="templateTaskGroup" type="string" />
+        <put name="content" value="/jsp/define/templateTaskGroup.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/templates-taskgroups_edit.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/TemplateList.do" value="Template List"/>
+           <item link="/TemplateTaskGroup.do" value="Template Task Group"/>
+        </putList>
+    </definition>
+
+    <!-- ORGANIZATION -->
+    <definition path="/layout/IWMMain2.jsp" name=".OrganizationList">
+        <put name="title" value="Organization List" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="organizationList" type="string" />
+        <put name="content" value="/jsp/define/organizationList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/organization_edit.jsp"/>
+            <add value="/jsp/define/popups/organization_workers.jsp"/>
+            <add value="/jsp/define/popups/mw_location.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/OrganizationList.do" value="Organization List"/>
+        </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".OrganizationCalendar">
+        <put name="title" value="Organization Calendar" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="organizationCalendar" type="string" />
+        <put name="content" value="/jsp/define/organizationCalendar.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker-calendar_add.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/OrganizationList.do" value="Organization List"/>
+            <item link="/OrganizationCalendar.do" value="Organization Calendar"/>
+        </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".OrganizationWorkerCalendarJobs">
+        <put name="title" value="Jobs" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="organizationCalendar" type="string" />
+        <put name="content" value="/jsp/define/workerCalendarJobs.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker-calendar-jobs_history.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/OrganizationList.do" value="Organization List"/>
+            <item link="/OrganizationCalendar.do?id=" value="Worker Calendar"/>
+            <item link="/WorkerCalendarJobs.do" value="Jobs"/>
+        </putList>
+    </definition>
+
+    <!-- System Prop -->
+    <definition path="/layout/IWMMain2.jsp" name=".SystemPropList">
+        <put name="title" value="System Property List" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="systemPropList" type="string" />
+        <put name="content" value="/jsp/define/systemPropList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/systemProp_edit.jsp"/>
+        </putList>
+    </definition>
+    
+    <!-- ShiftRef -->
+    <definition path="/layout/IWMMain2.jsp" name=".ShiftRefList">
+        <put name="title" value="Shift Ref List" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="shiftRefList" type="string" />
+        <put name="content" value="/jsp/define/shiftRefList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/shiftRef_edit.jsp"/>
+        </putList>
+    </definition>
+    
+    <!-- Skill Type -->
+    <definition path="/layout/IWMMain2.jsp" name=".SkillTypeList">
+        <put name="title" value="Skill Type List" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="skillTypeList" type="string" />
+        <put name="content" value="/jsp/define/skillTypeList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/skillType_edit.jsp"/>
+            <add value="/jsp/define/popups/skillType_show_cnt.jsp"/>
+        </putList>
+    </definition>
+    
+    <!-- WORKERS -->
+    <definition path="/layout/IWMMain2.jsp" name=".WorkerList">
+        <put name="title" value="Worker List" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="workerList" type="string" />
+        <put name="content" value="/jsp/define/workerList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker_edit.jsp"/>
+            <add value="/jsp/define/popups/worker_login.jsp"/>
+            <add value="/jsp/define/popups/worker_rights.jsp"/>
+            <add value="/jsp/define/popups/worker_skills.jsp"/>
+            <add value="/jsp/define/popups/mw_location.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/WorkerList.do" value="Worker List"/>
+        </putList>
+    </definition>
+    
+    <definition path="/layout/IWMMain2.jsp" name=".WorkerDetails">
+          <put name="title" value="Worker Details" type="string" />
+          <put name="section" value="define" type="string" />
+          <put name="pageid" value="workerDetails" type="string" />
+          <put name="content" value="/jsp/define/workerDetails.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker_edit.jsp"/>
+        </putList>
+         <putList name="Breadcrumbs">
+              <item link="/Home.do" value="Home"/>
+              <item link="/WorkerList.do" value="Worker List"/>
+              <item link="/WorkerDetails.do" value="Worker Details"/>
+          </putList>
+      </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".WorkerCalendar">
+        <put name="title" value="Worker Calendar" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="workerCalendar" type="string" />
+        <put name="content" value="/jsp/define/workerCalendar.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker-calendar_add.jsp"/>
+            <add value="/jsp/define/popups/worker-shift_end.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/WorkerList.do" value="Worker List"/>
+           <item link="/WorkerCalendar.do" value="Worker Calendar"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".WorkerCalendarJobs">
+        <put name="title" value="Jobs" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="workerCalendarJobs" type="string" />
+        <put name="content" value="/jsp/define/workerCalendarJobs.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker-calendar-jobs_history.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/WorkerList.do" value="Worker List"/>
+            <item link="/WorkerCalendar.do?id=" value="Worker Calendar"/>
+            <item link="/WorkerCalendarJobs.do" value="Jobs"/>
+        </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".WorkerManager">
+        <put name="title" value="Worker Manager" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="workerManager" type="string" />
+        <put name="content" value="/jsp/define/workerManager.jsp"  />
+
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker-manager_organization.jsp"/>
+        </putList>
+
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/WorkerList.do" value="Worker List"/>
+           <item link="/WorkerManager.do" value="Worker Manager"/>
+        </putList>
+    </definition>
+
+
+    <!-- ********************************************************** -->
+    <!-- IMPLEMENT SECTION ******************************************* -->
+
+    <!-- Objects -->
+    <definition path="/layout/IWMMain2.jsp" name=".ObjectList">
+        <put name="title" value="Object List" type="string" />
+        <put name="section" value="implement" type="string" />
+        <put name="pageid" value="objectList" type="string" />
+        <put name="content" value="/jsp/implement/objectList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/implement/popups/objects_edit.jsp"/>
+            <add value="/jsp/implement/popups/objects_pickTemplate.jsp"/>
+            <add value="/jsp/implement/popups/objects_attachChild.jsp"/>
+        </putList>
+
+   	    <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/ObjectList.do" value="Object List"/>
+    	</putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".ObjectDetails">
+          <put name="title" value="Object Details" type="string" />
+          <put name="section" value="implement" type="string" />
+          <put name="pageid" value="objectDetails" type="string" />
+          <put name="content" value="/jsp/implement/objectDetails.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/implement/popups/objects_edit.jsp"/>
+            <add value="/jsp/implement/popups/objects-data_edit.jsp"/>
+            <add value="/jsp/control/popups/jobs_assignTasks.jsp"/>
+            <add value="/jsp/control/popups/jobs_edit.jsp"/>
+        </putList>
+         <putList name="Breadcrumbs">
+              <item link="/Home.do" value="Home"/>
+              <item link="/ObjectList.do" value="Object List"/>
+              <item link="/ObjectDetails.do" value="Object Details"/>
+          </putList>
+      </definition>
+
+      <definition path="/layout/IWMMain2.jsp" name=".ObjectTasks">
+          <put name="title" value="Object Tasks" type="string" />
+          <put name="section" value="implement" type="string" />
+          <put name="pageid" value="objectTasks" type="string" />
+          <put name="content" value="/jsp/implement/objectTasks.jsp"  />
+
+          <putList name="Popups">
+              <add value="/jsp/implement/popups/objects-tasks_edit.jsp"/>
+              <add value="/jsp/implement/popups/objects-tasks_calendar.jsp"/>
+              <add value="/jsp/implement/popups/objects-taskgroups_edit.jsp"/>
+          </putList>
+
+         <putList name="Breadcrumbs">
+              <item link="/Home.do" value="Home"/>
+              <item link="/ObjectList.do" value="Object List"/>
+              <item link="/ObjectTasks.do" value="Object Tasks"/>
+          </putList>
+      </definition>
+
+      <definition path="/layout/IWMMain2.jsp" name=".ObjectTaskActions">
+          <put name="title" value="Object Task Actions" type="string" />
+          <put name="section" value="implement" type="string" />
+          <put name="pageid" value="objectTaskActions" type="string" />
+          <put name="content" value="/jsp/implement/objectTaskActions.jsp"  />
+          <putList name="Popups">
+              <add value="/jsp/implement/popups/objects-tasks-actions_edit.jsp"/>
+              <add value="/jsp/implement/popups/objects-tasks-actions_order.jsp"/>
+          </putList>
+         <putList name="Breadcrumbs">
+             <item link="/Home.do" value="Home"/>
+             <item link="/ObjectList.do" value="Object List"/>
+             <item link="/ObjectTasks.do?id=" value="Object Tasks"/>
+             <item link="/ObjectTaskActions.do" value="Object Task Actions"/>
+         </putList>
+      </definition>
+
+      <definition path="/layout/IWMMain2.jsp" name=".ObjectTaskGroup">
+          <put name="title" value="Object Task Group" type="string" />
+          <put name="section" value="implement" type="string" />
+          <put name="pageid" value="objectTaskGroup" type="string" />
+          <put name="content" value="/jsp/implement/objectTaskGroup.jsp"  />
+          <putList name="Popups">
+              <add value="/jsp/implement/popups/objects-taskgroups_edit.jsp"/>
+          </putList>
+         <putList name="Breadcrumbs">
+             <item link="/Home.do" value="Home"/>
+             <item link="/ObjectList.do" value="Object List"/>
+             <item link="/ObjectTaskGroup.do" value="Object Task Group"/>
+         </putList>
+      </definition>
+
+    <!-- Project Stencil -->
+    <definition path="/layout/IWMMain2.jsp" name=".StencilList">
+        <put name="title" value="Project Stencils" type="string" />
+        <put name="section" value="implement" type="string" />
+        <put name="pageid" value="projectStencilList" type="string" />
+        <put name="content" value="/jsp/implement/stencilList.jsp"  />
+          <putList name="Popups">
+              <add value="/jsp/implement/popups/stencils_edit.jsp"/>
+              <add value="/jsp/implement/popups/projectStencil_history.jsp"/>
+          </putList>
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/StencilList.do" value="Project Stencils"/>
+       </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".ProjectStencilTasks">
+        <put name="title" value="Stencil Tasks" type="string" />
+        <put name="section" value="implement" type="string" />
+        <put name="pageid" value="projectStencilTasks" type="string" />
+        <put name="content" value="/jsp/implement/projectStencilTasks.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/implement/popups/objects-tasks_edit.jsp"/>
+            <add value="/jsp/implement/popups/objects-tasks_calendar.jsp"/>
+            <add value="/jsp/implement/popups/projectStencilTasks_order.jsp"/>
+            <add value="/jsp/implement/popups/projectStencilTasks_selectObject.jsp"/>
+            <add value="/jsp/implement/popups/projectStencilTasks_assignTasks.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/StencilList.do" value="Project Stencils"/>
+            <item link="/ProjectStencilTasks.do" value="Stencil Tasks"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".StencilResources">
+        <put name="title" value="Resources" type="string" />
+        <put name="section" value="implement" type="string" />
+        <put name="pageid" value="projectStencilResources" type="string" />
+        <put name="content" value="/jsp/implement/stencilResources.jsp"  />
+        <put name="popups" value="/jsp/implement/stencilResourcesPopup.jsp"  />
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/StencilList.do" value="Project Stencils"/>
+           <item link="/StencilResources.do" value="Resources"/>
+       </putList>
+    </definition>
+
+
+
+
+    <!-- ********************************************************** -->
+    <!-- CONTROL SECTION ******************************************* -->
+
+    <!-- Jobs -->
+    <definition path="/layout/IWMMain2.jsp" name=".JobList">
+        <put name="title" value="Jobs List" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="jobsList" type="string" />
+        <put name="content" value="/jsp/control/jobList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/control/popups/jobs_selectObject.jsp"/>
+            <add value="/jsp/control/popups/jobs_assignTasks.jsp"/>
+            <add value="/jsp/control/popups/jobs_edit.jsp"/>
+            <!--add value="/jsp/define/popups/worker-calendar-jobs_history.jsp"/-->
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/JobList.do" value="Job List"/>
+        </putList>
+    </definition>
+
+      <definition path="/layout/IWMMain2.jsp" name=".JobTasks">
+          <put name="title" value="Job Tasks" type="string" />
+          <put name="section" value="control" type="string" />
+          <put name="pageid" value="jobTasks" type="string" />
+          <put name="content" value="/jsp/control/jobTasks.jsp"  />
+          <putList name="Popups">
+              <add value="/jsp/control/popups/jobs-tasks_time.jsp"/>
+          </putList>
+         <putList name="Breadcrumbs">
+              <item link="/Home.do" value="Home"/>
+              <item link="/JobList.do" value="Job List"/>
+              <item link="/JobTasks.do" value="Job Tasks"/>
+          </putList>
+      </definition>
+      
+      <definition path="/layout/IWMMain2.jsp" name=".JobDetails">
+          <put name="title" value="Job Details" type="string" />
+          <put name="section" value="control" type="string" />
+          <put name="pageid" value="jobDetails" type="string" />
+          
+         <put name="content" value="/jsp/control/jobDetails.jsp"  /> 
+         <putList name="Popups">
+            <add value="/jsp/control/popups/jobs_selectObject.jsp"/>
+            <add value="/jsp/control/popups/jobs_assignTasks.jsp"/>
+            <add value="/jsp/control/popups/jobs_edit.jsp"/>
+		</putList>           
+         <putList name="Breadcrumbs">
+              <item link="/Home.do" value="Home"/>
+              <item link="/JobList.do" value="Job List"/>
+              <item link="/JobDetails.do" value="Job Details"/>
+          </putList>
+      </definition>
+      
+      
+
+      <definition path="/layout/IWMMain2.jsp" name=".JobTaskActions">
+          <put name="title" value="Job Task Actions" type="string" />
+          <put name="section" value="control" type="string" />
+          <put name="pageid" value="jobTaskActions" type="string" />
+          <put name="content" value="/jsp/control/jobTaskActions.jsp"  />
+          <put name="popups" value="/jsp/control/jobTaskActionsPopup.jsp"  />
+         <putList name="Breadcrumbs">
+             <item link="/Home.do" value="Home"/>
+             <item link="/JobList.do" value="Job List"/>
+             <item link="/JobTasks.do?id=" value="Job Tasks"/>
+             <item link="/JobTaskActions.do" value="Job Task Actions"/>
+         </putList>
+      </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".JobSchedule">
+        <put name="title" value="Job Schedule" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="jobSchedule" type="string" />
+        <put name="content" value="/jsp/control/jobSchedule.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/control/popups/jobSchedule_wsjobs.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/JobList.do" value="Job List"/>
+            <item link="/JobScheduleGroup.do" value="Job Schedule"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".ProjectJobSchedule">
+        <put name="title" value="Job Schedule" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="jobSchedule" type="string" />
+        <put name="content" value="/jsp/control/jobSchedule.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/control/popups/jobSchedule_wsjobs.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/ProjectJobs.do?projectId=" value="Project Jobs"/>
+            <item link="/JobScheduleGroup.do" value="Job Schedule"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".Reports">
+        <put name="title" value="Reports" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="reports" type="string" />
+        <put name="content" value="/jsp/control/reportsList.jsp"  />
+        <put name="popups" value="/jsp/blank.jsp"  />
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Reports.do" value="Reports"/>
+       </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".Attachments">
+        <put name="title" value="Attachments" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="attachments" type="string" />
+        <put name="content" value="/jsp/misc/attachmentList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/misc/popups/attachment_upload.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Attachments.do" value="Attachments"/>
+       </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".Admin">
+        <put name="title" value="System Properties" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="admin" type="string" />
+        <put name="content" value="/jsp/about.jsp"  />
+        <!--put name="popups" value="/jsp/blank.jsp"  /-->
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Admin.do" value="System Properties"/>
+       </putList>
+    </definition>
+
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".Uploads">
+        <put name="title" value="Uploaded Content" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="uploads" type="string" />
+        <put name="content" value="/jsp/upload/uploads.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/upload/popups/uploads_view.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Uploads.do" value="Upload"/>
+       </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".Upload">
+        <put name="title" value="Upload File" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="upload" type="string" />
+        <put name="content" value="/jsp/upload/upload.jsp"  />
+        <!--put name="popups" value="/jsp/blank.jsp"  /-->
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Uploads.do" value="Uploaded Content"/>
+           <item link="/Upload.do" value="Upload File"/>
+       </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".UploadDisplay">
+        <put name="title" value="Upload File" type="string" />
+        <put name="section" value="define" type="string" />
+        <put name="pageid" value="upload" type="string" />
+        <put name="content" value="/jsp/upload/uploadDisplay.jsp"  />
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Uploads.do" value="Uploaded Content"/>
+           <item link="/Upload.do" value="Upload File"/>
+       </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".Settings">
+        <put name="title" value="Settings" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="admin" type="string" />
+        <put name="content" value="/jsp/settings.jsp"  />
+        <!--put name="popups" value="/jsp/blank.jsp"  /-->
+        <putList name="Popups">
+            <add value="/jsp/popups/settings_changePassword.jsp"/>
+        </putList>
+
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Settings.do" value="Settings"/>
+       </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".TenantRequestMaint">
+        <put name="title" value="Maintenance Requests" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="maintenanceRequest" type="string" />
+        <put name="content" value="/jsp/control/tenantRequestList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/control/popups/maintenanceRequest_add.jsp"/>
+            <add value="/jsp/control/popups/maintenanceRequest_view.jsp"/>
+        </putList>
+
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/TenantRequestMaint.do" value="Maintenance Requests"/>
+       </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".MobileWorkerList">
+        <put name="title" value="Worker Schedules" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="mobileWorkerList" type="string" />
+        <put name="content" value="/jsp/control/mobileWorkerList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/worker_edit.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/Admin.do" value="Admin"/>
+            <item link="/MobileWorkerList.do" value="Worker Schedules"/>
+        </putList>
+    </definition>
+
+	<definition path="/layout/IWMMain2.jsp" name=".MWLocationList">
+        <put name="title" value="Worker Location and Work Time" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="mwLocationList" type="string" />
+        <put name="content" value="/jsp/control/mwLocationList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/define/popups/mw_location.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/Admin.do" value="Admin"/>
+            <item link="/MWLocationList.do" value="Worker Location and Work Time"/>
+        </putList>
+    </definition>
+    
+    <definition path="/layout/IWMMain2.jsp" name=".ScheduledJobList">
+        <put name="title" value="Scheduled Jobs" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="scheduledJobList" type="string" />
+        <put name="content" value="/jsp/control/scheduledJobList.jsp"  />
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/Admin.do" value="Admin"/>
+            <item link="/ScheduledJobList.do" value="Scheduled Jobs"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".MobileWorker">
+        <put name="title" value="Mobile Worker" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="mobileWorker" type="string" />
+        <put name="content" value="/jsp/control/mobileWorker.jsp"  />
+        <put name="popups" value="/jsp/blank.jsp"  />
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/MWJobs.do" value="Mobile Worker"/>
+       </putList>
+    </definition>
+    <definition path="/layout/IWMMain2.jsp" name=".Message">
+        <put name="title" value="Message" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="mobileWorker" type="string" />
+        <put name="content" value="/jsp/message.jsp"  />
+        <put name="popups" value="/jsp/blank.jsp"  />
+       <putList name="Breadcrumbs">
+       </putList>
+    </definition>
+
+    <definition path="/jsp/login.jsp" name=".Login">
+    </definition>
+
+    <definition path="/jsp/changePassword.jsp" name=".ChangePassword">
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".MobileWorkerTasks">
+        <put name="title" value="Mobile Worker Tasks" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="mobileWorkerTasks" type="string" />
+        <put name="content" value="/jsp/control/mobileWorkerTasks.jsp"  />
+        <putList name="Popups">
+            <!--  <add value="/jsp/control/popups/mobileWorker-tasks_actions.jsp"/>-->
+            <add value="/jsp/control/popups/mobileWorker-object_edit.jsp"/>
+
+        </putList>
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/MWJobs.do" value="Mobile Worker"/>
+           <item link="/MobileWorkerTasks.do" value="Job Details"/>
+       </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".ProjectList">
+        <put name="title" value="Project List" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="projectList" type="string" />
+        <put name="content" value="/jsp/control/projectList.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/control/popups/projects_edit.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/ProjectList.do" value="Project List"/>
+        </putList>
+    </definition>
+
+    <definition path="/layout/IWMMain2.jsp" name=".ProjectJobs">
+        <put name="title" value="Project Jobs" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="projectJobs" type="string" />
+        <put name="content" value="/jsp/control/projectJobs.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/control/popups/jobs_selectObject.jsp"/>
+            <add value="/jsp/control/popups/jobs_assignTasks.jsp"/>
+            <add value="/jsp/control/popups/jobs_edit.jsp"/>
+            <add value="/jsp/control/popups/projectJobs_order.jsp"/>
+            <add value="/jsp/define/popups/worker-calendar-jobs_history.jsp"/>
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/ProjectList.do" value="Project List"/>
+            <item link="/ProjectJobs.do" value="Project Jobs"/>
+        </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".ProjectItems">
+        <put name="title" value="Project" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="project" type="string" />
+        <put name="content" value="/jsp/control/projectItems.jsp"  />
+        <putList name="Popups">
+            <!--add value="/jsp/control/popups/jobs_selectObject.jsp"/>
+            <add value="/jsp/control/popups/jobs_assignTasks.jsp"/>
+            <add value="/jsp/control/popups/jobs_edit.jsp"/>
+            <add value="/jsp/control/popups/projectJobs_order.jsp"/>
+            <add value="/jsp/define/popups/worker-calendar-jobs_history.jsp"/-->
+        </putList>
+       <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/ProjectList.do" value="Project List"/>
+            <item link="/ProjectItems.do" value="Project"/>
+        </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".ProjectJobTasks">
+        <put name="title" value="Job Tasks" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="projectJobTasks" type="string" />
+        <put name="content" value="/jsp/control/jobTasks.jsp"  />
+        <putList name="Popups">
+            <add value="/jsp/control/popups/jobs-tasks_time.jsp"/>
+        </putList>
+        <putList name="Breadcrumbs">
+            <item link="/Home.do" value="Home"/>
+            <item link="/ProjectList.do" value="Project List"/>
+            <item link="/ProjectJobs.do?projectId=" value="Project Jobs"/>
+            <item link="/ProjectJobTasks.do" value="Project Job Tasks"/>
+        </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".ProjectJobTaskActions">
+        <put name="title" value="Job Task Actions" type="string" />
+        <put name="section" value="control" type="string" />
+        <put name="pageid" value="projectJobTaskActions" type="string" />
+        <put name="content" value="/jsp/control/jobTaskActions.jsp"  />
+        <put name="popups" value="/jsp/control/jobTaskActionsPopup.jsp"  />
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/ProjectList.do" value="Project List"/>
+           <item link="/ProjectJobs.do?projectId=" value="Project Jobs"/>
+           <item link="/ProjectJobTasks.do?projectId=&amp;id=" value="Project Job Tasks"/>
+           <item link="/ProjectJobTaskActions.do" value="Job Task Actions"/>
+       </putList>
+    </definition>
+
+
+    <!-- ANALYZE SECTION -->
+
+    <!-- Measure SECTION -->
+    <definition path="/layout/IWMMain2.jsp" name=".ReportsMeasure">
+        <put name="title" value="Reports" type="string" />
+        <put name="section" value="measure" type="string" />
+        <put name="pageid" value="reports" type="string" />
+        <put name="content" value="/jsp/control/reportsList.jsp"  />
+        <put name="popups" value="/jsp/blank.jsp"  />
+       <putList name="Breadcrumbs">
+           <item link="/Home.do" value="Home"/>
+           <item link="/Reports.do" value="Reports"/>
+       </putList>
+    </definition>
+
+
+    <definition path="/layout/IWMMain2.jsp" name=".GlobalSearch">
+        <put name="title" value="Global Search" type="string" />
+        <put name="section" value="measure" type="string" />
+        <put name="pageid" value="globalSearch" type="string" />
+        <put name="content" value="/jsp/measure/globalSearch.jsp"  />
+    </definition>
+
+</tiles-definitions>

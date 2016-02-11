@@ -1,0 +1,1424 @@
+@media screen {
+
+/*
+Author: John Mirick (john@mirick.us)
+
+This for is **JUST** for setting the width and centering of datatables
+All selectors should start with table.dataTable#TABLE_NAME so that none of the
+styles defined in here propagate to unintended elements.
+
+I find it easier to maintain these styles by writing unique styles for each table
+rather than looking for reusable styles to be shared across tables.
+
+    1. Define
+        1.1 Locators
+            1.1.1 Locator Data
+        1.2 Templates
+            1.2.1 Template Data
+            1.2.2 Template Tasks
+                1.2.2.1 Template Task Actions
+            1.2.3  Template Task Groups
+        1.3 Workers
+            1.3.1 Worker List
+                1.3.1.1 Worker Calendar
+                    1.3.1.1.1 Calendar Jobs
+            1.3.2 Worker Manager
+        1.4 Organizations
+
+    2. Implement
+        2.1 Objects
+            2.1.1 Object Data
+            2.1.2 Object Tasks
+            2.1.2.1 Object Task Actions
+            2.1.3 Object Task Groups
+        2.2 Stencils
+            2.2.1  Stencil Resources
+    3.  Control
+        3.1 Jobs
+        3.1.1 Job Tasks
+            3.1.1.2 Job Task Actions
+        3.1.2 Job Schedule
+        3.2 Mobile Worker
+        3.2.1 Mobile Worker Tasks
+        3.3 Maint Requests
+        3.4 Worker Schedules
+
+*/
+
+/************************************************************/
+/* 1. Define ***********************************************/
+
+/* 1.1 Locators */
+
+    table.dataTable#locatorsTable .editCol {
+        text-align: center;
+        width: 55px;
+    }
+
+    table.dataTable#locatorsTable .deleteCol {
+        text-align: center;
+        width: 55px;
+    }
+
+    table.dataTable#locatorsTable .dataCol {
+        text-align: center;
+        width: 55px;
+    }
+
+    table.dataTable#locatorsTable .typeCol {
+        width: 85px;
+    }
+
+    table.dataTable#locatorsTable .nameCol {
+    }
+
+    table.dataTable#locatorsTable .locationCol {
+    }
+
+
+
+
+/* 1.1.1 Locators Data */
+
+table.dataTable#locatorDataTable col.typeCol {
+}
+
+table.dataTable#locatorDataTable col.nameCol {
+
+}
+
+table.dataTable#locatorDataTable col.valueCol {
+}
+
+table.dataTable#locatorDataTable col.unitCol {
+    width: 110px;
+
+}
+
+table.dataTable#locatorDataTable col.displayCol {
+    text-align: center;
+    width: 60px;
+}
+
+
+
+table.dataTable#locatorDataTable .editCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#locatorDataTable .deleteCol {
+    text-align: center;
+    width: 50px;
+}
+
+
+
+/* 1.2 Template Table */
+
+/* there are no buttons for this table need to make room for the page meter */
+table.dataTable#templatesTable {
+    margin-top: 35px;
+}
+
+table.dataTable#templatesTable .classCol {
+
+}
+
+table.dataTable#templatesTable .instancesCol {
+    text-align: center;
+    width: 75px;
+}
+
+table.dataTable#templatesTable .inventoryCol {
+    text-align: center;
+    width: 75px;
+}
+	
+table.dataTable#templatesTable .dataCol {
+    text-align: center;
+    width: 65px;
+}
+
+table.dataTable#templatesTable .calendarCol {
+    text-align: center;
+    width: 65px;
+}
+
+table.dataTable#templatesTable .tasksCol {
+    text-align: center;
+    width: 65px;
+}
+
+table.dataTable#templatesTable .taskGroupsCol {
+    text-align: center;
+    width: 65px;
+}
+
+/* 1.2.1 Template Data */
+
+table.dataTable#templateDataTable col.nameCol {
+
+}
+
+table.dataTable#templateDataTable col.typeCol {
+}
+
+table.dataTable#templateDataTable col.valueCol {
+
+}
+
+table.dataTable#templateDataTable col.unitCol {
+    width: 85px;
+}
+
+table.dataTable#templateDataTable .displayCol {
+    text-align: center;
+    width: 55px;
+}
+table.dataTable#templateDataTable .fieldEditCol,  table.dataTable#templateDataTable col.fieldEditCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#templateDataTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#templateDataTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+
+/* 1.2.2 Template Tasks */
+
+
+table.dataTable#templateTasksTable col.descriptionCol {
+}
+
+table.dataTable#templateTasksTable col.estTimeCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#templateTasksTable col.skillCol {
+        width: 130px;
+}
+
+table.dataTable#templateTasksTable .skillLevelCol {
+    width: 58px;
+}
+
+table.dataTable#templateTasksTable .priorityCol {
+    width: 58px;
+}
+
+table.dataTable#templateTasksTable .taskGroupCol {
+    width: 40px;
+    text-align: center;
+}
+table.dataTable#templateTasksTable .typeCol{
+    width: 70px;
+}
+
+table.dataTable#templateTasksTable .instsCol {
+    text-align: center;
+    width: 40px;
+}
+
+
+
+table.dataTable#templateTasksTable .actionsCol {
+    text-align: center;
+    width: 52px;
+}
+
+table.dataTable#templateTasksTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#templateTasksTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+/* 1.2.2.1 Template Task Actions */
+
+table.dataTable#templateTaskActionsTable .orderCol {
+    width: 55px;
+}
+table.dataTable#templateTaskActionsTable .verbCol{
+}
+
+table.dataTable#templateTaskActionsTable .nameCol {
+}
+table.dataTable#templateTaskActionsTable .modifierCol {
+}
+
+table.dataTable#templateTaskActionsTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#templateTaskActionsTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+/* 1.2.3 Template Task Groups */
+
+table.dataTable#templateTaskGroupsTable .descriptionCol {
+
+}
+table.dataTable#templateTaskGroupsTable .skillCol{
+
+}
+
+table.dataTable#templateTaskGroupsTable .tasksCol {
+    width: 55px;
+
+}
+table.dataTable#templateTaskGroupsTable .instsCol {
+    text-align: center;
+    width: 40px;
+}
+
+table.dataTable#templateTaskGroupsTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#templateTaskGroupsTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+/* 1.3.1 Worker List */
+table.dataTable#workerDataTable .nameCol {
+    width: 145px;
+    text-align: left;
+}
+table.dataTable#workerDataTable .organizationCol {
+	width: 245px;
+    text-align: left;
+}
+table.dataTable#workerDataTable .activeCol {
+    width: 50px;
+}
+table.dataTable#workerDataTable .rankCol {
+    width: 80px;
+    text-align: center;
+}
+table.dataTable#workerDataTable .managerCol {
+    width: 40px;
+    text-align: center;
+}
+table.dataTable#workerDataTable .clndrCol {
+    width: 40px;
+    text-align: center;
+}
+table.dataTable#workerDataTable .skillsCol {
+    width: 40px;
+    text-align: center;
+}
+table.dataTable#workerDataTable .rightsCol {
+    width: 45px;
+    text-align: center;
+}
+table.dataTable#workerDataTable .loginCol {
+    width: 40px;
+    text-align: center;
+}
+table.dataTable#workerDataTable .locInfoCol {
+    text-align: center;
+    width: 45px;
+}
+table.dataTable#workerDataTable .editCol {
+    width: 40px;
+    text-align: center;
+}
+table.dataTable#workerDataTable .deleteCol {
+    width: 50px;
+    text-align: center;
+}
+
+
+/* 1.3.1.1 Worker Calendar */
+table.dataTable#workerCalendarTable .deleteCol {
+    width: 55px;
+    text-align: center;
+}
+table.dataTable#workerCalendarTable .dateCol {
+    width: 98px;
+}
+table.dataTable#workerCalendarTable .locationCol {
+    width: 140px;
+}
+table.dataTable#workerCalendarTable .hoursCol {
+    width: 40px;
+}
+table.dataTable#workerCalendarTable .shiftCol {
+    width: 80px;
+}
+table.dataTable#workerCalendarTable .statusCol {
+    width: 90px;
+}
+table.dataTable#workerCalendarTable .startedCol {
+    width: 70px;
+}
+table.dataTable#workerCalendarTable .jobsCol {
+    width: 45px;
+    text-align: center;
+}
+table.dataTable#workerCalendarTable .workerCol {
+    width: 140px;
+    text-align: left;
+}
+
+
+/* 1.3.1.1.1 Calendar Jobs */
+table.dataTable#workerCalendarJobsTable .jobIdCol {
+    width: 55px;
+}
+table.dataTable#workerCalendarJobsTable .jobStatusCol {
+    width: 75px;
+}
+table.dataTable#workerCalendarJobsTable .objectCol {
+
+}
+table.dataTable#workerCalendarJobsTable .descriptionCol {
+
+}
+table.dataTable#workerCalendarJobsTable .locatorCol {
+
+}
+table.dataTable#workerCalendarJobsTable .ageCol {
+    width: 40px;
+}
+table.dataTable#workerCalendarJobsTable .priorityCol {
+    width: 50px;
+}
+table.dataTable#workerCalendarJobsTable .statusCol {
+    width: 50px;
+}
+table.dataTable#workerCalendarJobsTable .assignedByCol {
+    width: 160px;
+}
+table.dataTable#workerCalendarJobsTable .historyCol {
+    width: 50px;
+    text-align: center;
+}
+table.dataTable#workerCalendarJobsTable .exchangeCol {
+    width: 50px;
+    text-align: center;
+}
+
+
+
+
+/* 1.3.2 Worker Manager */
+table.dataTable#managerOrganizations {
+    width: auto;
+
+}
+table.dataTable#managerOrganizations .organizationCol {
+    width: 270px;
+}
+
+table.dataTable#managerOrganizations .deleteCol {
+    width: 55px;
+    text-align: center;
+}
+
+
+
+/* 1.4 Organizations */
+
+table.dataTable#organizationTable .orgNameCol {
+}
+table.dataTable#organizationTable .hierarchyCol {
+}
+table.dataTable#organizationTable .workersCol {
+    width: 55px;
+    text-align: center;
+}
+table.dataTable#organizationTable .locInfoCol {
+    text-align: center;
+    width: 55px;
+}
+table.dataTable#organizationTable .editCol {
+    width: 55px;
+    text-align: center;
+
+}
+
+table.dataTable#organizationTable .deleteCol {
+    width: 55px;
+    text-align: center;
+}
+table.dataTable#organizationTable .clndrCol {
+    width: 40px;
+    text-align: center;
+}
+
+
+/************************************************************/
+/* 2. Implement *********************************************/
+
+/*  2.1 Objects */
+table.dataTable#objectListTable .nameCol {
+}
+table.dataTable#objectListTable .classCol{
+}
+table.dataTable#objectListTable .locatorCol {
+}
+table.dataTable#objectListTable .customCol {
+    width: 55px;
+    text-align: center;
+}table.dataTable#objectListTable .activeCol {
+    width: 45px;
+    text-align: center;
+}	
+table.dataTable#objectListTable .detailsCol {
+    width: 55px;
+    text-align: center;
+}
+table.dataTable#objectListTable .tasksCol {
+    width: 45px;
+    text-align: center;
+}
+table.dataTable#objectListTable .editCol {
+    text-align: center;
+    width: 45px;
+}
+
+table.dataTable#objectListTable .deleteCol {
+    text-align: center;
+    width: 50px;
+}
+
+
+
+/* 2.1.1 Object Data */
+
+
+
+table.dataTable#objectDataTable .nameCol {
+
+}
+
+table.dataTable#objectDataTable .typeCol {
+	width: 125px;
+}
+
+table.dataTable#objectDataTable td.labelCol {
+	width: 125px;
+}
+
+table.dataTable#objectDataTable td.valueCol {
+}
+
+table.dataTable#objectDataTable .unitCol {
+	text-align: center;
+	width: 65px;
+}
+
+table.dataTable#objectDataTable .displayCol {
+    text-align: center;
+    width: 55px;
+}
+table.dataTable#objectDataTable .fieldEditCol,  table.dataTable#objectDataTable col.fieldEditCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#objectDataTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#objectDataTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+/* 2.1.2 Object Tasks */
+table.dataTable#objectTasksTable .descriptionCol {
+    width: 130px;
+}
+
+table.dataTable#objectTasksTable .customCol {
+    width: 50px;
+    text-align: center;
+}
+
+
+table.dataTable#objectTasksTable .estTimeCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#objectTasksTable .skillCol {
+}
+
+table.dataTable#objectTasksTable .activeCol {
+    width: 45px;
+    text-align: center;
+}
+
+table.dataTable#objectTasksTable .taskGroupCol {
+    text-align: center;
+    width: 45px;
+}
+
+table.dataTable#objectTasksTable .startDateCol {
+    width: 50px;
+}
+
+table.dataTable#objectTasksTable .skillLevelCol {
+    width: 48px;
+}
+
+table.dataTable#objectTasksTable .priorityCol {
+    width: 53px;
+}
+table.dataTable#objectTasksTable .typeCol{
+    width: 70px;
+}
+
+table.dataTable#objectTasksTable .instsCol {
+    text-align: center;
+    width: 40px;
+}
+table.dataTable#objectTasksTable .clndrCol {
+    text-align: center;
+    width: 40px;
+}
+
+table.dataTable#objectTasksTable .actionsCol {
+    text-align: center;
+    width: 45px;
+}
+
+table.dataTable#objectTasksTable .editCol {
+    text-align: center;
+    width: 40px;
+}
+
+table.dataTable#objectTasksTable .deleteCol {
+    text-align: center;
+    width: 42px;
+}
+
+/* 2.1.2.1 Object Task Actions */
+
+table.dataTable#objectTaskActionsTable .orderCol {
+    width: 55px;
+}
+table.dataTable#objectTaskActionsTable .verbCol{
+}
+
+table.dataTable#objectTaskActionsTable .nameCol {
+}
+table.dataTable#objectTaskActionsTable .modifierCol {
+}
+
+table.dataTable#objectTaskActionsTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#objectTaskActionsTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+/* 2.1.3 Object Task Groups */
+
+table.dataTable#objectTaskGroupsTable .descriptionCol {
+
+}
+table.dataTable#objectTaskGroupsTable .skillCol{
+
+}
+
+table.dataTable#objectTaskGroupsTable .tasksCol {
+    width: 55px;
+
+}
+
+table.dataTable#objectTaskGroupsTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#objectTaskGroupsTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+/* 2.2 Stencils */
+table.dataTable#projectStencilsTable .stencilIdCol{
+    width: 50px;
+}
+table.dataTable#projectStencilsTable .name{
+    width: 170px;
+}
+table.dataTable#projectStencilsTable .orgNameCol{
+}
+table.dataTable#projectStencilsTable .locatorCol{
+}
+table.dataTable#projectStencilsTable .autoplanCol{
+    width: 60px;
+}
+
+
+table.dataTable#projectStencilsTable .historyCol{
+   text-align: center;
+    width: 50px;
+}
+table.dataTable#projectStencilsTable .tasksCol{
+   text-align: center;
+    width: 50px;
+}
+
+table.dataTable#projectStencilsTable .editCol{
+   text-align: center;
+    width: 50px;
+}
+
+table.dataTable#projectStencilsTable .deleteCol {
+    text-align: center;
+    width: 50px;
+}
+
+
+
+/* 2.2.1  Stencil Tasks */
+table.dataTable#stencilTasksTable .orderCol{
+        width: 40px;
+}
+table.dataTable#stencilTasksTable .descriptionCol{}
+table.dataTable#stencilTasksTable .objectIdCol{
+    width: 85px;
+}
+table.dataTable#stencilTasksTable .locationCol{
+    width: 100px;
+}
+table.dataTable#stencilTasksTable .estTimeCol{
+    text-align: center;
+    width: 50px;
+}
+table.dataTable#stencilTasksTable .skillCol{
+    width: 85px;
+}
+table.dataTable#stencilTasksTable .typeCol{
+    width: 85px;
+}
+table.dataTable#stencilTasksTable .activeCol{
+    width: 40px;
+}
+table.dataTable#stencilTasksTable .clndrCol{
+    text-align: center;
+    width: 40px;
+}
+
+table.dataTable#stencilTasksTable .editCol{
+   text-align: center;
+    width: 50px;
+}
+
+table.dataTable#stencilTasksTable .deleteCol {
+    text-align: center;
+    width: 50px;
+}
+
+
+/* 2.2.2  Stencil Resources */
+table.dataTable#stencilResourcesTable td{
+    vertical-align: top;
+}
+
+table.dataTable#stencilResourcesTable .editCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#stencilResourcesTable .tasksCol {
+    text-align: center;
+    width: 45px;
+}
+
+
+
+/* 3. Control ***********************************************/
+
+/*  3.1 Jobs */
+table.dataTable#jobsTable .jobIdCol {
+    width: 65px;
+}
+
+table.dataTable#jobsTable .jobAgeCol {
+    width: 35px;
+    text-align: center;
+}
+	
+	
+table.dataTable#jobsTable .orderCol {
+    width: 40px;
+}
+
+table.dataTable#jobsTable .statusCol{
+    width: 70px;
+    text-align: center;
+}
+
+table.dataTable#jobsTable .objectIdCol {
+	width: 150px;
+}
+
+table.dataTable#jobsTable .descriptionCol {
+}
+
+table.dataTable#jobsTable .locationCol {
+	width: 120px;
+}
+
+table.dataTable#jobsTable .skillCol {
+    text-align: center;
+    width: 75px;
+}
+
+table.dataTable#jobsTable .typeCol {
+	width: 75px;
+}
+
+table.dataTable#jobsTable .tasksCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#jobsTable .estTimeCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#jobsTable .createdDateCol {
+    text-align: center;
+    width: 75px;
+}
+
+table.dataTable#jobsTable .scheduleCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#jobsTable .editCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#jobsTable .deleteCol {
+    text-align: center;
+    width: 50px;
+}
+
+/*  3.1.1 Jobs Tasks */
+
+table.dataTable#jobTasksDataTable td.descriptionCol {
+}
+table.dataTable#jobTasksDataTable .estTimeCol {
+    text-align: center;
+    width: 50px;
+}
+table.dataTable#jobTasksDataTable .totalTimeCol {
+    width: 65px;
+}
+table.dataTable#jobTasksDataTable td.skillCol {
+    width: 120px;
+
+}
+table.dataTable#jobTasksDataTable td.taskTypeCol {
+
+}
+table.dataTable#jobTasksDataTable .actionsCol {
+    text-align: center;
+    width: 55px;
+}
+table.dataTable#jobTasksDataTable .timeCol {
+    text-align: center;
+    width: 55px;
+}
+/*  3.1.1.1 Jobs Task Actions */
+
+table.dataTable#actionsDataTable td.orderCol {
+    width: 50px;
+}
+table.dataTable#actionsDataTable td.verbCol {
+    width: 100px;
+
+}
+table.dataTable#actionsDataTable td.nameCol {
+    width: 100px;
+
+}
+table.dataTable#actionsDataTable td.modifierCol {
+        width: 120px;
+}
+table.dataTable#actionsDataTable td.fieldConditionCol {
+}
+
+
+/*  3.1.2 Job Schedule*/
+
+table.dataTable#jobScheduleTable .selectCol {
+    width: 60px;
+}
+table.dataTable#jobScheduleTable .dateCol {
+    width: 110px;
+}
+table.dataTable#managerOrganizations .organizationCol {
+    width: 270px;
+}
+
+
+table.dataTable#jobScheduleTable .jobsCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#jobScheduleTable .workerCol {
+    width: 140px;
+    text-align: left;
+}
+
+table.dataTable#jobHistoryTable .scheduleDateCol {
+    width: 110px;
+}
+table.dataTable#jobHistoryTable .timeCol {
+    width: 65px;
+}
+table.dataTable#jobHistoryTable .workerCol {
+    width: 90px;
+    text-align: left;
+}
+table.dataTable#jobHistoryTable .hierarchyCol {
+    text-align: left;
+    width:100px
+}
+table.dataTable#jobHistoryTable .phoneCol {
+    width: 80px;
+}
+table.dataTable#jobHistoryTable .emailCol {
+	 width: 100px;
+}
+table.dataTable#jobHistoryTable .assignedByCol {
+    width: 160px;
+}
+
+table.dataTable#jobHistoryTableMW .scheduleDateCol {
+    width: 70px;
+}
+table.dataTable#jobHistoryTableMW .timeCol {
+    width: 65px;
+}
+table.dataTable#jobHistoryTableMW .workerCol {
+    width: 110px;
+    text-align: left;
+}
+table.dataTable#jobHistoryTableMW .hierarchyCol {
+    text-align: left;
+    width:100px
+}
+table.dataTable#jobHistoryTableMW .phoneCol {
+    width: 80px;
+}
+table.dataTable#jobHistoryTableMW .emailCol {
+	 width: 100px;
+}
+	
+table.dataTable#WSJobsTable .createdDateCol {
+    text-align: center;
+    width: 70px;
+}
+table.dataTable#WSJobsTable .descriptionCol {
+    width: 120px;
+}
+table.dataTable#WSJobsTable .jobIdCol {
+    width: 50px;
+}
+table.dataTable#WSJobsTable .locatorCol {
+    width: 120px;
+}
+table.dataTable#WSJobsTable .skillType {
+    width: 120px;
+}
+table.dataTable#WSJobsTable .status {
+    width: 50px;
+}	
+
+/* 3.2 Mobile Worker */
+table.dataTable#workerAssignmentsTable .statusCol {
+    width: 65px;
+}
+table.dataTable#workerAssignmentsTable .jobIdCol {
+    width: 85px;
+
+}
+table.dataTable#workerAssignmentsTable .priorityCol {
+    width: 90px;
+
+}
+table.dataTable#workerAssignmentsTable .descriptionCol {
+}
+table.dataTable#workerAssignmentsTable .objectIdCol {
+    width: 120px;
+}
+table.dataTable#workerAssignmentsTable .locatorCol {
+    width: 150px;
+}
+table.dataTable#workerAssignmentsTable .hrsCol {
+    width: 55px;
+}
+table.dataTable#workerAssignmentsTable .tasksCol {
+    text-align: center;
+    width: 55px;
+}
+table.dataTable#workerAssignmentsTable .ageCol {
+    text-align: center;
+    width: 45px;
+}
+table.dataTable#workerAssignmentsTable .closeCol {
+    text-align: center;
+    width: 45px;
+}
+
+/* 3.2.1 Mobile Worker Tasks */
+table.dataTable#mobileWorkerTasksTable .descriptionCol {
+}
+table.dataTable#mobileWorkerTasksTable .timeCol {
+    width: 75px;
+    text-align: center;
+}
+table.dataTable#mobileWorkerTasksTable .actionsCol {
+    width: 60px;
+}
+
+/*  3.3 Projects */
+table.dataTable#projectsTable .projectIdCol {
+    width: 65px;
+}
+table.dataTable#projectsTable .createdDateCol {
+    text-align: center;
+    width: 75px;
+}
+table.dataTable#projectsTable .stateCol {
+    width: 65px;
+}
+
+table.dataTable#projectsTable .percentCompleted{
+    width: 50px;
+}
+table.dataTable#projectsTable .createdByCol {
+    width: 75px;
+}
+table.dataTable#projectsTable .editCol {
+    text-align: center;
+    width: 50px;
+}
+table.dataTable#projectsTable .jobsCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable#projectsTable .deleteCol {
+    text-align: center;
+    width: 50px;
+}
+
+
+/* 2.2.1 Maint Requests */
+table.dataTable#tenantRequestsTable .jobIdCol {
+    width: 50px;
+}
+table.dataTable#tenantRequestsTable .createdDateCol {
+    text-align: center;
+    width: 50px;
+}
+table.dataTable#tenantRequestsTable .statusCol {
+    text-align: center;
+    width: 35px;
+}
+table.dataTable#tenantRequestsTable .descCol {
+    width: 80px;
+}
+table.dataTable#tenantRequestsTable .locationCol {
+    width: 80px;
+}
+table.dataTable#tenantRequestsTable .noteCol {
+    width: 170px;
+}
+table.dataTable#tenantRequestsTable .requestTypeCol {
+    width: 25px;
+}
+table.dataTable#tenantRequestsTable .viewCol {
+    width: 30px;
+}
+
+table.dataTable#stencilResourcesTable td{
+    vertical-align: top;
+}
+
+/* File Upload*/
+table.dataTable#uploadsTable .lastModifiedCol {
+    width: 120px;
+}
+table.dataTable#uploadsTable .viewCol {
+    text-align: center;
+    width: 55px;
+}
+table.dataTable#uploadsTable .typeCol {
+    text-align: center;
+    width: 80px;
+}
+table.dataTable#uploadsTable .processCol {
+    text-align: center;
+    width: 55px;
+}
+table.dataTable#uploadsTable .logCol {
+    text-align: center;
+    width: 55px;
+}
+
+table.dataTable#uploadsTable .deleteCol {
+    text-align: center;
+    width: 55px;
+}
+
+/* Work Schedules*/
+table.dataTable#schedulesDataTable .nameCol {
+    width: 160px;
+    text-align: left;
+}
+table.dataTable#schedulesDataTable .organizationCol {}
+
+
+table.dataTable#schedulesDataTable .fullLocatorCol {
+    width: 145px;
+    text-align: center;
+}
+
+table.dataTable#schedulesDataTable .statusCol {
+    width: 100px;
+    text-align: center;
+}
+
+table.dataTable#schedulesDataTable .shiftCol {
+    width: 80px;
+}
+table.dataTable#schedulesDataTable .jobCount {
+    width: 40px;
+    text-align: center;
+}
+
+/* Scheduled Jobs*/
+
+table.dataTable#scheduledJobsDataTable .jobIdCol {
+    width: 55px;
+}
+
+table.dataTable#scheduledJobsDataTable .jobStatusCol {
+    width: 45px;
+}
+
+table.dataTable#scheduledJobsDataTable .priorityCol {
+    width: 70px;
+}
+
+table.dataTable#scheduledJobsDataTable .skillCol {
+    width: 90px;
+}
+
+table.dataTable#scheduledJobsDataTable .skillLevelCol {
+    width: 30px;
+}
+
+table.dataTable#scheduledJobsDataTable .estTimeCol {
+    width: 50px;
+}
+table.dataTable#scheduledJobsDataTable .nameCol {
+    width: 140px;
+    text-align: left;
+}
+table.dataTable#scheduledJobsDataTable .organizationCol {}
+
+
+table.dataTable#scheduledJobsDataTable .fullLocatorCol {
+    width: 145px;
+    text-align: center;
+}
+
+table.dataTable#scheduledJobsDataTable .statusCol {
+    width: 100px;
+    text-align: center;
+}
+
+table.dataTable#scheduledJobsDataTable .shiftCol {
+    width: 80px;
+}
+table.dataTable#scheduledJobsDataTable .jobCount {
+    width: 40px;
+    text-align: center;
+}
+
+/* Attachments*/
+table.dataTable#attachmentsTable .idCol {
+    width: 55px;
+}
+table.dataTable#attachmentsTable .nameCol {
+}
+table.dataTable#attachmentsTable .descriptionCol {
+}
+table.dataTable#attachmentsTable .createdDateCol {
+    width: 80px;
+}
+table.dataTable#attachmentsTable .sizeCol {
+    width: 80px;
+}
+table.dataTable#attachmentsTable .viewCol {
+    width: 40px;
+    text-align: center;
+}
+table.dataTable#attachmentsTable  .deleteCol {
+    width: 40px;
+    text-align: center;
+}
+
+/*Project Items*/
+table.dataTable#projectItemsTable  .positionCol{
+    width: 55px;
+}
+
+table.dataTable#projectItemsTable  a:hover{
+    text-decoration: none;
+    color:darkblue;
+    font-weight:bold;
+    cursor:default;
+}
+table.dataTable#projectItemsTable  .referenceCol {
+    width: 40px;
+}
+table.dataTable#projectItemsTable  .projectType {
+    font-weight:bold;
+}
+table.dataTable#projectItemsTable  .jobType {
+}
+table.dataTable#projectItemsTable  .indentCol {
+    width: 30px;
+}
+table.dataTable#projectItemsTable  .deleteCol {
+        text-align: center;
+        width: 55px;
+}
+	
+/*System Props table*/
+table.dataTable#systemPropDataTable  a:hover{
+    text-decoration: none;
+    color:darkblue;
+    font-weight:bold;
+    cursor:default;
+}
+table.dataTable#systemPropDataTable .propertyCol {
+    text-align: center;
+    width: 120px;
+}
+table.dataTable#systemPropDataTable .valueCol {
+    text-align: center;
+    width: 140px;
+}
+table.dataTable#systemPropDataTable .descriptionCol {
+    text-align: center;
+    width: 250px;
+}
+table.dataTable#systemPropDataTable .editCol {
+    text-align: center;
+    width: 25px;
+}
+	
+/*Skill Type table*/
+table.dataTable#skillTypeDataTable  a:hover{
+    text-decoration: none;
+    color:darkblue;
+    font-weight:bold;
+    cursor:default;
+}
+table.dataTable#skillTypeDataTable .codeCol {
+    text-align: center;
+    width: 70px;
+}
+table.dataTable#skillTypeDataTable .descriptionCol {
+    text-align: center;
+    width: 140px;
+}
+table.dataTable#skillTypeDataTable .countCol {
+    text-align: center;
+    width: 30px;
+}
+table.dataTable#skillTypeDataTable .deleteCol {
+    text-align: center;
+    width: 30px;
+}
+	
+/*Skill Type Items table*/
+	
+table.dataTable#skillTypeItemsTable .codeCol {
+    text-align: center;
+    width: 250px;
+}
+table.dataTable#skillTypeItemsTable .descriptionCol {
+    text-align: center;
+    width: 120px;
+}
+	
+/*Locations Data table*/
+	
+	table.dataTable#locationsDataTable  a:hover{
+    text-decoration: none;
+    color:darkblue;
+    font-weight:bold;
+    cursor:default;
+}
+table.dataTable#locationsDataTable .nameCol {
+    text-align: center;
+    width: 70px;
+}
+table.dataTable#locationsDataTable .organizationCol {
+    text-align: center;
+    width: 125px;
+}
+table.dataTable#locationsDataTable .firstPunchCol {
+    text-align: center;
+    width: 45px;
+}
+table.dataTable#locationsDataTable .lastPunchCol {
+    text-align: center;
+    width: 45px;
+}
+table.dataTable#locationsDataTable .hoursCol {
+    text-align: center;
+    width: 30px;
+}
+table.dataTable#locationsDataTable .locInfoCol {
+    text-align: center;
+    width: 45px;
+}
+/*Shift Refs table*/
+table.dataTable#shiftRefDataTable  a:hover{
+    text-decoration: none;
+    color:darkblue;
+    font-weight:bold;
+    cursor:default;
+}
+table.dataTable#shiftRefDataTable .codeCol {
+    text-align: center;
+    width: 120px;
+}
+table.dataTable#shiftRefDataTable .descriptionCol {
+    text-align: center;
+    width: 200px;
+}	
+table.dataTable#shiftRefDataTable .shiftStartCol {
+    text-align: center;
+    width: 50px;
+}
+table.dataTable#shiftRefDataTable .shiftEndCol {
+    text-align: center;
+    width: 50px;
+}
+	table.dataTable#shiftRefDataTable .timeCol {
+    text-align: center;
+    width: 50px;
+}
+table.dataTable#shiftRefDataTable .editCol {
+    text-align: center;
+    width: 45px;
+}
+table.dataTable#shiftRefDataTable .deleteCol {
+    text-align: center;
+    width: 45px;
+}
+}
+
+/** Stuff */
+table.dataTable .jobIdCol {
+    width: 65px;
+}
+
+table.dataTable .jobAgeCol {
+    width: 35px;
+    text-align: center;
+}
+	
+	
+table.dataTable .orderCol {
+    width: 40px;
+}
+
+table.dataTable .statusCol{
+    width: 70px;
+    text-align: center;
+}
+
+table.dataTable .objectIdCol {
+	width: 150px;
+}
+
+table.dataTable .descriptionCol {
+	width:100%;
+}
+
+table.dataTable .locationCol {
+	width: 120px;
+}
+
+table.dataTable .skillCol {
+    text-align: center;
+    width: 75px;
+}
+
+table.dataTable .typeCol {
+	width: 75px;
+}
+
+table.dataTable .tasksCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable .estTimeCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable .createdDateCol {
+    text-align: center;
+    width: 75px;
+}
+
+table.dataTable .scheduleCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable .editCol {
+    text-align: center;
+    width: 50px;
+}
+
+table.dataTable .deleteCol {
+    text-align: center;
+    width: 50px;
+}

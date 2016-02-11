@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="home" NAME="forward0" PATH="/Home.do"
+  SHAPE="496,17,0,0" TARGET="action57" TITLE="home" TYPE="forward" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="failure" NAME="forward1" PATH="/iwm/Error.jsp"
+  SHAPE="32,689,0,0" TARGET="page0" TITLE="failure" TYPE="forward" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="passwordUpdate" NAME="forward2"
+  PATH=".ChangePassword" SHAPE="496,433,0,0" TARGET="page1"
+  TITLE="passwordUpdate" TYPE="forward" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Upload" NAME="action0" PATH="/Upload"
+  SHAPE="272,817,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".Upload"
+   TARGET="page2" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerQualificationsMaint" NAME="action1"
+  PATH="/WorkerQualificationsMaint" SHAPE="32,1201,0,0" TITLE="CQLS"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="update" NAME="forward0"
+   PATH="/jsp/define/popups/worker_qualifications_body.jsp"
+   TARGET="page3" TITLE="update" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="save" NAME="forward1"
+   PATH="/jsp/define/popups/worker_qualifications_body.jsp"
+   TARGET="page3" TITLE="save" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="remove" NAME="forward2"
+   PATH="/jsp/define/popups/worker_qualifications_body.jsp"
+   TARGET="page3" TITLE="remove" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward3"
+   PATH="/jsp/define/popups/worker_qualifications_body.jsp"
+   TARGET="page3" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="add" NAME="forward4"
+   PATH="/jsp/define/popups/worker_qualifications_body.jsp"
+   TARGET="page3" TITLE="add" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ProjectJobs" NAME="action2" PATH="/ProjectJobs"
+  SHAPE="32,1441,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ProjectJobs"
+   TARGET="page4" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Logout" NAME="action3" PATH="/Logout"
+  SHAPE="288,177,0,0" SUBTYPE="forward" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="action3" PATH="/Login.do?forward=logout"
+   TARGET="action59" TITLE="forward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerLicensesMaint" NAME="action4"
+  PATH="/WorkerLicensesMaint" SHAPE="32,1553,0,0" TITLE="CQLS"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="update" NAME="forward0"
+   PATH="/jsp/define/popups/worker_licenses_body.jsp" TARGET="page5"
+   TITLE="update" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="save" NAME="forward1"
+   PATH="/jsp/define/popups/worker_licenses_body.jsp" TARGET="page5"
+   TITLE="save" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="remove" NAME="forward2"
+   PATH="/jsp/define/popups/worker_licenses_body.jsp" TARGET="page5"
+   TITLE="remove" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward3"
+   PATH="/jsp/define/popups/worker_licenses_body.jsp" TARGET="page5"
+   TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="add" NAME="forward4"
+   PATH="/jsp/define/popups/worker_licenses_body.jsp" TARGET="page5"
+   TITLE="add" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#InternalWorkRequest" NAME="action5"
+  PATH="/InternalWorkRequest" SHAPE="256,1809,0,0"
+  TITLE="MaintRequestForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".MaintRequestCreate" TARGET="page6" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ProjectItems" NAME="action6" PATH="/ProjectItems"
+  SHAPE="32,2049,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ProjectItems"
+   TARGET="page7" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#TemplateTaskGroup" NAME="action7"
+  PATH="/TemplateTaskGroup" SHAPE="32,2161,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".TemplateTaskGroup" TARGET="page8" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#TemplateList" NAME="action8" PATH="/TemplateList"
+  SHAPE="32,2273,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".TemplateList"
+   TARGET="page9" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ObjectTasks" NAME="action9" PATH="/ObjectTasks"
+  SHAPE="32,2385,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ObjectTasks"
+   TARGET="page10" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#OrganizationList" NAME="action10"
+  PATH="/OrganizationList" SHAPE="32,2497,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".OrganizationList" TARGET="page11" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Admin" NAME="action11" PATH="/Admin"
+  SHAPE="32,2609,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".Admin"
+   TARGET="page12" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ProjectList" NAME="action12" PATH="/ProjectList"
+  SHAPE="32,2721,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ProjectList"
+   TARGET="page13" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Locators" NAME="action13" PATH="/Locators"
+  SHAPE="32,2833,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="test" NAME="forward0"
+   PATH="/PageContextTest.jsp" TARGET="page14" TITLE="test"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward1" PATH=".Locators"
+   TARGET="page15" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#AgentTools" NAME="action14" PATH="/AgentTools"
+  SHAPE="96,3089,0,0" TITLE="AgentToolsForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="jsm" NAME="forward0"
+   PATH="/AgentTools.do?forward=read" TARGET="action14" TITLE="jsm"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="runAll" NAME="forward1"
+   PATH="/AgentTools.do?forward=read" TARGET="action14" TITLE="runAll"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="scheduler" NAME="forward2"
+   PATH="/AgentTools.do?forward=read" TARGET="action14"
+   TITLE="scheduler" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="shiftManager" NAME="forward3"
+   PATH="/AgentTools.do?forward=read" TARGET="action14"
+   TITLE="shiftManager" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="reloadStateMachine" NAME="forward4"
+   PATH="/AgentTools.do?forward=read" TARGET="action14"
+   TITLE="reloadStateMachine" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward5" PATH=".AgentTools"
+   TARGET="page16" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="planner" NAME="forward6"
+   PATH="/AgentTools.do?forward=read" TARGET="action14" TITLE="planner"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="setAgentInterval" NAME="forward7"
+   PATH="/AgentTools.do?forward=read" TARGET="action14"
+   TITLE="setAgentInterval" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="runAllButPlanner" NAME="forward8"
+   PATH="/AgentTools.do?forward=read" TARGET="action14"
+   TITLE="runAllButPlanner" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="printStateMachine" NAME="forward9"
+   PATH="/AgentTools.do?forward=read" TARGET="action14"
+   TITLE="printStateMachine" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ProjectStencilTasks" NAME="action15"
+  PATH="/ProjectStencilTasks" SHAPE="32,3489,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".ProjectStencilTasks" TARGET="page17" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#JobList" NAME="action16" PATH="/JobList"
+  SHAPE="992,17,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".JobList"
+   TARGET="page18" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerManager" NAME="action17" PATH="/WorkerManager"
+  SHAPE="32,3601,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".WorkerManager"
+   TARGET="page19" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ReportsMeasure" NAME="action18"
+  PATH="/ReportsMeasure" SHAPE="32,3713,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ReportsMeasure"
+   TARGET="page20" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Settings" NAME="action19" PATH="/Settings"
+  SHAPE="32,3825,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".Settings"
+   TARGET="page21" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#JobTasks" NAME="action20" PATH="/JobTasks"
+  SHAPE="32,3937,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".JobTasks"
+   TARGET="page22" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ProjectJobSchedule" NAME="action21"
+  PATH="/ProjectJobSchedule" SHAPE="32,4049,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".ProjectJobSchedule" TARGET="page23" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ProjectJobTasks" NAME="action22"
+  PATH="/ProjectJobTasks" SHAPE="32,4161,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ProjectJobTasks"
+   TARGET="page24" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Attachments" NAME="action23" PATH="/Attachments"
+  SHAPE="32,4273,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".Attachments"
+   TARGET="page25" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="view" NAME="forward1" PATH="/jsp/blank.jsp"
+   TARGET="page26" TITLE="view" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#DefectReport" NAME="action24" PATH="/DefectReport"
+  SHAPE="32,4529,0,0" TITLE="DefectReportForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="submit" NAME="forward0"
+   PATH="/iwm/DefectReportSubmitted.jsp" TARGET="page27" TITLE="submit"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward1"
+   PATH="/iwm/DefectReport.jsp" TARGET="page28" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorldSummary" NAME="action25" PATH="/WorldSummary"
+  SHAPE="32,4785,0,0" TITLE="WorldSummaryForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="reports" NAME="forward0" PATH=".WorldSummary"
+   TARGET="page29" TITLE="reports" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="clone" NAME="forward1" PATH=".WorldSummary"
+   TARGET="page29" TITLE="clone" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="export" NAME="forward2" PATH=".WorldSummary"
+   TARGET="page29" TITLE="export" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="rename" NAME="forward3" PATH=".WorldSummary"
+   TARGET="page29" TITLE="rename" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="delete" NAME="forward4" PATH=".WorldSummary"
+   TARGET="page29" TITLE="delete" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward5" PATH=".WorldSummary"
+   TARGET="page29" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="modify" NAME="forward6" PATH=".WorldSummary"
+   TARGET="page29" TITLE="modify" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="import" NAME="forward7" PATH=".WorldSummary"
+   TARGET="page29" TITLE="import" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="run" NAME="forward8" PATH=".WorldSummary"
+   TARGET="page29" TITLE="run" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#LocatorData" NAME="action26" PATH="/LocatorData"
+  SHAPE="32,5153,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".LocatorData"
+   TARGET="page30" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerList" NAME="action27" PATH="/WorkerList"
+  SHAPE="32,5265,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".WorkerList"
+   TARGET="page31" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#TemplateData" NAME="action29" PATH="/TemplateData"
+  SHAPE="32,5633,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".TemplateData"
+   TARGET="page34" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#TenantRequestMaint" NAME="action30"
+  PATH="/TenantRequestMaint" SHAPE="32,1793,0,0"
+  TITLE="MaintRequestForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="submit" NAME="forward0"
+   PATH="/InternalWorkRequest.do" TARGET="action5" TITLE="submit"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward1"
+   PATH=".TenantRequestMaint" TARGET="page35" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerCalendar" NAME="action31"
+  PATH="/WorkerCalendar" SHAPE="32,5745,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".WorkerCalendar"
+   TARGET="page36" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ReadReport" NAME="action32" PATH="/ReadReport"
+  SHAPE="32,5857,0,0" TITLE="ReportForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="parameters" NAME="forward0"
+   PATH="/reports/PromptParameters.jsp" TARGET="page37"
+   TITLE="parameters" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#SkillTypeList" NAME="action33" PATH="/SkillTypeList"
+  SHAPE="32,5969,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".SkillTypeList"
+   TARGET="page38" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#MWSync" NAME="action34" PATH="/MWSync"
+  SHAPE="32,9969,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#SystemPropList" NAME="action35"
+  PATH="/SystemPropList" SHAPE="32,6081,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".SystemPropList"
+   TARGET="page39" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#LocatorList" NAME="action36" PATH="/LocatorList"
+  SHAPE="32,6193,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="test" NAME="forward0" PATH=".LocatorList"
+   TARGET="page40" TITLE="test" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward1" PATH=".LocatorList"
+   TARGET="page40" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Reports" NAME="action37" PATH="/Reports"
+  SHAPE="32,6337,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".Reports"
+   TARGET="page41" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ObjectTaskGroup" NAME="action38"
+  PATH="/ObjectTaskGroup" SHAPE="32,6449,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ObjectTaskGroup"
+   TARGET="page42" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorldsMaint" NAME="action39" PATH="/WorldsMaint"
+  SHAPE="48,6561,0,0" TITLE="WorldsMaintForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="select" NAME="forward0"
+   PATH="/WorldsMaint.do?forward=read" TARGET="action39" TITLE="select"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="delete" NAME="forward1"
+   PATH="/WorldsMaint.do?forward=read" TARGET="action39" TITLE="delete"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward2" PATH=".WorldsMaint"
+   TARGET="page43" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#StencilList" NAME="action40" PATH="/StencilList"
+  SHAPE="32,6737,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".StencilList"
+   TARGET="page44" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Uploads" NAME="action41" PATH="/Uploads"
+  SHAPE="32,6849,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".Uploads"
+   TARGET="page45" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="view" NAME="forward1" TITLE="view"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ScheduledJobs" NAME="action42" PATH="/ScheduledJobs"
+  SHAPE="32,6961,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".ScheduledJobList" TARGET="page46" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerCalendarJobs" NAME="action43"
+  PATH="/WorkerCalendarJobs" SHAPE="32,7073,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".WorkerCalendarJobs" TARGET="page47" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#TemplateTasks" NAME="action44" PATH="/TemplateTasks"
+  SHAPE="32,7185,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".TemplateTasks"
+   TARGET="page48" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#MobileWorkerTasks" NAME="action45"
+  PATH="/MobileWorkerTasks" SHAPE="32,7297,0,0"
+  TITLE="MobileWorkerTasksMaintForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".MobileWorkerTasks" TARGET="page49" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#JobTaskActions" NAME="action46"
+  PATH="/JobTaskActions" SHAPE="32,7409,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".JobTaskActions"
+   TARGET="page50" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#GlobalSearch" NAME="action47" PATH="/GlobalSearch"
+  SHAPE="32,7521,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".GlobalSearch"
+   TARGET="page51" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerSkillsMaint" NAME="action48"
+  PATH="/WorkerSkillsMaint" SHAPE="32,7633,0,0" TITLE="Skill"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="addSkill" NAME="forward0"
+   PATH="/jsp/define/popups/worker_skills_body.jsp" TARGET="page52"
+   TITLE="addSkill" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="save" NAME="forward1"
+   PATH="/jsp/define/popups/worker_skills_body.jsp" TARGET="page52"
+   TITLE="save" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="updateSkillLevel" NAME="forward2"
+   PATH="/jsp/define/popups/worker_skills_body.jsp" TARGET="page52"
+   TITLE="updateSkillLevel" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward3"
+   PATH="/jsp/define/popups/worker_skills_body.jsp" TARGET="page52"
+   TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="removeSkill" NAME="forward4"
+   PATH="/jsp/define/popups/worker_skills_body.jsp" TARGET="page52"
+   TITLE="removeSkill" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#StencilResources" NAME="action49"
+  PATH="/StencilResources" SHAPE="32,7873,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".StencilResources" TARGET="page53" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#MobileWorkerList" NAME="action50"
+  PATH="/MobileWorkerList" SHAPE="32,7985,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".MobileWorkerList" TARGET="page54" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ObjectList" NAME="action51" PATH="/ObjectList"
+  SHAPE="32,8097,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ObjectList"
+   TARGET="page55" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#JobSchedule" NAME="action52" PATH="/JobSchedule"
+  SHAPE="32,8209,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".JobSchedule"
+   TARGET="page56" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ChangePassword" NAME="action53"
+  PATH="/ChangePassword" SHAPE="496,545,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="error" NAME="forward0" PATH=".ChangePassword"
+   TARGET="page1" TITLE="error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward1" PATH=".ChangePassword"
+   TARGET="page1" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#OrganizationCalendar" NAME="action54"
+  PATH="/OrganizationCalendar" SHAPE="32,8321,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".OrganizationCalendar" TARGET="page57" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ObjectTaskActions" NAME="action55"
+  PATH="/ObjectTaskActions" SHAPE="32,8433,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".ObjectTaskActions" TARGET="page58" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#WorkerCertificationsMaint" NAME="action56"
+  PATH="/WorkerCertificationsMaint" SHAPE="32,8545,0,0" TITLE="CQLS"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="update" NAME="forward0"
+   PATH="/jsp/define/popups/worker_certifications_body.jsp"
+   TARGET="page59" TITLE="update" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="save" NAME="forward1"
+   PATH="/jsp/define/popups/worker_certifications_body.jsp"
+   TARGET="page59" TITLE="save" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="remove" NAME="forward2"
+   PATH="/jsp/define/popups/worker_certifications_body.jsp"
+   TARGET="page59" TITLE="remove" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward3"
+   PATH="/jsp/define/popups/worker_certifications_body.jsp"
+   TARGET="page59" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="add" NAME="forward4"
+   PATH="/jsp/define/popups/worker_certifications_body.jsp"
+   TARGET="page59" TITLE="add" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Home" NAME="action57" PATH="/Home"
+  SHAPE="768,33,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="mobileWorker" NAME="forward0"
+   PATH="/MWJobs.do" TARGET="action63" TITLE="mobileWorker"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="jobs" NAME="forward1" PATH="/JobList.do"
+   TARGET="action16" TITLE="jobs" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#SubmitExternalWorkRequest" NAME="action58"
+  PATH="/SubmitExternalWorkRequest" SHAPE="32,8785,0,0"
+  TITLE="ExternalWorkRequestForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="submit" NAME="forward0"
+   PATH="/ExternalWorkRequest.do?forward=track&amp;message=&amp;jobId="
+   TARGET="action61" TITLE="submit" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Login" NAME="action59" PATH="/Login"
+  SHAPE="496,161,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="passwordUpdateRequired" NAME="forward0"
+   PATH=".ChangePassword" TARGET="page1" TITLE="passwordUpdateRequired"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="logout" NAME="forward1" PATH="/Home.do"
+   TARGET="action57" TITLE="logout" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="error" NAME="forward2" PATH=".Login"
+   TARGET="page60" TITLE="error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="extend" NAME="forward3" PATH=".Login"
+   TARGET="page60" TITLE="extend" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="access_denied" NAME="forward4"
+   PATH=".Message" TARGET="page61" TITLE="access_denied" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward5" PATH=".Login"
+   TARGET="page60" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ShiftRefList" NAME="action60" PATH="/ShiftRefList"
+  SHAPE="32,9185,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ShiftRefList"
+   TARGET="page62" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ExternalWorkRequest" NAME="action61"
+  PATH="/ExternalWorkRequest" SHAPE="240,8801,0,0"
+  TITLE="ExternalWorkRequestForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="new" NAME="forward0"
+   PATH=".ExternalWorkRequestCreate" TARGET="page63" TITLE="new"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="track" NAME="forward1"
+   PATH=".ExternalWorkRequestTrack" TARGET="page64" TITLE="track"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="welcome" NAME="forward2"
+   PATH=".ExternalWorkRequestWelcome" TARGET="page65" TITLE="welcome"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ShiftTimingReport" NAME="action62"
+  PATH="/ShiftTimingReport" SHAPE="32,9297,0,0" TITLE="ReportForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="csv" NAME="forward0"
+   PATH="/reports/ShiftTimingReport.jsp" TARGET="page66" TITLE="csv"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#MWJobs" NAME="action63" PATH="/MWJobs"
+  SHAPE="32,161,0,0" TITLE="MobileWorkerMaintForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="message" NAME="forward0" PATH=".Message"
+   TARGET="page61" TITLE="message" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="logout" NAME="forward1" PATH="/Logout.do"
+   TARGET="action3" TITLE="logout" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="endshift" NAME="forward2" PATH="/Logout.do"
+   TARGET="action3" TITLE="endshift" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward3" PATH=".MobileWorker"
+   TARGET="page67" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Templates" NAME="action64" PATH="/Templates"
+  SHAPE="32,9409,0,0" TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".Templates"
+   TARGET="page68" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Upload-submit" NAME="action65" PATH="/Upload-submit"
+  SHAPE="32,801,0,0" TITLE="UploadForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="input" NAME="forward0" PATH="/Upload.do"
+   TARGET="action0" TITLE="input" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="integration" NAME="forward1"
+   PATH=".UploadDisplay" TARGET="page69" TITLE="integration"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="attachment" NAME="forward2"
+   PATH="/jsp/misc/popups/attachement_upload_response.jsp"
+   TARGET="page70" TITLE="attachment" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#OrganizationWorkerCalendarJobs" NAME="action66"
+  PATH="/OrganizationWorkerCalendarJobs" SHAPE="32,9521,0,0"
+  TITLE="BaseForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".OrganizationWorkerCalendarJobs" TARGET="page71" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#MWLocationList" NAME="action67"
+  PATH="/MWLocationList" SHAPE="32,9633,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".MWLocationList"
+   TARGET="page72" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#ProjectJobTaskActions" NAME="action68"
+  PATH="/ProjectJobTaskActions" SHAPE="32,9745,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".ProjectJobTaskActions" TARGET="page73" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#TemplateTaskActions" NAME="action69"
+  PATH="/TemplateTaskActions" SHAPE="32,9857,0,0" TITLE="BaseForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0"
+   PATH=".TemplateTaskActions" TARGET="page74" TITLE="read"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page0" PATH="/iwm/Error.jsp" SHAPE="240,706,0,0"
+  SUBTYPE="jsp" TITLE="Error.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page1" PATH=".ChangePassword" SHAPE="768,450,0,0"
+  SUBTYPE="tile" TITLE=".ChangePassword" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page2" PATH=".Upload" SHAPE="480,802,0,0"
+  SUBTYPE="tile" TITLE=".Upload" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page3"
+  PATH="/jsp/define/popups/worker_qualifications_body.jsp"
+  SHAPE="304,1218,0,0" SUBTYPE="jsp"
+  TITLE="worker_qualifications_body.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page4" PATH=".ProjectJobs" SHAPE="240,1458,0,0"
+  SUBTYPE="tile" TITLE=".ProjectJobs" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page5"
+  PATH="/jsp/define/popups/worker_licenses_body.jsp"
+  SHAPE="304,1570,0,0" SUBTYPE="jsp" TITLE="worker_licenses_body.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page6" PATH=".MaintRequestCreate"
+  SHAPE="464,1794,0,0" SUBTYPE="tile" TITLE=".MaintRequestCreate"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page7" PATH=".ProjectItems" SHAPE="240,2066,0,0"
+  SUBTYPE="tile" TITLE=".ProjectItems" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page8" PATH=".TemplateTaskGroup"
+  SHAPE="240,2178,0,0" SUBTYPE="tile" TITLE=".TemplateTaskGroup"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page9" PATH=".TemplateList" SHAPE="240,2290,0,0"
+  SUBTYPE="tile" TITLE=".TemplateList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page10" PATH=".ObjectTasks" SHAPE="240,2402,0,0"
+  SUBTYPE="tile" TITLE=".ObjectTasks" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page11" PATH=".OrganizationList"
+  SHAPE="240,2514,0,0" SUBTYPE="tile" TITLE=".OrganizationList"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page12" PATH=".Admin" SHAPE="240,2626,0,0"
+  SUBTYPE="tile" TITLE=".Admin" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page13" PATH=".ProjectList" SHAPE="240,2738,0,0"
+  SUBTYPE="tile" TITLE=".ProjectList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page14" PATH="/PageContextTest.jsp"
+  SHAPE="256,2850,0,0" SUBTYPE="jsp" TITLE="PageContextTest.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page15" PATH=".Locators" SHAPE="256,2994,0,0"
+  SUBTYPE="tile" TITLE=".Locators" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page16" PATH=".AgentTools" SHAPE="368,3106,0,0"
+  SUBTYPE="tile" TITLE=".AgentTools" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page17" PATH=".ProjectStencilTasks"
+  SHAPE="240,3506,0,0" SUBTYPE="tile" TITLE=".ProjectStencilTasks"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page18" PATH=".JobList" SHAPE="1200,34,0,0"
+  SUBTYPE="tile" TITLE=".JobList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page19" PATH=".WorkerManager" SHAPE="240,3618,0,0"
+  SUBTYPE="tile" TITLE=".WorkerManager" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page20" PATH=".ReportsMeasure" SHAPE="240,3730,0,0"
+  SUBTYPE="tile" TITLE=".ReportsMeasure" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page21" PATH=".Settings" SHAPE="240,3842,0,0"
+  SUBTYPE="tile" TITLE=".Settings" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page22" PATH=".JobTasks" SHAPE="240,3954,0,0"
+  SUBTYPE="tile" TITLE=".JobTasks" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page23" PATH=".ProjectJobSchedule"
+  SHAPE="240,4066,0,0" SUBTYPE="tile" TITLE=".ProjectJobSchedule"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page24" PATH=".ProjectJobTasks"
+  SHAPE="240,4178,0,0" SUBTYPE="tile" TITLE=".ProjectJobTasks"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page25" PATH=".Attachments" SHAPE="256,4290,0,0"
+  SUBTYPE="tile" TITLE=".Attachments" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page26" PATH="/jsp/blank.jsp" SHAPE="256,4434,0,0"
+  SUBTYPE="jsp" TITLE="blank.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page27" PATH="/iwm/DefectReportSubmitted.jsp"
+  SHAPE="256,4546,0,0" SUBTYPE="jsp" TITLE="DefectReportSubmitted.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page28" PATH="/iwm/DefectReport.jsp"
+  SHAPE="256,4690,0,0" SUBTYPE="jsp" TITLE="DefectReport.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page29" PATH=".WorldSummary" SHAPE="304,4802,0,0"
+  SUBTYPE="tile" TITLE=".WorldSummary" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page30" PATH=".LocatorData" SHAPE="240,5170,0,0"
+  SUBTYPE="tile" TITLE=".LocatorData" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page31" PATH=".WorkerList" SHAPE="240,5282,0,0"
+  SUBTYPE="tile" TITLE=".WorkerList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page34" PATH=".TemplateData" SHAPE="240,5650,0,0"
+  SUBTYPE="tile" TITLE=".TemplateData" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page35" PATH=".TenantRequestMaint"
+  SHAPE="256,1954,0,0" SUBTYPE="tile" TITLE=".TenantRequestMaint"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page36" PATH=".WorkerCalendar" SHAPE="240,5762,0,0"
+  SUBTYPE="tile" TITLE=".WorkerCalendar" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page37" PATH="/reports/PromptParameters.jsp"
+  SHAPE="240,5874,0,0" SUBTYPE="jsp" TITLE="PromptParameters.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page38" PATH=".SkillTypeList" SHAPE="240,5986,0,0"
+  SUBTYPE="tile" TITLE=".SkillTypeList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page39" PATH=".SystemPropList" SHAPE="240,6098,0,0"
+  SUBTYPE="tile" TITLE=".SystemPropList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page40" PATH=".LocatorList" SHAPE="256,6210,0,0"
+  SUBTYPE="tile" TITLE=".LocatorList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page41" PATH=".Reports" SHAPE="240,6354,0,0"
+  SUBTYPE="tile" TITLE=".Reports" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page42" PATH=".ObjectTaskGroup"
+  SHAPE="240,6466,0,0" SUBTYPE="tile" TITLE=".ObjectTaskGroup"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page43" PATH=".WorldsMaint" SHAPE="288,6578,0,0"
+  SUBTYPE="tile" TITLE=".WorldsMaint" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page44" PATH=".StencilList" SHAPE="240,6754,0,0"
+  SUBTYPE="tile" TITLE=".StencilList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page45" PATH=".Uploads" SHAPE="240,6866,0,0"
+  SUBTYPE="tile" TITLE=".Uploads" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page46" PATH=".ScheduledJobList"
+  SHAPE="240,6978,0,0" SUBTYPE="tile" TITLE=".ScheduledJobList"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page47" PATH=".WorkerCalendarJobs"
+  SHAPE="240,7090,0,0" SUBTYPE="tile" TITLE=".WorkerCalendarJobs"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page48" PATH=".TemplateTasks" SHAPE="240,7202,0,0"
+  SUBTYPE="tile" TITLE=".TemplateTasks" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page49" PATH=".MobileWorkerTasks"
+  SHAPE="240,7314,0,0" SUBTYPE="tile" TITLE=".MobileWorkerTasks"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page50" PATH=".JobTaskActions" SHAPE="240,7426,0,0"
+  SUBTYPE="tile" TITLE=".JobTaskActions" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page51" PATH=".GlobalSearch" SHAPE="240,7538,0,0"
+  SUBTYPE="tile" TITLE=".GlobalSearch" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page52"
+  PATH="/jsp/define/popups/worker_skills_body.jsp" SHAPE="304,7650,0,0"
+  SUBTYPE="jsp" TITLE="worker_skills_body.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page53" PATH=".StencilResources"
+  SHAPE="240,7890,0,0" SUBTYPE="tile" TITLE=".StencilResources"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page54" PATH=".MobileWorkerList"
+  SHAPE="240,8002,0,0" SUBTYPE="tile" TITLE=".MobileWorkerList"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page55" PATH=".ObjectList" SHAPE="240,8114,0,0"
+  SUBTYPE="tile" TITLE=".ObjectList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page56" PATH=".JobSchedule" SHAPE="240,8226,0,0"
+  SUBTYPE="tile" TITLE=".JobSchedule" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page57" PATH=".OrganizationCalendar"
+  SHAPE="240,8338,0,0" SUBTYPE="tile" TITLE=".OrganizationCalendar"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page58" PATH=".ObjectTaskActions"
+  SHAPE="240,8450,0,0" SUBTYPE="tile" TITLE=".ObjectTaskActions"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page59"
+  PATH="/jsp/define/popups/worker_certifications_body.jsp"
+  SHAPE="304,8562,0,0" SUBTYPE="jsp"
+  TITLE="worker_certifications_body.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page60" PATH=".Login" SHAPE="768,562,0,0"
+  SUBTYPE="tile" TITLE=".Login" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page61" PATH=".Message" SHAPE="768,178,0,0"
+  SUBTYPE="tile" TITLE=".Message" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page62" PATH=".ShiftRefList" SHAPE="240,9202,0,0"
+  SUBTYPE="tile" TITLE=".ShiftRefList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page63" PATH=".ExternalWorkRequestCreate"
+  SHAPE="480,8786,0,0" SUBTYPE="tile" TITLE=".ExternalWorkRequestCreate"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page64" PATH=".ExternalWorkRequestTrack"
+  SHAPE="480,8962,0,0" SUBTYPE="tile" TITLE=".ExternalWorkRequestTrack"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page65" PATH=".ExternalWorkRequestWelcome"
+  SHAPE="480,9074,0,0" SUBTYPE="tile"
+  TITLE=".ExternalWorkRequestWelcome" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page66" PATH="/reports/ShiftTimingReport.jsp"
+  SHAPE="240,9314,0,0" SUBTYPE="jsp" TITLE="ShiftTimingReport.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page67" PATH=".MobileWorker" SHAPE="288,450,0,0"
+  SUBTYPE="tile" TITLE=".MobileWorker" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page68" PATH=".Templates" SHAPE="240,9426,0,0"
+  SUBTYPE="tile" TITLE=".Templates" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page69" PATH=".UploadDisplay" SHAPE="272,994,0,0"
+  SUBTYPE="tile" TITLE=".UploadDisplay" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page70"
+  PATH="/jsp/misc/popups/attachement_upload_response.jsp"
+  SHAPE="272,1106,0,0" SUBTYPE="jsp"
+  TITLE="attachement_upload_response.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page71" PATH=".OrganizationWorkerCalendarJobs"
+  SHAPE="240,9538,0,0" SUBTYPE="tile"
+  TITLE=".OrganizationWorkerCalendarJobs" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page72" PATH=".MWLocationList" SHAPE="240,9650,0,0"
+  SUBTYPE="tile" TITLE=".MWLocationList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page73" PATH=".ProjectJobTaskActions"
+  SHAPE="240,9762,0,0" SUBTYPE="tile" TITLE=".ProjectJobTaskActions"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page74" PATH=".TemplateTaskActions"
+  SHAPE="240,9874,0,0" SUBTYPE="tile" TITLE=".TemplateTaskActions"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#JobDetails" NAME="action70" PATH="/JobDetails"
+  SHAPE="32,5313,0,0" TITLE="JobDetailsForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".JobDetails"
+   TARGET="page75" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page75" PATH=".JobDetails" SHAPE="448,5313,0,0"
+  SUBTYPE="tile" TITLE=".JobDetails" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#ObjectDetails" NAME="action28" PATH="/ObjectDetails"
+  SHAPE="32,6609,0,0" TITLE="ObjectDetailsForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".ObjectDetails"
+   TARGET="page32" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="printLabel" NAME="forward1"
+   PATH="/jsp/implement/objectDataPrintLabel.jsp" TARGET="page33"
+   TITLE="printLabel" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page32" PATH=".ObjectDetails" SHAPE="256,6626,0,0"
+  SUBTYPE="tile" TITLE=".ObjectDetails" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page33"
+  PATH="/jsp/implement/objectDataPrintLabel.jsp" SHAPE="256,6770,0,0"
+  SUBTYPE="jsp" TITLE="objectDataPrintLabel.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#WorkerDetails" NAME="action71" PATH="/WorkerDetails"
+  SHAPE="32,8193,0,0" TITLE="WorkerDetailsForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="read" NAME="forward0" PATH=".WorkerDetails"
+   TARGET="page76" TITLE="read" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page76" PATH=".WorkerDetails" SHAPE="240,9234,0,0"
+  SUBTYPE="tile" TITLE=".WorkerDetails" TYPE="page" model-entity="StrutsProcessItem"/>
+</PROCESS>

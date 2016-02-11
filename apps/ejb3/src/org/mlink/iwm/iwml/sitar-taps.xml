@@ -1,0 +1,57 @@
+<taps:sitar name="string" xmlns:taps="http://www.mlink.org/sitar/taps">
+    <unit name="VP30" generated-time-msecs="3456789087666">
+        <readiness>
+
+            <available-for-tasking-measures>
+                <!--3 available-for-tasking measures-->
+                <measure readiness="1.051732E7">WC AFT</measure>
+                <measure readiness="70">WC CBAFT</measure>
+                <measure readiness="80">WC AFT/CBAFT</measure>
+            </available-for-tasking-measures>
+
+            <qualified-for-tasking-measures>
+                <certifications readiness="80">
+                    <!--7 certification types-->
+                    <measure readiness="80">Egress/Explosive</measure>
+                </certifications>
+
+                <qualifications readiness="80">
+                    <!--25 qualification types-->
+                    <measure readiness="80">CDI</measure>
+                </qualifications>
+
+                <licences readiness="80">
+                    <!--25 licence types-->
+                    <measure readiness="80">A-30A Tow Tractor</measure>
+                </licences>
+
+                <!--4 qualified-for-tasking types-->
+                <measure readiness="90">WC QFTF</measure>
+                <measure readiness="70">WC QRV</measure>
+                <measure readiness="80">WC IQFT</measure>
+                <measure readiness="80">WC QFT</measure>
+            </qualified-for-tasking-measures>
+
+            <ready-for-tasking-measures>
+                <!--2 ready-for-tasking measures-->
+                <measure readiness="90">WC IRFT</measure>
+                <measure readiness="70">WC RFT</measure>
+            </ready-for-tasking-measures>
+        </readiness>
+
+        <!--1 or more repetitions:-->
+        <department name="Maintenance">
+            <!--same structure as in unit-->
+            <readiness/>
+            <!--1 or more repetitions:-->
+            <division name="Support">
+                <!--same structure as in unit-->
+                <readiness/>
+                <workcenter name="WC 020">
+                    <!--same structure as in unit-->
+                    <readiness/>
+                </workcenter>
+            </division>
+        </department>
+    </unit>
+</taps:sitar>

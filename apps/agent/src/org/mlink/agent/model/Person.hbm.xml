@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.Person"
+        table="PERSON"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Person.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="organizationId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="ORGANIZATION_ID"
+        />
+
+        <property
+            name="password"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="PASSWORD"
+        />
+
+        <property
+            name="active"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="ACTIVE"
+        />
+
+        <property
+            name="partyId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="PARTY_ID"
+        />
+
+        <property
+            name="username"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="USER_NAME"
+        />
+
+        <property
+            name="securityTypeRef"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="SECURITY_LEVEL_ID" 
+            />
+        </property>
+
+        <set
+            name="workSchedules"
+            lazy="true"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="PERSON_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.WorkSchedule"
+            />
+
+        </set>
+
+        <set
+            name="skills"
+            lazy="false"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+            <key
+                column="PERSON_ID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.mlink.agent.model.Skill"
+            />
+
+        </set>
+
+        <property
+            name="workerTypeRef"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="WORKER_TYPE_ID" 
+            />
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Person.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

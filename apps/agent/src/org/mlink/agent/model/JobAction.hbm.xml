@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.mlink.agent.model.JobAction"
+        table="JOB_ACTION"
+        mutable="false"
+    >
+
+        <id
+            name="id"
+            column="ID"
+            type="java.lang.Long"
+        >
+            <generator class="sequence">
+                <param name="sequence">job_action_seq</param>
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-JobAction.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="fieldCondition"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FIELD_CONDITION"
+        />
+
+        <property
+            name="modifier"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="MODIFIER"
+        />
+
+        <property
+            name="verb"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="VERB"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="NAME"
+        />
+
+        <property
+            name="sequence"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="SEQUENCE"
+        />
+
+        <many-to-one
+            name="jobTask"
+            class="org.mlink.agent.model.JobTask"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="JOB_TASK_ID" 
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="action"
+            class="org.mlink.agent.model.Action"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="ACTION_ID" 
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-JobAction.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

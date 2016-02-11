@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="iwmear" default="deploy.exploded" basedir=".">
+
+    <property file="../local.build.properties"/>
+    <property file="../build.properties"/>
+    <property name="build.number" value="was not provided as -Dbuild.number=xxx at the time of the build"/>
+
+    <property name="distrb.dir" value="${project.root}/dist"/>
+
+    <import file="${project.root}/apps/build_common.xml"/>
+
+
+    <target name="touch.exploded" >
+        <touch file="${jboss.default.server}/deploy/${iwmearname}/META-INF/application.xml"/>
+    </target>
+
+
+    <target name="init" description="Prepares the build directory" >
+        <tstamp/>
+        <mkdir dir="${exploded.dir}"/>
+        <mkdir dir="${distrb.dir}"/>
+    </target>
+
+    <target name="copy.earroot" depends="init" description="Copies ear root content into build directory">
+        <copy todir="${exploded.dir}"  preservelastmodified="true" >
+            <fileset dir=".">
+                <patternset refid="compiler.resources"/>
+                <exclude name="build.xml"/>
+            </fileset>
+        </copy>
+        <copy todir="${exploded.dir}"  preservelastmodified="true" >
+            <fileset dir="../lib">
+                <include name="dwr.jar"/>      <!--for aop support-->
+                <include name="commons-beanutils-1.7.jar"/>
+                <include name="commons-digester.jar"/>
+                <include name="velocity-1.4.jar"/>
+                <include name="velocity-dep-1.4.jar"/>
+                <include name="jxl-2.6.jar"/>
+                <include name="**/*.txt"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="build.components" description="Builds all components">
+        <ant dir="../shared" target="jar"/>
+    	<ant dir="../agent" target="exploded"/>	
+    	<ant dir="../ejb3" target="exploded"/>
+    	<ant dir="../iwmweb" target="exploded"/>
+    	<!-- move agentmodel.jar to har extension for hibernate -->
+	    <!--move file="${exploded.dir}/agentmodel.jar" tofile="${exploded.dir}/agentmodel.har" failonerror="false"/ -->
+    </target>
+
+    <target name="deploy.webroot" description="Quick deploy of web resources: jsp,js,html,etc">
+        <ant dir="../iwmweb" target="exploded"/>
+    </target>
+
+    <target name="deploy.exploded" depends="copy.earroot,build.components,build-log,touch.exploded"
+            description="Default. Creates/updates ear-exploded folder" >
+    </target>
+        
+
+    <target name="build.ear" depends="deploy.exploded" description="Builds ear file ready for distribution">
+        <!-- 1.Build ejb jar for staging use-->
+        <jar jarfile="${distrb.dir}/ejb3.jar" manifest="${exploded.dir}/ejb3.jar/META-INF/MANIFEST.MF">
+            <fileset dir="${exploded.dir}/ejb3.jar">
+                <include name="**/*"/>
+            </fileset>
+        </jar>
+		<!-- 2.Build web war for staging use-->
+        <jar jarfile="${distrb.dir}/iwmweb.war" manifest="${exploded.dir}/iwmweb.war/META-INF/MANIFEST.MF">
+            <fileset dir="${exploded.dir}/iwmweb.war">
+                <include name="**/*"/>
+            </fileset>
+        </jar>
+        <!-- 3. Jar up exploded dir and add ejb jar and web war-->
+        <jar jarfile="${distrb.dir}/${iwmearname}" update="false">
+            <fileset dir="${distrb.dir}">
+                <include name="iwmweb.war"/>
+                <include name="ejb3.jar"/>
+            </fileset>
+            <fileset dir="${exploded.dir}">
+                <exclude name="**/iwmweb.war/**"/>
+                <exclude name="**/ejb3.jar/**"/>
+            </fileset>
+        </jar>
+
+        <!-- 4.Delete temporary ejb jar and web war-->
+        <delete file="${distrb.dir}/ejb3.war"/>
+        <delete file="${distrb.dir}/iwmweb.war"/>
+
+    </target>
+
+    <target name="clean.components" description="Clean builds produced by ear components">
+        <!--delete dir="${exploded.dir}" failonerror="false"/-->
+        <ant dir="../shared" target="clean"/>
+        <ant dir="../ejb3" target="clean"/>
+    	<ant dir="../agent" target="clean"/>
+        <ant dir="../iwmweb" target="clean"/>
+    </target>
+
+    <target name="clean.all" depends="clean.components"
+            description="Clean exploded folder. Includes clean of component builds plus ear root content">
+        <delete dir="${exploded.dir}" failonerror="false"/>
+    </target>
+
+    <target name="jboss.config" description="Copies jboss config files: log4j.xml, iwm-login-config-service.xml, iwm-login-config.xm, etc">
+        <!--echo message="Update log4j.xml if needed"/-->
+
+        <!--jboss4.2.1 has another log4j policy http://jira.jboss.com/jira/browse/JBAS-1853 and JBAS1313/-->
+        <!--antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/conf/log4j.xml"/>
+            <param name="source.file" value="../config/iwm-log4j.xml"/>
+        </antcall-->
+
+        <!--since jboss-4.2.1-->
+        <antcall target="copy.file" >
+            <param name="target.file" value="${jboss.default.server}/conf/jboss-log4j.xml"/>
+            <param name="source.file" value="../config/iwm-log4j.xml"/>
+        </antcall>
+
+        <!--echo message="Update iwm-login-config-service.xml if needed"/-->
+        <antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/deploy/iwm-login-config-service.xml"/>
+            <param name="source.file" value="../config/iwm-login-config-service.xml"/>
+        </antcall>
+
+        <!--echo message="Update iwm-login-config.xml if needed"/-->
+        <antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/conf/iwm-login-config.xml"/>
+            <param name="source.file" value="../config/iwm-login-config.xml"/>
+        </antcall>
+
+        <antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/lib/ojdbc14.jar"/>
+            <param name="source.file" value="${project.root}/tools/ojdbc14.jar"/>
+        </antcall>
+
+        <!--  for Jboss 5.x -->
+        <antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/lib/commons-lang-2.2.jar"/>
+        	<param name="source.file" value="${project.root}/apps/lib/commons-lang-2.2.jar"/>
+        </antcall>
+
+    	<antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/lib/gson-1.3.jar"/>
+        	<param name="source.file" value="${project.root}/apps/lib/gson-1.3.jar"/>
+    	</antcall>
+    	
+    	<antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/lib/core.jar"/>
+        	<param name="source.file" value="${project.root}/apps/lib/core.jar"/>
+    	</antcall>
+    	
+    	<antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/lib/javase.jar"/>
+        	<param name="source.file" value="${project.root}/apps/lib/javase.jar"/>
+    	</antcall>    	
+    	
+        <!--antcall target="copy.file">
+            <param name="target.file" value="${jboss.default.server}/deploy/oracle-ds.xml"/>
+            <param name="source.file" value="../config/oracle-ds.xml"/>
+        </antcall-->
+
+    </target>
+
+    <target name="iwm.tomcat.ext" description="Creates tomcat ext jar">
+        <ant dir="../iwmweb" target="exploded"/>        
+        <jar jarfile="${jboss.home}/server/default/lib/iwm.tomcat.ext.jar" >
+            <fileset dir="${exploded.dir}/iwmweb.war/WEB-INF/classes" >
+                <include name="**/tomcat/*.class" />
+            </fileset>
+        </jar>
+    </target>
+
+
+    <target name="check.uptodate">
+        <uptodate property="isUpToDate" srcfile="${source.file}" targetfile="${target.file}"/>
+    </target>
+
+    <target name="copy.file" depends="check.uptodate" unless="isUpToDate"  >
+        <echo message="Updating ${target.file} "/>
+        <tstamp>
+          <format property="TODAY" pattern="d-MMMM-yyyy" locale="en"/>
+        </tstamp>
+
+        <!--move file="${target.file}" tofile="${target.file}_${TODAY}" failonerror="false"/-->
+        <copy file="${source.file}" tofile="${target.file}"/>
+    </target>
+
+    <target name="build-log">
+        <propertyfile
+            file="${exploded.dir}/config/build-log.properties" comment="Record attribures of the build to a file">
+          <entry  key="build.number" value="${build.number}"/>
+          <entry  key="build.date" type="date" value="now"/>
+          <entry  key="java.version"  value="${java.version}"/>
+          <entry  key="java.home"  value="${java.home}"/>
+          <entry  key="os.name"  value="${os.name}"/>
+          <!--entry  key="anint" type="int" operation="+"/-->
+          <!--entry  key="formated.int" type="int" default="0013" operation="+" pattern="0000"/-->
+          <!--entry  key="formated.date" type="date" value="now" pattern="MM/dd/yyyy hh:mm"/-->
+        </propertyfile>
+    </target>
+</project>

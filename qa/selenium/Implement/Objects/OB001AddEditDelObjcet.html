@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://v35test.vm:8080/" />
+<title>OB001AddEditDelObjcet</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">OB001AddEditDelObjcet</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://v35test.iwm/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Objects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<!--Add a new object-->
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Object']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//span[@id='popupTitle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_2</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectClassFilter_3</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>verifyNotXpathCount</td>
+	<td>id('TemplatesListTable')/x:tr[*]/x:td[*]/x:input</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>document.forms[1].elements[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//span[@id='objectEditTitle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>tag</td>
+	<td>AATestObject</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectTypeId</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>runHours</td>
+	<td>99999</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_2</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_3</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_4</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgOrganizationFilter_0</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='createObjectFinishButton']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>filterText</td>
+	<td>AAT</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>pagemeter_pageSize</td>
+	<td>label=50</td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>pagemeter_pageSize</td>
+	<td>label=25</td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>AATestObject</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@id='SupvsorTargets.AATestObject' and @name='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//span[@id='objectEditTitle']</td>
+	<td></td>
+</tr>
+<!--Verify the fields-->
+<tr>
+	<td>verifyValue</td>
+	<td>tag</td>
+	<td>AATestObject</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>objectTypeId</td>
+	<td>Assessment</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>objectLocatorFilter_0</td>
+	<td>Criminal Justice</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>objectLocatorFilter_1</td>
+	<td>01</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>objectLocatorFilter_2</td>
+	<td>Inside</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>objectLocatorFilter_3</td>
+	<td>1st</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>objectLocatorFilter_4</td>
+	<td>1-100</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>orgOrganizationFilter_0</td>
+	<td>Compliance</td>
+</tr>
+<!--Edit the fields-->
+<tr>
+	<td>type</td>
+	<td>tag</td>
+	<td>AAATestObject</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>runHours</td>
+	<td>222222</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectTypeId</td>
+	<td>index=2</td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_0</td>
+	<td>index=2</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_2</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_3</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_4</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgOrganizationFilter_0</td>
+	<td>index=2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>createObjectSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>tag</td>
+	<td>AAATestObjectEdited</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>runHours</td>
+	<td>1111111</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_0</td>
+	<td>label=East</td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_1</td>
+	<td>label=02</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_2</td>
+	<td>label=Inside</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_3</td>
+	<td>label=1st</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>objectLocatorFilter_4</td>
+	<td>label=2-102</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgOrganizationFilter_0</td>
+	<td>label=Compliance</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>orgOrganizationFilter_1</td>
+	<td>label=East</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>createObjectSaveButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tbody[@id='dataTableBody']/tr/td[3]</td>
+	<td>East.02.In.1st.2-102</td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Object List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>Tasks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyXpathCount</td>
+	<td>//img[@alt='Edit']</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Back to Object List']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Task Groups']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Object Task Group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyXpathCount</td>
+	<td>//img[@alt='Edit']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Back to Object List']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getAlert</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--Finish Script-->
+</tbody></table>
+</body>
+</html>

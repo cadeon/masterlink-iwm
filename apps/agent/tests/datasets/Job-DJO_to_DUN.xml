@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+ <object class="org.mlink.agent.model.Job"> 
+  <void property="completedDate"> 
+   <object class="java.sql.Date" method="valueOf"> 
+    <string>2007-04-23</string> 
+   </object> 
+  </void> 
+  <void property="status"> 
+   <string>DJO</string> 
+  </void> 
+ </object> 
+</java> 

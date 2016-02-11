@@ -1,0 +1,23 @@
+    <div class="pagemeter" id="${uuid}">
+
+        <div class="resultsCount" style="padding-bottom: 5px;">
+        Display
+        <select id="${uuid}_pageSize">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="250">250</option>
+        </select>
+        results per page.
+        </div>
+
+        <div class="noResults" id="${uuid}_noResults">No matching results found.</div>
+        <div class="results" id="${uuid}_results">
+            Showing: <span id ="${uuid}_pagecounter"></span>
+            <span class="pagelink" id ="${uuid}_first">&lt;&lt;First</span>
+            <span class="pagelink" id ="${uuid}_prev">&lt;Prev</span>
+            <span class="pagelink" id ="${uuid}_next">Next&gt;</span>
+        </div>
+    </div>
+
+

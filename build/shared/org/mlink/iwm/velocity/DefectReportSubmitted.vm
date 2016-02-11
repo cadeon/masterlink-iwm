@@ -1,0 +1,23 @@
+#parse("org/mlink/iwm/velocity/commonheader.vm")
+
+<div class="title">User submitted an issue: $issueName</div>
+
+<div class="label">Report Category:</div> <div class="field">$reportType</div>
+
+<div class="label">Submitted By:</div> <div class="field">$tenantName</div>
+
+#if($tenantPhone)
+<div  class="label">Submitter Phone:</div> <div class="field">$tenantPhone</div>
+#end
+
+#if($tenantEmail)
+<div class="label">Submitter Email:</div><div class="field">$tenantEmail</div>
+#end
+
+<div class="label">Description:</div>
+<div class="field">$description</div>
+
+#if($exception)
+<div class="label">Exception:</div>
+<div class="exception">$exception</div>
+#end

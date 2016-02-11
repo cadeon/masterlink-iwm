@@ -1,0 +1,86 @@
+div.popup div.popupBody div.filterDiv {
+    padding:0px;
+    margin: 0px;
+    width: 100%;
+    background-image: none;
+}
+
+div.popup div.popupBody div.filterDiv div {
+    padding:0px;
+    margin: 0px;
+    background-image: none;
+}
+
+tbody.filterEdit select.filterSelect{
+    width: 160px;
+    margin-left:0px;
+    margin-top:0px;
+    margin-right:3px;
+    margin-bottom:1px;
+    font-size: 10px;
+}
+
+table.filterTable tfoot td label.filterLabel{
+    width: auto;
+    color: #999;
+    font-size: 10px;
+}
+
+div.popup select.filterSelect{
+    width:200px;
+    margin-left:0px;
+    margin-top:2px;
+    margin-bottom:2px;
+    font-size: 10px;
+}
+
+div.popup label.filterLabel{
+    width:90px;
+    padding-top:4px;
+    padding-bottom:2px;
+    margin-right:4px;
+    float: left;
+    display: inline;
+}
+
+.filterDiv div {
+    clear: both;
+}
+
+/* define */
+body#locatorListing tbody.filterEdit select.filterSelect{
+    width: 140px;
+}
+
+body#workerList tbody.filterEdit select.filterSelect{
+    width: 180px;
+}
+
+body#templateList tbody.filterEdit select.filterSelect{
+    width: 180px;
+}
+
+/* implement */
+
+/* control */
+body#jobsList tbody.filterEdit select.filterSelect{
+    width: 140px;
+}
+
+body#maintenanceRequest tbody.filterEdit select.filterSelect{
+    width: 140px;
+}
+/* measure */
+
+/* analyze */
+
+
+body#objectList div#locationFilter select {
+    width: 140px;
+}
+
+body#objectList div#templateFilter select {
+    width: 140px;
+}
+
+

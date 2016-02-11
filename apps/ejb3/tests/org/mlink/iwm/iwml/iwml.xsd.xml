@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iwml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="iwml.xsd">
+    <worker>
+        <billingRate>1.6E2</billingRate>
+        <!--Optional:-->
+        <email>apovodyrev@yahoo.com</email>
+        <!--Optional:-->
+        <fname>Andrei</fname>
+        <!--Optional:-->
+        <lname>Povodyrev</lname>
+        <!--Optional:-->
+        <organization>N0 Executive</organization>
+        <!--Optional:-->
+        <type>Internal</type>
+        <skills>
+            <skill level="Expert" type="Research"/>
+            <skill level="Expert" type="Data Entry"/>
+        </skills>
+    </worker>
+
+</iwml>
+

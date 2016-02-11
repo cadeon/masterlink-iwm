@@ -1,0 +1,13 @@
+## This file is the default config file for MasterLink IWM
+## It should be placed in /etc/default/masterlink
+
+## These are the instances that should be used by default 
+INSTANCES=( test test-ffgron test-vcc )
+
+## This is the user IWM's JBoss should run as
+MLINKUSER="mlink"
+
+## This is the path to IWM's home. A jboss subfolder is expected, which contains the individual
+## jboss install folders named by their instance
+
+MLINKHOME="/opt/mlink"

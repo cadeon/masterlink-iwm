@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+    <global>
+        <constant>
+            <constant-name>iwmdate</constant-name>
+            <constant-value>MM/dd/yyyy</constant-value>
+        </constant>
+        <constant>
+            <constant-name>floatnumber</constant-name>
+            <constant-value>([-+])?[0-9]*\.?[0-9]*$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>money</constant-name>
+            <constant-value>[[\d-]|\(]([\d\.,])+[\)|\d]$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>phonenumber</constant-name>
+            <constant-value>[0-9]+$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>emails</constant-name>
+            <constant-value>^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*$</constant-value>
+        </constant>
+    </global>
+    <formset>
+		<form name="PasswordForm">
+			<field property="userId" depends="required">
+				<arg0 key="userId"/>
+			</field>
+			<field property="username" depends="required">
+				<arg0 key="username"/>
+			</field>
+			<field property="password" depends="required">
+				<arg0 key="password"/>
+			</field>
+			<field property="passwordConfirm" depends="required">
+				<arg0 key="passwordConfirm"/>
+			</field>
+		</form>
+
+		<form name="CalendarForm">
+			<field property="rangeStartDate" depends="date">
+				<arg0 key="startDate"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+			<field property="rangeEndDate" depends="date">
+				<arg0 key="endDate"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+        </form>
+        <form name="ObjectClassificationForm">
+			<field property="name" depends="required">
+				<arg0 key="code"/>
+			</field>
+			<field property="abbr" depends="required">
+				<arg0 key="abbr"/>
+			</field>
+			<field property="description" depends="required">
+				<arg0 key="description"/>
+			</field>
+		
+		</form>
+
+        <form name="LocatorForm">
+			<field property="name" depends="required,mask">
+				<arg0 key="name"/>
+				<var>
+		           <var-name>mask</var-name>
+		           <var-value>^[0-9a-zA-Z-\\\/\s]*$</var-value>
+                </var>
+			</field>
+			<field property="abbr" depends="required,mask">
+				<arg0 key="abbr"/>
+				<var>
+		           <var-name>mask</var-name>
+		           <var-value>^[0-9a-zA-Z-\\\/\s]*$</var-value>
+                </var>
+			</field>
+			<field property="address" depends="required">
+				<arg0 key="address"/>
+			</field>
+			<field property="emergencyContact" depends="maxlength">
+				<arg0 key="emergencyContact"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>500</var-value>
+                </var>
+            </field>
+			<field property="inServiceDate" depends="required,date">
+				<arg0 key="inServiceDate"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+        </form>
+		<form name="DataForm">
+			<field property="dataTypeId" depends="required">
+				<arg0 key="dataTypeId"/>
+			</field>
+			<field property="uomId" depends="required">
+				<arg0 key="uomId"/>
+			</field>
+			<field property="dataLabel" depends="required">
+				<arg0 key="dataLabel"/>
+			</field>
+        </form>
+		<form name="ActionForm">
+			<field property="verb" depends="required,maxlength">
+				<arg0 key="verb"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+			</field>
+			<field property="name" depends="required,maxlength">
+				<arg0 key="name"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+			</field>
+			<field property="modifier" depends="required,maxlength">
+				<arg0 key="modifier"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+			</field>
+        </form>
+        <form name="JobMaintForm">
+			<field property="selectObject" depends="required">
+				<arg0 key="selectObject"/>
+			</field>
+			<field property="skillTypeId" depends="required">
+				<arg0 key="skillTypeId"/>
+			</field>
+			<field property="jobTypeId" depends="required">
+				<arg0 key="jobTypeId"/>
+			</field>
+			<field property="jobStatusId" depends="required">
+				<arg0 key="jobStatusId"/>
+			</field>
+			<field property="objectId" depends="required">
+				<arg0 key="objectId"/>
+			</field>
+			<field property="projectId" depends="required">
+				<arg0 key="projectId"/>
+			</field>
+			<field property="projectName" depends="required">
+				<arg0 key="projectName"/>
+			</field>
+			<field property="objectRef" depends="required">
+				<arg0 key="objectRef"/>
+			</field>
+		</form>
+		<form name="JobForm">
+			<!-- This comes from the db, no need to validate
+			  <field property="createdDate" depends="date">
+				<arg0 key="createdDate"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field> -->
+			<field property="earliestStart" depends="date">
+				<arg0 key="earliestStart"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+			<field property="latestStart" depends="date">
+				<arg0 key="latestStart"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+
+			<field property="completedDate" depends="date">
+				<arg0 key="completedDate"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+			<!--field property="objectId" depends="required">
+				<arg0 key="objectId"/>
+			</field-->
+			<field property="createdBy" depends="required">
+				<arg0 key="createdBy"/>
+			</field>
+			<field property="description" depends="required,maxlength">
+				<arg0 key="description"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+            </field>
+			<field property="note" depends="maxlength">
+				<arg0 key="note"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>250</var-value>
+                </var>
+			</field>
+			<field property="priorityId" depends="required">
+				<arg0 key="priorityId"/>
+			</field>
+
+			<field property="skillTypeId" depends="required">
+				<arg0 key="skillTypeId"/>
+			</field>
+
+			<field property="jobTypeId" depends="required">
+				<arg0 key="jobTypeId"/>
+			</field>
+
+			<field property="skillLevelId" depends="required">
+				<arg0 key="skillLevelId"/>
+			</field>
+			<field property="numberOfWorkers" depends="required">
+				<arg0 key="numberOfWorkers"/>
+			</field>
+			<!--  
+			<field property="scheduleResponsibilityId" depends="required">
+				<arg0 key="scheduleBy"/>
+			</field>
+			-->
+			<field property="statusId" depends="required">
+				<arg0 key="statusId"/>
+			</field>
+		</form>
+		<form name="JobScheduleForm">
+			<field property="jobId" depends="required">
+				<arg0 key="jobId"/>
+			</field>
+			<field property="label" depends="required">
+				<arg0 key="label"/>
+			</field>
+			<field property="description" depends="required">
+				<arg0 key="description"/>
+			</field>
+			<field property="skillTypeId" depends="required">
+				<arg0 key="skillTypeId"/>
+			</field>
+			<field property="skillLevelId" depends="required">
+				<arg0 key="skillLevelId"/>
+			</field>
+			<field property="selectedId" depends="required">
+				<arg0 key="selectedId"/>
+			</field>
+			<field property="projectId" depends="required">
+				<arg0 key="projectId"/>
+			</field>
+		</form>
+		<form name="JobTaskMaintForm">
+			<field property="jobId" depends="required">
+				<arg0 key="jobId"/>
+			</field>
+			<field property="description" depends="required">
+				<arg0 key="description"/>
+			</field>
+			<field property="projectId" depends="required">
+				<arg0 key="projectId"/>
+			</field>
+		</form>
+		<form name="JobActionMaintForm">
+			<field property="jobTaskId" depends="required">
+				<arg0 key="jobTaskId"/>
+			</field>
+			<field property="jobId" depends="required">
+				<arg0 key="jobId"/>
+			</field>
+			<field property="description" depends="required">
+				<arg0 key="description"/>
+			</field>
+			<field property="taskDescription" depends="required">
+				<arg0 key="taskDescription"/>
+			</field>
+			<field property="selectedItemId" depends="required">
+				<arg0 key="selectedItemId"/>
+			</field>
+			<field property="projectId" depends="required">
+				<arg0 key="projectId"/>
+			</field>
+		</form>
+		<form name="TaskTimeForm">
+			<field property="jobTaskId" depends="required">
+				<arg0 key="jobTaskId"/>
+			</field>
+			<field property="jobId" depends="required">
+				<arg0 key="jobId"/>
+			</field>
+			<field property="description" depends="required">
+				<arg0 key="description"/>
+			</field>
+			<field property="taskDescription" depends="required">
+				<arg0 key="taskDescription"/>
+			</field>
+			<field property="selectedItemId" depends="required">
+				<arg0 key="selectedItemId"/>
+			</field>
+			<field property="projectId" depends="required">
+				<arg0 key="projectId"/>
+			</field>
+		</form>
+		<form name="ProjectMaintForm">
+			<field property="projectTypeId" depends="required">
+				<arg0 key="projectTypeId"/>
+			</field>
+			<field property="selectedItemId" depends="required">
+				<arg0 key="selectedItemId"/>
+			</field>
+		</form>
+		<form name="ProjectForm">
+			<field property="projectTypeId" depends="required">
+				<arg0 key="projectTypeId"/>
+			</field>
+			<field property="name" depends="required">
+				<arg0 key="name"/>
+			</field>
+			<field property="description" depends="maxlength">
+				<arg0 key="description"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>200</var-value>
+                </var>
+			</field>
+        </form>
+		<form name="TaskMaintForm">
+			<field property="taskTypeId" depends="required">
+				<arg0 key="taskTypeId"/>
+			</field>
+		</form>
+
+		<form name="ProjectStencilForm">
+			<field property="name" depends="required">
+				<arg0 key="name"/>
+			</field>
+			<field property="description" depends="required,maxlength">
+				<arg0 key="description"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>250</var-value>
+                </var>
+			</field>
+			<field property="projectTypeId" depends="required">
+				<arg0 key="projectTypeId"/>
+			</field>
+        </form>
+        
+        <!-- not used see TaskForm-->
+        <form name="TaskDefForm">
+            <field property="taskDescription" depends="required,maxlength">
+				<arg0 key="taskDescription"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+                <var>
+		           <var-name>mask</var-name>
+		           <var-value>^[0-9a-zA-Z-\\\/\s]*$</var-value>
+                </var>
+			</field>
+            <field property="taskTypeId" depends="required">
+				<arg0 key="taskTypeId"/>
+			</field>
+			<field property="priorityId" depends="required">
+				<arg0 key="priorityId"/>
+			</field>
+			<field property="numberOfWorkers" depends="required,integer,intRange">
+				<arg0 key="numberOfWorkers"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>1000</var-value>
+                </var>
+			</field>
+			<field property="skillTypeId" depends="required">
+				<arg0 key="skillTypeId"/>
+			</field>
+			<field property="skillLevelId" depends="required">
+				<arg0 key="skillLevelId"/>
+			</field>
+			<!-- 
+			<field property="workerTypeId" depends="required">
+				<arg0 key="workerTypeId"/>
+			</field>
+			 -->
+			<!-- all conditional field property="frequencyId" depends="required">
+				<arg0 key="frequencyId"/>
+			</field-->
+			<field property="freqMonths" depends="integer,intRange">
+				<arg0 key="freqMonths"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>60</var-value>
+                </var>
+			</field>
+			<field property="freqDays" depends="integer,intRange">
+				<arg0 key="freqDays"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>365</var-value>
+                </var>
+			</field>
+			<field property="runHoursThreshInc" depends="integer">
+				<arg0 key="runHoursThreshInc"/>
+			</field>
+		</form>
+		<form name="TaskForm">
+            <field property="description" depends="required,maxlength">
+				<arg0 key="taskDescription"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+                <var>
+		           <var-name>mask</var-name>
+		           <var-value>^[0-9a-zA-Z-\\\/\s]*$</var-value>
+                </var>
+			</field>
+            <field property="taskTypeId" depends="required">
+				<arg0 key="taskTypeId"/>
+			</field>
+			<field property="priorityId" depends="required">
+				<arg0 key="priorityId"/>
+			</field>
+			<field property="numberOfWorkers" depends="required,integer,intRange">
+				<arg0 key="numberOfWorkers"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>1000</var-value>
+                </var>
+			</field>
+			<field property="skillTypeId" depends="required">
+				<arg0 key="skillTypeId"/>
+			</field>
+			<field property="skillLevelId" depends="required">
+				<arg0 key="skillLevelId"/>
+			</field>
+			<!-- 
+			<field property="workerTypeId" depends="required">
+				<arg0 key="workerTypeId"/>
+			</field>
+ 			-->
+			<field property="freqMonths" depends="integer,intRange">
+				<arg0 key="freqMonths"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>60</var-value>
+                </var>
+			</field>
+			<field property="freqDays" depends="integer,intRange">
+				<arg0 key="freqDays"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>365</var-value>
+                </var>
+			</field>
+            <field property="runHoursThreshInc" depends="float">
+				<arg0 key="runHoursThreshInc"/>
+			</field>
+			<!--field property="runHoursThresh" depends="float">
+				<arg0 key="runHoursThresh"/>
+			</field-->
+			<!--field property="scheduleResponsibilityId" depends="required">
+				<arg0 key="scheduleResponsibilityId"/>
+			</field-->
+			<field property="expiryTypeId" depends="required">
+				<arg0 key="expiryTypeId"/>
+			</field>
+		</form>
+
+		<form name="TaskGroupForm">
+			<field property="description" depends="required">
+				<arg0 key="description"/>
+			</field>
+			<!--field property="skillTypeId" depends="required">
+				<arg0 key="skillTypeId"/>
+			</field-->
+        </form>
+
+		<form name="CalendarSpecsForm">
+			<field property="calendarAddLocator_0" depends="required">
+				<arg0 key="location"/>
+			</field>
+			<field property="startDate" depends="required,date">
+				<arg0 key="startDate"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+			<field property="endDate" depends="required,date">
+				<arg0 key="endDate"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${iwmdate}</var-value>
+				</var>
+			</field>
+			<field property="shiftHours" depends="required,integer,intRange">
+				<arg0 key="shiftHours"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>24</var-value>
+                </var>
+			</field>
+			<field property="shiftMinutes" depends="required,integer,intRange">
+				<arg0 key="shiftMinutes"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>60</var-value>
+                </var>
+			</field>
+        </form>
+
+		<form name="WorkerShiftForm">
+			<field property="shiftHours" depends="required,integer,intRange">
+				<arg0 key="shiftHours"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>24</var-value>
+                </var>
+			</field>
+			<field property="shiftMinutes" depends="required,integer,intRange">
+				<arg0 key="shiftMinutes"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>60</var-value>
+                </var>
+			</field>
+        </form>
+        
+        <form name="ObjectForm">
+            <field property="tag" depends="maxlength">
+				<arg0 key="tag"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+		           <var-name>mask</var-name>
+		           <var-value>^[0-9a-zA-Z-\\\/\s]*$</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+            </field>
+            <field property="objectTypeId" depends="required">
+				<arg0 key="objectTypeId"/>
+			</field>
+			<field property="runHours" depends="integer">
+				<arg0 key="runHours"/>
+			</field>
+			<field property="objectLocatorFilter_0" depends="required">
+				<arg0 key="locator"/>
+			</field>
+        </form>
+        <!--SkillsForm may not be in use-->
+		<form name="SkillsForm">
+			<field property="personName" depends="required">
+				<arg0 key="personName"/>
+			</field>
+		</form>
+		<form name="OrganizationForm">
+			<field property="type" depends="required">
+				<arg0 key="organizationTypeId"/>
+			</field>
+            <field property="name" depends="required">
+				<arg0 key="name"/>
+			</field>
+			<field property="email" depends="email">
+				<arg0 key="email"/>
+			</field>
+			<field property="url" depends="maxlength">
+				<arg0 key="url"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+			</field>
+        </form>
+        
+        <form name="SystemPropForm">
+			<field property="property" depends="required,maxlength">
+				<arg0 key="property"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+			</field>
+            <field property="value" depends="required,maxlength">
+				<arg0 key="value"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+            </field>
+            <field property="description" depends="maxlength">
+				<arg0 key="description"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+            </field>
+		</form>
+        
+		<form name="SkillTypeForm">
+			<field property="code" depends="required,maxlength">
+				<arg0 key="property"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>20</var-value>
+                </var>
+			</field>
+            <field property="description" depends="maxlength">
+				<arg0 key="description"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+            </field>
+		</form>
+        
+        <form name="PersonForm">
+			<field property="username" depends="required,maxlength">
+				<arg0 key="username"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+			</field>
+            <field property="name" depends="required,maxlength">
+				<arg0 key="name"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+            </field>
+			<field property="workerOrganizationFilter_0" depends="required">
+				<arg0 key="organization"/>
+			</field>
+			<!-- 
+			<field property="type" depends="required">
+				<arg0 key="workerTypeId"/>
+			</field>
+			 -->
+			<field property="billingRate" depends="float,intRange">
+				<arg0 key="billingRate"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>1000</var-value>
+                </var>
+			</field>
+			<field property="email" depends="email,maxlength">
+				<arg0 key="email"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+            </field>
+			<field property="title" depends="maxlength">
+				<arg0 key="title"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+            </field>
+			<field property="phone" depends="maxlength">
+				<arg0 key="phone"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>25</var-value>
+                </var>
+            </field>
+			
+        </form>
+
+		<form name="PasswordForm">
+			<field property="username" depends="required">
+				<arg0 key="username"/>
+			</field>
+			<field property="password" depends="required">
+				<arg0 key="password"/>
+			</field>
+			<field property="confirmPassword" depends="required">
+				<arg0 key="confirmPassword"/>
+			</field>
+			<field property="oldPassword" depends="required">
+				<arg0 key="oldPassword"/>
+			</field>
+        </form>
+		<form name="MWJobForm">
+			<field property="selectedItemId" depends="required">
+				<arg0 key="selectedItemId"/>
+			</field>
+		</form>
+		<form name="MaintRequestForm">
+			<field property="newRequestLocatorFilter_0" depends="required">
+				<arg0 key="locatorId"/>
+			</field>
+			<field property="problemId" depends="required">
+				<arg0 key="problemId"/>
+			</field>
+			<field property="tenantEmail" depends="email">
+				<arg0 key="tenantEmail"/>
+			</field>
+			<field property="tenantName" depends="required">
+				<arg0 key="tenantName"/>
+			</field>
+			<field property="tenantPhone" depends="required">
+				<arg0 key="tenantPhone"/>
+			</field>
+            <field property="jobDescription" depends="required">
+				<arg0 key="desc"/>
+			</field>
+			<field property="note" depends="required,maxlength">
+				<arg0 key="note"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>150</var-value>
+                </var>
+			</field>
+		</form>
+
+		<form name="ExternalWorkRequestForm">
+			<field property="problemId" depends="required">
+				<arg0 key="problemId"/>
+			</field>
+
+            <field property="locatorId" depends=",required">
+				<arg0 key="locatorId"/>
+			</field>
+            <field property="tenantEmail" depends="email,required">
+				<arg0 key="tenantEmail"/>
+			</field>
+			<field property="tenantName" depends="required">
+				<arg0 key="tenantName"/>
+			</field>
+			<field property="tenantPhone" depends="required">
+				<arg0 key="tenantPhone"/>
+			</field>
+			<field property="note" depends="required,maxlength">
+				<arg0 key="description"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>250</var-value>
+                </var>
+			</field>
+		</form>
+		<form name="DefectReportForm">
+			<field property="tenantName" depends="required">
+				<arg0 key="tenantName"/>
+			</field>
+			<field property="note" depends="required">
+				<arg0 key="description"/>
+			</field>
+			<field property="issueName" depends="required">
+				<arg0 key="issueName"/>
+			</field>
+            <field property="tenantEmail" depends="email">
+				<arg0 key="tenantEmail"/>
+			</field>
+        </form>
+        <form name="ShiftRefForm">
+			<field property="code" depends="required">
+				<arg0 key="code"/>
+			</field>
+			<field property="description" depends="required">
+				<arg0 key="description"/>
+			</field>
+			<field property="shiftStart" depends="required">
+				<arg0 key="shiftStart"/>
+			</field>
+            <field property="shiftEnd" depends="required">
+				<arg0 key="shiftEnd"/>
+			</field>
+			<field property="time" depends="required">
+				<arg0 key="time"/>
+			</field>
+        </form>
+    </formset>
+</form-validation>
